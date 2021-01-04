@@ -6,16 +6,30 @@ declare module "styled-components" {
 
     background: {
       main: string;
-      facebook: string;
+      github: string;
+      github_hover: string;
       google: string;
+      google_hover: string;
       success: string;
       success2: string;
     };
 
-    colors: {
+    border: {
+      github: string;
+      google: string;
+      input: string;
+      input_hover: string;
+      checkbox: string;
+      break: string;
+    };
+
+    color: {
       primary: string;
       tertiary: string;
       secondary: string;
+      success: string;
+      error: string;
+      github: string;
     };
   }
 }

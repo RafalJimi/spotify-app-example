@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../helpers/mediaQueries";
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -7,6 +8,11 @@ export const ButtonsContainer = styled.div`
   justify-content: flex-start;
   width: 450px;
   padding-top: 35px;
+
+  @media only screen and ${width[470]} {
+    width: 100vw;
+    padding: 35px 10px 0px 10px;
+  }
 `;
 
 export const Title = styled.div`
@@ -20,29 +26,40 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
-  border-radius: 25px;
+  height: 48px;
+  border-radius: 24px;
   border: none;
   outline: none;
   margin-top: 10px;
 
   :focus {
     outline: none;
-    border: none;
   }
 
   :hover {
     cursor: pointer;
   }
+
+  @media only screen and ${width[330]} {
+    i {
+      display: none;
+    }
+  }
 `;
 
-export const FbButton = styled(Button)`
-  background-color: #3b5998;
-  color: white;
-  transition: background-color 0.2s;
+export const GithubButton = styled(Button)`
+  background-color: ${(props) => props.theme.background.github};
+  color: ${(props) => props.theme.color.github};
+  transition: background-color 0.2s, color 0.2s;
+  border: ${(props) => props.theme.border.github};
 
   :hover {
-    background-color: #627aad;
+    background-color: ${(props) => props.theme.background.github_hover};
+    color: ${(props) => props.theme.background.github};
+  }
+
+  :focus {
+    border: ${(props) => props.theme.border.github};
   }
 
   i {
@@ -58,16 +75,19 @@ export const FbButton = styled(Button)`
 `;
 
 export const GoogleButton = styled(Button)`
-  background-color: white;
-  color: #808080;
-  border: 2px solid #808080;
+  background-color: ${(props) => props.theme.background.main};
+  color: ${(props) => props.theme.color.tertiary};
+  border: ${(props) => props.theme.border.google};
   transition: background-color 0.2s, color 0.2s;
-  height: 48px;
   width: calc(100% - 2px);
 
   :hover {
-    background-color: #808080;
-    color: white;
+    background-color: ${(props) => props.theme.background.google_hover};
+    color: ${(props) => props.theme.color.secondary};
+  }
+
+  :focus {
+    border: ${(props) => props.theme.border.google};
   }
 
   i {
@@ -91,7 +111,7 @@ export const Border = styled.div`
   margin: 20px 0px;
 
   span {
-    border-bottom: 1px solid #80808080;
+    border-bottom: ${(props) => props.theme.border.break};
     width: calc(50% - 30px);
   }
 

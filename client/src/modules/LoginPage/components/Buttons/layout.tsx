@@ -2,19 +2,27 @@ import React from "react";
 import {
   ButtonsContainer,
   Title,
-  FbButton,
+  GithubButton,
   GoogleButton,
   Border,
 } from "./layout.styled";
 
-export const ButtonsLayout = () => (
+type ButtonsLayoutProps = {
+  handleFacebookButton: (e: React.MouseEvent) => void;
+  handleGoogleButton: (e: React.MouseEvent) => void;
+};
+
+export const ButtonsLayout = ({
+  handleGoogleButton,
+  handleFacebookButton,
+}: ButtonsLayoutProps) => (
   <ButtonsContainer>
     <Title>Please log in to Spotify to continue.</Title>
-    <FbButton>
-      <i className="fab fa-facebook"></i>
+    <GithubButton onClick={handleFacebookButton}>
+      <i className="fab fa-github"></i>
       <p>CONTINUE WITH FACEBOOK</p>
-    </FbButton>
-    <GoogleButton>
+    </GithubButton>
+    <GoogleButton onClick={handleGoogleButton}>
       <i className="fab fa-google"></i>
       <p>CONTINUE WITH GOOGLE</p>
     </GoogleButton>

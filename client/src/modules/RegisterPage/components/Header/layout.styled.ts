@@ -3,15 +3,14 @@ import { width } from "../../../../helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 110px;
-  border-bottom: 1px solid #ccc;
+  width: 450px;
+  padding-top: 25px;
 
   img {
-    width: 250px;
+    width: 170px;
     color: black;
     filter: brightness(0);
   }
@@ -20,11 +19,22 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
+  h1 {
+    text-align: center;
+    font-size: 1.86em;
+    margin-top: 30px;
+    font-weight: 700;
+  }
+
   @media only screen and ${width[770]} {
-    height: 60px;
+    padding-top: 35px;
 
     img {
-      width: 160px;
+      width: 110px;
     }
+  }
+
+  @media only screen and ${width[470]} {
+    width: 100%;
   }
 `;
