@@ -1,4 +1,7 @@
 import React, { ChangeEvent } from "react";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import {
   RegisterFormContainer,
   FormHeader,
@@ -40,6 +43,7 @@ type RegisterFormLayoutProps = {
     form: string;
   };
   handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  isLoading: boolean;
 };
 
 export const RegisterFormLayout = ({
@@ -50,6 +54,7 @@ export const RegisterFormLayout = ({
   isChecked,
   errors,
   handleOnSubmit,
+  isLoading,
 }: RegisterFormLayoutProps) => (
   <RegisterFormContainer onSubmit={handleOnSubmit}>
     <FormHeader>Register with your email address</FormHeader>
@@ -210,6 +215,12 @@ export const RegisterFormLayout = ({
     ) : (
       <InputError>{errors.rules}</InputError>
     )}
-    <Button type="submit">REGISTER</Button>
+    <Button type="submit">
+      {isLoading ? (
+        <Loader type="ThreeDots" color="#ffffff" height={20} width={40} />
+      ) : (
+        "REGISTER"
+      )}
+    </Button>
   </RegisterFormContainer>
 );

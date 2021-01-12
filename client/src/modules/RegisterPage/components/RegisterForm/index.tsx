@@ -5,6 +5,9 @@ import React, {
   useCallback,
   ChangeEvent,
 } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { registerUserStarted } from "../../../../store/registerUser/actions";
+import { registerUserIsLoadingRX } from "../../../../store/registerUser/selectors";
 import { email, onlyDigits } from "../../../../helpers/formats";
 import { RegisterFormLayout } from "./layout";
 
@@ -66,6 +69,9 @@ export const RegisterForm = memo(() => {
     [IsChecked]
   );
 
+  const dispatch = useDispatch();
+  const isLoading = useSelector(registerUserIsLoadingRX);
+  
   useEffect(() => {
     if (!Changed.email) setChanged({ ...Changed, email: true });
     if (Changed.email) {
@@ -175,7 +181,15 @@ export const RegisterForm = memo(() => {
       } else if (notChanged.length === 0 && isError.length !== 0) {
         console.log("Fix errors");
       } else if (notChanged.length === 0 && isError.length === 0) {
-        console.log("dispatch action");
+        const userData = {
+          email: Values.email,
+          password: Values.password,
+          nickname: Values.nickname,
+          birth_date: `${Values.day}.${Values.month}.${Values.year}`,
+          gender: Values.gender,
+        };
+
+        dispatch(registerUserStarted(userData));
       }
     },
     [Values, Changed, Errors]
@@ -190,6 +204,7 @@ export const RegisterForm = memo(() => {
       isChecked={IsChecked}
       errors={Errors}
       handleOnSubmit={handleOnSubmit}
+      isLoading={isLoading}
     />
   );
 });
