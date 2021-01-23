@@ -9,6 +9,8 @@ export const light = {
     google_hover: "#808080",
     success: "#15883e",
     success2: "#17b34f",
+    landingPageButton: "#616467",
+    socialMedia: "#222326",
   },
 
   border: {
@@ -18,6 +20,7 @@ export const light = {
     input_hover: "1px solid #808080",
     checkbox: "1px solid #15883e",
     break: "1px solid #80808080",
+    landingPageButton: "2px solid #616467",
   },
 
   color: {
@@ -27,5 +30,8 @@ export const light = {
     success: "#15883e",
     error: "red",
     github: "#24292e",
+    landingPageButton: "#616467",
+    lightGreen: "#49f477",
+    lightGray: "#C1C3C6",
   },
 };

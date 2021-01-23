@@ -5,9 +5,17 @@ import {
   ReferenceButton,
 } from "./layout.styled";
 
-export const RegisterReferenceLayout = () => (
+type RegisterReferenceLayoutProps = {
+  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
+};
+
+export const RegisterReferenceLayout = ({
+  handleOnClick,
+}: RegisterReferenceLayoutProps) => (
   <RegisterReferenceContainer>
     <ReferenceTitle>You dont have an account yet?</ReferenceTitle>
-    <ReferenceButton>SIGN UP FOR SPOTIFY</ReferenceButton>
+    <ReferenceButton onClick={handleOnClick("/signup")}>
+      SIGN UP FOR SPOTIFY
+    </ReferenceButton>
   </RegisterReferenceContainer>
 );

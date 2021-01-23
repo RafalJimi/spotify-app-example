@@ -12,6 +12,8 @@ declare module "styled-components" {
       google_hover: string;
       success: string;
       success2: string;
+      landingPageButton: string;
+      socialMedia: string;
     };
 
     border: {
@@ -21,6 +23,7 @@ declare module "styled-components" {
       input_hover: string;
       checkbox: string;
       break: string;
+      landingPageButton: string;
     };
 
     color: {
@@ -30,6 +33,9 @@ declare module "styled-components" {
       success: string;
       error: string;
       github: string;
+      landingPageButton: string;
+      lightGreen: string;
+      lightGray: string;
     };
   }
 }

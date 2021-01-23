@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { RegisterReferenceLayout } from "./layout";
+import { NavbarLayout } from "./layout";
 
-export const RegisterReference = () => {
+export const Navbar = () => {
   const history = useHistory();
 
   const handleOnClick = useCallback(
@@ -12,5 +12,5 @@ export const RegisterReference = () => {
     []
   );
 
-  return <RegisterReferenceLayout handleOnClick={handleOnClick} />;
+  return <NavbarLayout handleOnClick={handleOnClick} />;
 };
