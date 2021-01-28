@@ -1,6 +1,15 @@
 import React, { useState, useEffect, ChangeEvent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { loginUserStarted } from "../../../../store/loginUser/actions";
+import {
+  loginUserTokenRX,
+  loginUserIsErrorRX,
+  loginUserIsLoadingRX,
+} from "../../../../store/loginUser/selectors";
+import { setLocalStorage } from "../../../../helpers/auth";
 import { LoginFormLayout } from "./layout";
+import { toast } from "react-toastify";
 
 export const LoginForm = () => {
   const [Values, setValues] = useState({ login: "", password: "" });
@@ -9,6 +18,10 @@ export const LoginForm = () => {
   const [IsChecked, setIsChecked] = useState(false);
 
   const history = useHistory();
+  const dispatch = useDispatch();
+  const loggedUserToken = useSelector(loginUserTokenRX);
+  const loginUserIsError = useSelector(loginUserIsErrorRX);
+  const loginUserIsLoading = useSelector(loginUserIsLoadingRX);
 
   const handleValues = (input: string) => (
     e: ChangeEvent<HTMLInputElement>
@@ -67,15 +80,14 @@ export const LoginForm = () => {
         ...Errors,
         password: "Enter your password.",
       });
-    else
-      console.log(
-        "login:",
-        Values.login,
-        "password:",
-        Values.password,
-        "remember me:",
-        IsChecked
-      );
+    else {
+      const userData = {
+        login: Values.login,
+        password: Values.password,
+        rememberMe: IsChecked,
+      };
+      dispatch(loginUserStarted(userData));
+    }
   };
 
   const handleRedirect = useCallback(
@@ -85,6 +97,17 @@ export const LoginForm = () => {
     []
   );
 
+  useEffect(() => {
+    if (loggedUserToken) {
+      setLocalStorage("token", loggedUserToken);
+      history.push("/");
+    }
+  }, [loggedUserToken]);
+
+  useEffect(() => {
+    if (loginUserIsError) toast.dark(loginUserIsError);
+  }, [loginUserIsError]);
+  
   return (
     <LoginFormLayout
       handleValues={handleValues}

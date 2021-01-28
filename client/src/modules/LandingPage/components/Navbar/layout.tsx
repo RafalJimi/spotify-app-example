@@ -1,26 +1,18 @@
 import React from "react";
-import {
-  NavbarContainer,
-  NavbarContent,
-  LogoContainer,
-  Menu,
-} from "./layout.styled";
-import logo from "../../../../assets/spotify-logo.png";
+import { NavbarContainer, NavbarContent } from "./layout.styled";
+import { Logo } from "./components/Logo";
+import { Menu } from "./components/Menu/index";
+import { UserMenu } from "./components/UserMenu/index";
 
 type NavbarLayoutProps = {
-  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
+  isAuth: boolean;
 };
 
-export const NavbarLayout = ({ handleOnClick }: NavbarLayoutProps) => (
+export const NavbarLayout = ({ isAuth }: NavbarLayoutProps) => (
   <NavbarContainer>
     <NavbarContent>
-      <LogoContainer onClick={handleOnClick("/")}>
-        <img src={logo} alt="" />
-      </LogoContainer>
-      <Menu>
-        <span onClick={handleOnClick("/signup")}>Register</span>
-        <span onClick={handleOnClick("/login")}>Sign in</span>
-      </Menu>
+      <Logo />
+      {isAuth ? <UserMenu /> : <Menu />}
     </NavbarContent>
   </NavbarContainer>
 );

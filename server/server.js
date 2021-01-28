@@ -10,6 +10,7 @@ fastify.register(require('fastify-cors'), {
 
 connectDB();
 
+fastify.register(require(`./utils/auth.util`))
 fastify.register(require(`./routes/auth.route`), { prefix: '/api/auth' })
 
 const PORT = process.env.PORT

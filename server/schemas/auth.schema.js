@@ -1,5 +1,5 @@
 exports.registerSchema = {
-    schema: {
+  schema: {
     body: {
       email: { type: 'string' },
       password: { type: 'string' },
@@ -7,13 +7,14 @@ exports.registerSchema = {
       birth_date: { type: 'string' },
       gender: { type: 'string' }
     },
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          success: { type: 'boolean' },
-        }
-      }
-    }
+  }
+}
+
+exports.loginSchema = {
+  schema: {
+    body: {
+      email: { type: 'string' },
+      password: { type: 'string' },
+    },
   }
 }

@@ -1,6 +1,6 @@
 import { AppState } from "../reducers";
 
-export const registerResultIsSuccess = (state: AppState): boolean =>
+export const registerResultIsSuccessRX = (state: AppState): boolean =>
   state.registerUser.isSuccess;
 
 export const registerResultIsErrorRX = (state: AppState): string =>

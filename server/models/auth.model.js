@@ -72,22 +72,17 @@ userSchema.methods = {
     }
   },
 
-  generateToken: function (id) {
-    const salt = crypto.randomBytes(16)
-    var genSalt = function(){
-    return crypto.randomBytes(Math.ceil(length/2))
-            .toString('hex')
-            .slice(0, 10);
-};
-    const token = genSalt + id
+  generateToken: function (id, expireTime) {
+    const salt = this.makeSalt()
+    const token = `${salt}.${id}`
     
     const userToken = jwt.sign(
       {
-          token: token
+          userToken: token
       },
       process.env.JWT_ACCOUNT_ACTIVATION,
       {
-        expiresIn: "60m",
+        expiresIn: expireTime,
       }
     );
     

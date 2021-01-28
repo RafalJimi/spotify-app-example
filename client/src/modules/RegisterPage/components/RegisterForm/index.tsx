@@ -5,11 +5,20 @@ import React, {
   useCallback,
   ChangeEvent,
 } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { registerUserStarted } from "../../../../store/registerUser/actions";
-import { registerUserIsLoadingRX } from "../../../../store/registerUser/selectors";
+import {
+  registerUserStarted,
+  clearRegisterUserState,
+} from "../../../../store/registerUser/actions";
+import {
+  registerResultIsSuccessRX,
+  registerResultIsErrorRX,
+  registerUserIsLoadingRX,
+} from "../../../../store/registerUser/selectors";
 import { email, onlyDigits } from "../../../../helpers/formats";
 import { RegisterFormLayout } from "./layout";
+import { toast } from "react-toastify";
 
 export const RegisterForm = memo(() => {
   const [Values, setValues] = useState({
@@ -69,8 +78,11 @@ export const RegisterForm = memo(() => {
     [IsChecked]
   );
 
+  const history = useHistory();
   const dispatch = useDispatch();
-  const isLoading = useSelector(registerUserIsLoadingRX);
+  const registerResultIsSuccess = useSelector(registerResultIsSuccessRX);
+  const registerResultIsError = useSelector(registerResultIsErrorRX);
+  const registerUserIsLoading = useSelector(registerUserIsLoadingRX);
   
   useEffect(() => {
     if (!Changed.email) setChanged({ ...Changed, email: true });
@@ -195,6 +207,22 @@ export const RegisterForm = memo(() => {
     [Values, Changed, Errors]
   );
 
+  useEffect(() => {
+    if (registerResultIsSuccess) {
+      toast.dark(
+        "Your account has been created successfully - you can login now."
+      );
+      setTimeout(() => {
+        dispatch(clearRegisterUserState());
+        history.push("/");
+      }, 5000);
+    }
+  }, [registerResultIsSuccess]);
+
+  useEffect(() => {
+    if (registerResultIsError) toast.dark(registerResultIsError);
+  }, [registerResultIsError]);
+  
   return (
     <RegisterFormLayout
       handleValue={handleValue}
@@ -204,7 +232,7 @@ export const RegisterForm = memo(() => {
       isChecked={IsChecked}
       errors={Errors}
       handleOnSubmit={handleOnSubmit}
-      isLoading={isLoading}
+      isLoading={registerUserIsLoading}
     />
   );
 });

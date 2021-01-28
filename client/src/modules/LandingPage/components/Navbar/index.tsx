@@ -1,16 +1,24 @@
-import React, { useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { isAuthStarted } from "../../../../store/isAuth/actions";
+import { isAuthRX } from "../../../../store/isAuth/selectors";
+import { isLoggedOutRX } from "../../../../store/logoutUser/selectors";
 import { NavbarLayout } from "./layout";
 
 export const Navbar = () => {
-  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const handleOnClick = useCallback(
-    (location: string) => (e: React.MouseEvent) => {
-      history.push(location);
-    },
-    []
-  );
+  const isAuth = useSelector(isAuthRX);
+  const isLoggedOut = useSelector(isLoggedOutRX);
+  console.log(isAuth);
 
-  return <NavbarLayout handleOnClick={handleOnClick} />;
+  useEffect(() => {
+    dispatch(isAuthStarted());
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedOut) dispatch(isAuthStarted());
+  }, [isLoggedOut]);
+
+  return <NavbarLayout isAuth={isAuth} />;
 };
