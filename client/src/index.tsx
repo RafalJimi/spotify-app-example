@@ -46,7 +46,7 @@ ReactDOM.render<Renderer>(
             <Route path="/" exact component={BurgerMenu} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/signup" exact component={RegisterPage} />
-            <Route path="/player" exact component={WebPlayer} />
+            <Route path="/player" component={WebPlayer} />
           </ThemeProvider>
         </Suspense>
       </Switch>

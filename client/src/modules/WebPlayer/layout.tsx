@@ -1,3 +1,9 @@
 import React from "react";
+import { Sidebar } from "./components/Sidebar/index";
+import { WebPlayerContainer } from "./layout.styled";
 
-export const WebPlayerLayout = () => <h1>WebPlayer Page</h1>;
+export const WebPlayerLayout = () => (
+  <WebPlayerContainer>
+    <Sidebar />
+  </WebPlayerContainer>
+);

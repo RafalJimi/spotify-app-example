@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const RegisterPageContainer = styled.div`
+export const WebPlayerContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 30px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111111;
 `;
