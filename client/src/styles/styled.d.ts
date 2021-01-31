@@ -37,5 +37,11 @@ declare module "styled-components" {
       lightGreen: string;
       lightGray: string;
     };
+
+    webPlayer: {
+      primaryBackground: string;
+      secondaryBackground: string;
+      border: string;
+    };
   }
 }

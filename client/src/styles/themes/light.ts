@@ -34,4 +34,10 @@ export const light = {
     lightGreen: "#49f477",
     lightGray: "#C1C3C6",
   },
+
+  webPlayer: {
+    primaryBackground: "#121212",
+    secondaryBackground: "#181818",
+    border: "1px solid #282828",
+  },
 };
