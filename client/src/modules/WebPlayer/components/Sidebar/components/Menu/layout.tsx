@@ -7,7 +7,7 @@ type MenuLayoutProps = {
 
 export const MenuLayout = ({ handleOnClick }: MenuLayoutProps) => (
   <MenuContainer>
-    <MenuItem onClick={handleOnClick("/player")}>
+    <MenuItem onClick={handleOnClick("/player/home")}>
       <i className="fas fa-home"></i>Home
     </MenuItem>
     <MenuItem onClick={handleOnClick("/player/search")}>

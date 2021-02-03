@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const NavButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  height: 40px;
+  overflow: hidden;
 `;
 
 export const NavButton = styled.div`
