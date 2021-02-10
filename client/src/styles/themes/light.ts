@@ -11,6 +11,8 @@ export const light = {
     success2: "#17b34f",
     landingPageButton: "#616467",
     socialMedia: "#222326",
+    playButton: "#1db954",
+    optionsMenu: "#282828",
   },
 
   border: {

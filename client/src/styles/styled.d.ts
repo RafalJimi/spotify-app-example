@@ -14,6 +14,8 @@ declare module "styled-components" {
       success2: string;
       landingPageButton: string;
       socialMedia: string;
+      playButton: string;
+      optionsMenu: string;
     };
 
     border: {

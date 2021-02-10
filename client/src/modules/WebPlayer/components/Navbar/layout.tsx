@@ -3,8 +3,12 @@ import { NavButtons } from "./components/NavButtons/index";
 import { UserMenu } from "./components/UserMenu/index";
 import { NavbarContainer } from "./layout.styled";
 
-export const NavbarLayout = () => (
-  <NavbarContainer>
+type NavbarLayoutProps = {
+  background: string;
+};
+
+export const NavbarLayout = ({ background }: NavbarLayoutProps) => (
+  <NavbarContainer background={background}>
     <NavButtons />
     <UserMenu />
   </NavbarContainer>

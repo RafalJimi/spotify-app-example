@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const NavbarContainer = styled.nav`
+type NavbarContainerProps = {
+  background: string;
+};
+
+export const NavbarContainer = styled.nav<NavbarContainerProps>`
   position: fixed;
   right: 0px;
   top: 0px;
@@ -11,4 +15,5 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   z-index: 5;
   padding: 0px 35px;
+  background-color: ${({ background }) => background};
 `;

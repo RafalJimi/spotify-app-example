@@ -1,49 +1,49 @@
 import React from "react";
+import { ListItem } from "../ListItem/index";
 import {
   SearchContainer,
   Section,
   SectionTitle,
   ListItems,
-  ListItem,
-  ImageContainer,
-  ListItemTitle,
-  ListItemSubtitle,
 } from "./layout.styled";
 
-type MenuLayoutProps = {
-  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
-};
-
-export const SearchLayout = ({ handleOnClick }: MenuLayoutProps) => (
+export const SearchLayout = () => (
   <SearchContainer>
     <Section>
       <SectionTitle>Artists</SectionTitle>
       <ListItems>
-        <ListItem>
-          <ImageContainer style={{ borderRadius: "75px" }} />
-          <ListItemTitle>Metallica</ListItemTitle>
-          <ListItemSubtitle>Master of puppets</ListItemSubtitle>
-        </ListItem>
+        <ListItem
+          borderRadius={75}
+          category="artist"
+          artist="Metallica"
+          album="Master of puppets"
+          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
+        />
       </ListItems>
     </Section>
     <Section>
       <SectionTitle>Albums</SectionTitle>
       <ListItems>
-        <ListItem>
-          <ImageContainer></ImageContainer>
-          <ListItemTitle>Metallica</ListItemTitle>
-          <ListItemSubtitle>Master of puppets</ListItemSubtitle>
-        </ListItem>
+        <ListItem
+          borderRadius={75}
+          category="album"
+          artist="Metallica"
+          album="Master of puppets"
+          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
+        />
       </ListItems>
     </Section>
     <Section>
-      <SectionTitle>Tracks</SectionTitle>
+      <SectionTitle>Playlists</SectionTitle>
       <ListItems>
-        <ListItem>
-          <ImageContainer></ImageContainer>
-          <ListItemTitle>Metallica</ListItemTitle>
-          <ListItemSubtitle>Master of puppets</ListItemSubtitle>
-        </ListItem>
+        <ListItem
+          borderRadius={75}
+          category="playlist"
+          artist="Metallica"
+          album="Master of puppets"
+          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
+          playlist="Test"
+        />
       </ListItems>
     </Section>
   </SearchContainer>

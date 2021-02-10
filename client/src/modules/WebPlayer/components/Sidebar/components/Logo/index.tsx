@@ -6,7 +6,7 @@ export const Logo = () => {
   const history = useHistory();
 
   const handleOnClick = useCallback((e: React.MouseEvent) => {
-    history.push("/player");
+    history.push("/player/home");
   }, []);
 
   return <LogoLayout handleOnClick={handleOnClick} />;

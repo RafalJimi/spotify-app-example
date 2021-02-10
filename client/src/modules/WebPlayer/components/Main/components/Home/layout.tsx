@@ -18,7 +18,7 @@ type MenuLayoutProps = {
 export const HomeLayout = ({ handleOnClick }: MenuLayoutProps) => (
   <HomeContainer>
     <Section>
-      <SectionTitle>Best of Rock</SectionTitle>
+      <SectionTitle>Home</SectionTitle>
       <SectionSubtitle>
         Best albums, songs and artists of rock music
       </SectionSubtitle>
