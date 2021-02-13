@@ -1,42 +1,10 @@
 import styled from "styled-components";
 
-export const SearchContainer = styled.nav`
+export const SearchContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   padding: 85px 35px 90px 35px;
-`;
-
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-`;
-
-export const SectionTitle = styled.header`
-  font-size: 1.4em;
-  font-weight: 700;
-  color: ${(props) => props.theme.color.secondary};
-`;
-
-export const SectionSubtitle = styled.div`
-  font-size: 0.75em;
-  font-weight: 500;
-  margin-top: 10px;
-  word-spacing: 1px;
-  letter-spacing: 0.5px;
-  color: ${(props) => props.theme.color.lightGray};
-`;
-
-export const ListItems = styled.div`
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 10px 0px;
 `;

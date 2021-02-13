@@ -1,25 +1,21 @@
 import React, { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleBurgerMenu } from "../../../../store/burgerMenu/actions";
-import { burgerMenuIsOpenRX } from "../../../../store/burgerMenu/selectors";
+import { useBurgerMenuContext } from "../../../../contexts/BurgerMenu.context";
 import { BurgerMenuButtonLayout } from "./layout";
 
 export const BurgerMenuButton = () => {
-  const dispatch = useDispatch();
-
-  const burgerMenuIsOpen = useSelector(burgerMenuIsOpenRX);
+  const { isOpen, setIsOpen } = useBurgerMenuContext();
 
   const handleBurgerMenuButton = useCallback(
     (e: React.MouseEvent) => {
-      dispatch(toggleBurgerMenu());
+      setIsOpen(!isOpen);
     },
-    [burgerMenuIsOpen]
+    [isOpen]
   );
 
   return (
     <BurgerMenuButtonLayout
       handleBurgerMenuButton={handleBurgerMenuButton}
-      burgerMenuIsOpen={burgerMenuIsOpen}
+      burgerMenuIsOpen={isOpen}
     />
   );
 };

@@ -12,9 +12,9 @@ export const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
   justify-content: flex-end;
   align-items: flex-end;
   background-color: transparent;
-  left: 0;
+  right: 0;
   top: 0;
-  width: 100%;
+  width: 500px;
   height: 100%;
   text-align: left;
   z-index: 7;
@@ -34,7 +34,7 @@ export const Menu = styled.menu`
   top: 0px;
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
   height: 100vh;
   align-items: flex-start;
   background-color: ${(props) => props.theme.color.primary};

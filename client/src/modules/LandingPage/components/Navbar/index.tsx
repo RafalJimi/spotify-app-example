@@ -10,7 +10,6 @@ export const Navbar = () => {
 
   const isAuth = useSelector(isAuthRX);
   const isLoggedOut = useSelector(isLoggedOutRX);
-  console.log(isAuth);
 
   useEffect(() => {
     dispatch(isAuthStarted());

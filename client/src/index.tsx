@@ -11,11 +11,12 @@ import { LandingPage } from "./modules/LandingPage/index";
 import { LoginPage } from "./modules/LoginPage/index";
 import { RegisterPage } from "./modules/RegisterPage/index";
 import { WebPlayer } from "./modules/WebPlayer/index";
-
+import { BurgerMenuContextProvider } from "./contexts/BurgerMenu.context";
 import { GlobalStyle } from "./styles/globalStyles";
 import { light } from "./styles/themes/light";
 
 import "react-toastify/dist/ReactToastify.css";
+
 
 const BurgerMenu = React.lazy(() =>
   import("./modules/BurgerMenu/index").then(({ BurgerMenu }) => ({
@@ -42,8 +43,10 @@ ReactDOM.render<Renderer>(
               draggable
               pauseOnHover
             />
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/" exact component={BurgerMenu} />
+            <BurgerMenuContextProvider>
+              <Route path="/" exact component={LandingPage} />
+              <Route path="/" exact component={BurgerMenu} />
+            </BurgerMenuContextProvider>
             <Route path="/login" exact component={LoginPage} />
             <Route path="/signup" exact component={RegisterPage} />
             <Route path="/player" component={WebPlayer} />

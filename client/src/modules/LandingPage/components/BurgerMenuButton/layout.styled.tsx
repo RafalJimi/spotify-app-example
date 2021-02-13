@@ -6,7 +6,7 @@ export const BurgerButtonContainer = styled.div`
 
   @media ${width[990]} {
     position: fixed;
-    z-index: 10;
+    z-index: 5;
     right: calc(50vw - 370px);
     top: 14px;
     font-size: 0.85em;

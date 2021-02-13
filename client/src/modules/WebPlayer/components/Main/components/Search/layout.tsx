@@ -1,50 +1,103 @@
 import React from "react";
-import { ListItem } from "../ListItem/index";
-import {
-  SearchContainer,
-  Section,
-  SectionTitle,
-  ListItems,
-} from "./layout.styled";
+import { ListItem } from "../SectionListItem/index";
+import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
+import { Section } from "../Section/index";
+import { SearchContainer } from "./layout.styled";
 
 export const SearchLayout = () => (
   <SearchContainer>
-    <Section>
-      <SectionTitle>Artists</SectionTitle>
-      <ListItems>
-        <ListItem
-          borderRadius={75}
-          category="artist"
-          artist="Metallica"
-          album="Master of puppets"
-          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
-        />
-      </ListItems>
-    </Section>
-    <Section>
-      <SectionTitle>Albums</SectionTitle>
-      <ListItems>
-        <ListItem
-          borderRadius={75}
-          category="album"
-          artist="Metallica"
-          album="Master of puppets"
-          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
-        />
-      </ListItems>
-    </Section>
-    <Section>
-      <SectionTitle>Playlists</SectionTitle>
-      <ListItems>
-        <ListItem
-          borderRadius={75}
-          category="playlist"
-          artist="Metallica"
-          album="Master of puppets"
-          imgURL="https://image.ceneostatic.pl/data/products/56917667/i-metallica-master-of-puppets-remastered-winyl.jpg"
-          playlist="Test"
-        />
-      </ListItems>
-    </Section>
+    <Section
+      title="Artists"
+      children={
+        <ListItemsWrapper>
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+        </ListItemsWrapper>
+      }
+    />
+    <Section
+      title="Albums"
+      children={
+        <ListItemsWrapper>
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+        </ListItemsWrapper>
+      }
+    />
+    <Section
+      title="Playlists"
+      children={
+        <ListItemsWrapper>
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+        </ListItemsWrapper>
+      }
+    />
   </SearchContainer>
 );

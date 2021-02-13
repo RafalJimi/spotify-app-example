@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     background-color: white;
     width: 100vw;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column; 
     overflow-x: hidden;

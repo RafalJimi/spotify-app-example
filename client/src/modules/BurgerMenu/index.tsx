@@ -1,45 +1,48 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
+import { useBurgerMenuContext } from "../../contexts/BurgerMenu.context";
+import { useClickOutside } from '../../hooks/useClickOutside'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { toggleBurgerMenu } from "../../store/burgerMenu/actions";
-import { burgerMenuIsOpenRX } from "../../store/burgerMenu/selectors";
 import { isAuthRX } from "../../store/isAuth/selectors";
 import { logoutUserStarted } from "../../store/logoutUser/actions";
 import { BurgerMenuLayout } from "./layout";
 
 export const BurgerMenu = () => {
+  const divRef = useRef<HTMLElement>(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const burgerMenuIsOpen = useSelector(burgerMenuIsOpenRX);
+  const { isOpen, setIsOpen } = useBurgerMenuContext();
+  
   const isAuth = useSelector(isAuthRX);
-
-  const handleCloseMenu = useCallback(
-    (e: React.MouseEvent) => {
-      dispatch(toggleBurgerMenu());
-    },
-    [burgerMenuIsOpen]
-  );
 
   const handleOnClick = useCallback(
     (location: string) => (e: React.MouseEvent) => {
-      dispatch(toggleBurgerMenu());
-      window.onscroll = function () {};
+      setIsOpen(false);
       history.push(location);
     },
     []
   );
-
+  
   const handleSignOut = useCallback((e: React.MouseEvent) => {
     dispatch(logoutUserStarted());
-    dispatch(toggleBurgerMenu());
+    setIsOpen(false);
   }, []);
 
+  const handleClickOutside = useCallback(
+    (event) => {
+      setIsOpen(false);
+    },
+    [isOpen]
+  );
+  
+  useClickOutside(divRef, handleClickOutside);
+  
   return (
     <BurgerMenuLayout
-      burgerMenuIsOpen={burgerMenuIsOpen}
+      ref={divRef}
+      isOpen={isOpen}
       isAuth={isAuth}
-      handleCloseMenu={handleCloseMenu}
       handleOnClick={handleOnClick}
       handleSignOut={handleSignOut}
     />

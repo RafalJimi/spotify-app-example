@@ -1,56 +1,113 @@
 import React from "react";
-import { SongItem } from "./components/SongItem/index";
-import { ListItem } from "./components/ListItem/index";
-import {
-  AlbumContainer,
-  AlbumInformation,
-  AlbumImgContainer,
-  AlbumName,
-  PlayButton,
-  Section,
-  SectionTitle,
-  Songs,
-  ListItems,
-} from "./layout.styled";
+import { Header } from "../Header/index";
+import { PlayButton } from "../PlayButton/index";
+import { SongsListItem } from "../SongsListItem/index";
+import { ListItem } from "../SectionListItem/index";
+import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
+import { Songs } from "../ListItemWrappers/Songs.wrapper";
+import { Section } from "../Section";
+import { AlbumContainer } from "./layout.styled";
 
-type AlbumLayoutProps = {
-  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
+const songData = {
+  artistName: "Metallica",
+  albumName: "Master of puppets",
+  trackName: "Master of puppets",
+  imgUrl: "test",
+  trackLenght: "1:00",
 };
 
-export const AlbumLayout = ({ handleOnClick }: AlbumLayoutProps) => (
+export const AlbumLayout = () => (
   <AlbumContainer>
-    <AlbumInformation>
-      <AlbumImgContainer>
-        <img
-          src={
-            "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          }
-          alt=""
-        />
-      </AlbumImgContainer>
-      <AlbumName>
-        <span>Album</span>
-        <h1>Metallica</h1>
-      </AlbumName>
-    </AlbumInformation>
-    <PlayButton>
-      <i className="fas fa-play"></i>
-    </PlayButton>
-    <Section>
-      <SectionTitle>Popular</SectionTitle>
-      <Songs>
-        <SongItem />
-        <SongItem />
-        <SongItem />
-        <SongItem />
-        <SongItem />
-      </Songs>
-    </Section>
-    <Section>
-      <SectionTitle>Other Metallica Albums</SectionTitle>
-      <ListItems>
-        <ListItem />
-      </ListItems>
-    </Section>
+    <Header
+      imgUrl="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+      category="Album"
+      title="Master of puppets"
+    />
+    <PlayButton />
+    <Section
+      title="Popular"
+      children={
+        <Songs>
+          <SongsListItem id={5} songData={songData} />
+          <SongsListItem id={4} songData={songData} />
+          <SongsListItem id={3} songData={songData} />
+          <SongsListItem id={2} songData={songData} />
+          <SongsListItem id={1} songData={songData} />
+        </Songs>
+      }
+    />
+    <Section
+      title="Metallica's albums"
+      children={
+        <ListItemsWrapper>
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+          <ListItem
+            category="artist"
+            artist="artist"
+            album="artist"
+            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+          />
+        </ListItemsWrapper>
+      }
+    />
   </AlbumContainer>
 );
