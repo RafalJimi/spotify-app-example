@@ -6,9 +6,10 @@ import { MenuLayout } from "./layout";
 type MenuProps = {
   artist: string;
   album: string;
+  isCurrentSong: boolean;
 };
 
-export const Menu = ({ artist, album }: MenuProps) => {
+export const Menu = ({ artist, album, isCurrentSong }: MenuProps) => {
   const [IsOpen, setIsOpen] = useState(false);
 
   const divRef = useRef<HTMLElement>(null);
@@ -49,6 +50,7 @@ export const Menu = ({ artist, album }: MenuProps) => {
       ref={divRef}
       handleOpenMenu={handleOpenMenu}
       handleMenuItem={handleMenuItem}
+      isCurrentSong={isCurrentSong}
     />
   );
 };

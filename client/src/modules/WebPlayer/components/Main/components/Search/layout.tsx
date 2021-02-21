@@ -6,34 +6,10 @@ import { SearchContainer } from "./layout.styled";
 
 export const SearchLayout = () => (
   <SearchContainer>
-    <Section
+    {/* <Section
       title="Artists"
       children={
         <ListItemsWrapper>
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
         </ListItemsWrapper>
       }
     />
@@ -41,30 +17,6 @@ export const SearchLayout = () => (
       title="Albums"
       children={
         <ListItemsWrapper>
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
         </ListItemsWrapper>
       }
     />
@@ -72,32 +24,8 @@ export const SearchLayout = () => (
       title="Playlists"
       children={
         <ListItemsWrapper>
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
         </ListItemsWrapper>
       }
-    />
+    /> */}
   </SearchContainer>
 );

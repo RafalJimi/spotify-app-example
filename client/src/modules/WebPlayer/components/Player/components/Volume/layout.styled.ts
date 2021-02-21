@@ -9,16 +9,21 @@ export const VolumeContainer = styled.div`
   justify-content: center;
 `;
 
-export const Icon = styled.div`
+type IconProps = {
+  readonly muted: boolean;
+};
+
+export const Icon = styled.div<IconProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.color.lightGray};
+  color: ${(props) =>
+   
+    props.muted ? props.theme.color.error : props.theme.color.lightGray};
   margin-right: 10px;
 
   :hover {
-    color: ${(props) => props.theme.color.lightGreen};
     cursor: pointer;
   }
 `;

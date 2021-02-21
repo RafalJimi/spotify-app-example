@@ -1,10 +1,10 @@
-import React, { ReactFragment } from "react";
+import React from "react";
 import { SectionLayout } from "./layout";
 
 export type SectionProps = {
   title: string;
   subtitle?: string;
-  children: ReactFragment;
+  children: JSX.Element | undefined;
 };
 
 export const Section = ({ title, subtitle, children }: SectionProps) => {

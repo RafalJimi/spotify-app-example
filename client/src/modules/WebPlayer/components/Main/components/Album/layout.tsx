@@ -28,86 +28,16 @@ export const AlbumLayout = () => (
       title="Popular"
       children={
         <Songs>
-          <SongsListItem id={5} songData={songData} />
-          <SongsListItem id={4} songData={songData} />
-          <SongsListItem id={3} songData={songData} />
-          <SongsListItem id={2} songData={songData} />
-          <SongsListItem id={1} songData={songData} />
+          
         </Songs>
       }
     />
-    <Section
+    {/* <Section
       title="Metallica's albums"
       children={
         <ListItemsWrapper>
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
-          <ListItem
-            category="artist"
-            artist="artist"
-            album="artist"
-            imgURL="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
-          />
         </ListItemsWrapper>
       }
-    />
+    /> */}
   </AlbumContainer>
 );

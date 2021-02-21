@@ -51,14 +51,21 @@ export const SongItemContainer = styled.div`
   }
 `;
 
-export const Number = styled.div`
+export type CurrentSongProp = {
+  readonly isCurrentSong?: boolean;
+};
+
+export const Number = styled.div<CurrentSongProp>`
   position: absolute;
   transform: translate(-45px, 0px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.color.lightGray};
+  color: ${(props) =>
+       props.isCurrentSong
+        ? props.theme.color.lightGreen
+        : props.theme.color.lightGray};
   width: 40px;
   margin-right: 10px;
 `;
@@ -69,7 +76,10 @@ export const PlayButton = styled(Number)`
 
   :hover {
     cursor: pointer;
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) =>
+      props.isCurrentSong
+        ? props.theme.color.lightGreen
+        : props.theme.color.lightGray};
   }
 `;
 
@@ -86,38 +96,50 @@ export const AlbumIMG = styled.div`
   }
 `;
 
-export const SongTitle = styled.div`
+export const SongTitle = styled.div<CurrentSongProp>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
   margin-left: 15px;
   width: 100%;
   letter-spacing: 0.5px;
 `;
 
-export const FavButton = styled.div`
+export const FavButton = styled.div<CurrentSongProp>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.color.lightGray};
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
   width: 40px;
   margin: 0px 10px;
 
   :hover {
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) =>
+      props.isCurrentSong
+        ? props.theme.color.lightGreen
+        : props.theme.color.lightGray};
     cursor: pointer;
   }
 `;
 
-export const Time = styled.div`
+export const Time = styled.div<CurrentSongProp>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.color.lightGray};
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
   width: 40px;
   letter-spacing: 1px;
   padding: 0px 10px;

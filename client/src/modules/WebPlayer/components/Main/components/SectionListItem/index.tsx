@@ -1,37 +1,39 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
+import { Album } from "../../../../../../store/types/album";
 import { ListItemLayout } from "./layout";
 
 type ListItemProps = {
   borderRadius?: number;
+  id: number;
   category: string;
-  artist: string;
-  album: string;
-  imgURL: string;
-  playlist?: string;
+  listItemData: Album;
 };
 
-export const ListItem = ({
-  borderRadius,
-  category,
-  artist,
-  album,
-  imgURL,
-  playlist,
-}: ListItemProps) => {
+export const ListItem = ({ borderRadius, id, category, listItemData }: ListItemProps) => {
   const history = useHistory();
 
   const handleOnClick = useCallback(
     (category: string) => (e: React.MouseEvent) => {
       if (e.button === 0)
         if (category === "artist")
-          history.push(`/player/artist/${artist.replace(/ /g, "_")}`);
+          history.push(
+            
+            `/player/artist/${listItemData.artistName.replace(/ /g, "_")}`
+          
+          );
         else if (category === "album")
-          history.push(`/player/album/${album.replace(/ /g, "_")}`);
+          history.push(
+            
+            `/player/album/${listItemData.collectionName.replace(/ /g, "_")}`
+          
+          );
         else if (category === "playlist")
           history.push(
             `/player/playlist/${
-              playlist ? playlist.replace(/ /g, "_") : "null"
+              listItemData.collectionName
+                ? listItemData.collectionName.replace(/ /g, "_")
+                : "null"
             }`
           );
     },
@@ -48,11 +50,9 @@ export const ListItem = ({
   return (
     <ListItemLayout
       borderRadius={borderRadius}
-      handleOnClick={handleOnClick}
       category={category}
-      artist={artist}
-      album={album}
-      imgURL={imgURL}
+      handleOnClick={handleOnClick}
+      listItemData={listItemData}
       handleMenuItem={handleMenuItem}
     />
   );

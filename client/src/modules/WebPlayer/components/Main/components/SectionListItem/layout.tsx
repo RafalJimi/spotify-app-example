@@ -1,5 +1,6 @@
 import React from "react";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import { Album } from "../../../../../../store/types/album";
 import {
   ContextContainer,
   ListItemContainer,
@@ -10,11 +11,9 @@ import {
 
 type ListItemLayoutProps = {
   borderRadius?: number;
-  handleOnClick: (category: string) => (e: React.MouseEvent) => void;
   category: string;
-  artist: string;
-  album: string;
-  imgURL: string;
+  handleOnClick: (category: string) => (e: React.MouseEvent) => void;
+  listItemData: Album;
   handleMenuItem: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     data: { path: string }
@@ -23,11 +22,9 @@ type ListItemLayoutProps = {
 
 export const ListItemLayout = ({
   borderRadius,
-  handleOnClick,
   category,
-  artist,
-  album,
-  imgURL,
+  handleOnClick,
+  listItemData,
   handleMenuItem,
 }: ListItemLayoutProps) => {
   const useContextMenu = (category: string) => {
@@ -40,30 +37,39 @@ export const ListItemLayout = ({
               onClick={handleOnClick(category)}
             >
               <ImageContainer
+                imageUrl={listItemData.artworkUrl100}
                 style={{
                   borderRadius: borderRadius ? `${borderRadius}px` : "2px",
                 }}
               >
-                <img src={imgURL} alt={`${artist} - ${album}`} />
                 <div>
                   <i className="fas fa-play"></i>
                 </div>
               </ImageContainer>
-              <ListItemTitle>{artist}</ListItemTitle>
-              <ListItemSubtitle>{album}</ListItemSubtitle>
+              <ListItemTitle>{listItemData.artistName}</ListItemTitle>
+              <ListItemSubtitle>{listItemData.collectionName}</ListItemSubtitle>
             </ListItemContainer>
           </ContextMenuTrigger>
-
           <ContextMenu id="ShowSectionItemMenu">
             <MenuItem
               onClick={handleMenuItem}
-              data={{ path: `/player/artist/${artist.replace(/ /g, "_")}` }}
+              data={{
+                path: `/player/artist/${listItemData.artistName.replace(
+                  / /g,
+                  "_"
+                )}`,
+              }}
             >
               Go to artist
             </MenuItem>
             <MenuItem
               onClick={handleMenuItem}
-              data={{ path: `/player/album/${album.replace(/ /g, "_")}` }}
+              data={{
+                path: `/player/album/${listItemData.collectionName.replace(
+                  / /g,
+                  "_"
+                )}`,
+              }}
             >
               Go to album
             </MenuItem>
@@ -83,13 +89,14 @@ export const ListItemLayout = ({
                   borderRadius: borderRadius ? `${borderRadius}px` : "2px",
                 }}
               >
-                <img src={imgURL} alt={`${artist} - ${album}`} />
+                <img src={listItemData.artworkUrl100} alt={`${listItemData
+                  .artistName} - ${listItemData.collectionName}`} />
                 <div>
                   <i className="fas fa-play"></i>
                 </div>
               </ImageContainer>
-              <ListItemTitle>{artist}</ListItemTitle>
-              <ListItemSubtitle>{album}</ListItemSubtitle>
+              <ListItemTitle>{listItemData.artistName}</ListItemTitle>
+              <ListItemSubtitle>{listItemData.collectionName}</ListItemSubtitle>
             </ListItemContainer>
           </ContextMenuTrigger>
         </React.Fragment>

@@ -1,10 +1,24 @@
 import React from "react";
 import { VolumeContainer, Icon, Bar } from "./layout.styled";
 
-export const VolumeLayout = () => (
+type VolumeLayoutProps = {
+  volume: number;
+  handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  muted: boolean;
+  handleSetMuted: (e: React.MouseEvent) => void;
+  VolumeIcon: string;
+};
+
+export const VolumeLayout = ({
+  volume,
+  handleVolumeChange,
+  muted,
+  handleSetMuted,
+  VolumeIcon,
+}: VolumeLayoutProps) => (
   <VolumeContainer>
-    <Icon>
-      <i className="fas fa-volume-off"></i>
+    <Icon onClick={handleSetMuted} muted={muted}>
+      <i className={VolumeIcon}></i>
     </Icon>
     <Bar className="volumeElement">
       <input
@@ -12,8 +26,8 @@ export const VolumeLayout = () => (
         min={0}
         max={1}
         step="any"
-        value={0.5}
-        onChange={() => {}}
+        value={volume}
+        onChange={handleVolumeChange}
       />
     </Bar>
   </VolumeContainer>

@@ -1,12 +1,22 @@
 import styled from "styled-components";
+import { CurrentSongProp } from "../../layout.styled";
 import { Time } from "../../layout.styled";
 
-export const Options = styled(Time)`
+export const Options = styled(Time)<CurrentSongProp>`
   font-size: 0.9em;
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
+  width: 40px;
 
   :hover {
     cursor: pointer;
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) =>
+      props.isCurrentSong
+        ? props.theme.color.lightGreen
+        : props.theme.color.lightGray};
+    width: 40px;
   }
 `;
 

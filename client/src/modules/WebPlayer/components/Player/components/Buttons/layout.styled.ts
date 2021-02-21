@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import React from "react";
+import styled, { StyledFunction } from "styled-components";
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -18,12 +19,17 @@ export const PlayerButtonsContainer = styled.div`
   padding-top: 5px;
 `;
 
-export const Button = styled.div`
+type ButtonProps = {
+  readonly prop?: boolean;
+};
+
+export const Button = styled.div<ButtonProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.color.lightGray};
+  color: ${(props) =>
+    props.prop ? props.theme.color.lightGreen : props.theme.color.lightGray};
   font-size: 0.8em;
   font-weight: 100;
   width: 30px;
@@ -32,7 +38,8 @@ export const Button = styled.div`
 
   :hover {
     cursor: pointer;
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) =>
+      props.prop ? props.theme.color.lightGreen : props.theme.color.secondary};
   }
 `;
 

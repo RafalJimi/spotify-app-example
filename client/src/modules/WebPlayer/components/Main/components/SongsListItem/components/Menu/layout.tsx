@@ -9,13 +9,17 @@ import {
 
 type MenuLayoutProps = {
   isOpen: boolean;
+  isCurrentSong: boolean;
   handleOpenMenu: (e: React.MouseEvent) => void;
   handleMenuItem: (category: string) => (e: React.MouseEvent) => void;
 };
 
 export const MenuLayout = forwardRef<HTMLElement, MenuLayoutProps>(
-  ({ isOpen, handleOpenMenu, handleMenuItem }: MenuLayoutProps, ref: any) => (
-    <Options className="options">
+  (
+    { isOpen, isCurrentSong, handleOpenMenu, handleMenuItem }: MenuLayoutProps,
+    ref: any
+  ) => (
+    <Options className="options" isCurrentSong={isCurrentSong}>
       <i className="fas fa-ellipsis-h" onClick={handleOpenMenu}></i>
       <OptionsMenu ref={ref} isOpen={isOpen}>
         <Option onClick={handleMenuItem("album")}>Go to album</Option>

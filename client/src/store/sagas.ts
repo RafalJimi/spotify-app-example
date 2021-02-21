@@ -3,10 +3,14 @@ import { registerUserSaga } from "../store/registerUser/saga";
 import { loginUserSaga } from "./loginUser/saga";
 import { checkAuthSaga } from "./isAuth/saga";
 import { logoutUserSaga } from "./logoutUser/saga";
+import { songsByArtistSaga } from "./fetchSongsByArtist/saga";
+import { albumsByArtistSaga } from "./fetchAlbumsByArtist/saga";
 
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
   yield fork(loginUserSaga);
   yield fork(checkAuthSaga);
   yield fork(logoutUserSaga);
+  yield fork(songsByArtistSaga);
+  yield fork(albumsByArtistSaga);
 }

@@ -22,17 +22,6 @@ export const PlaylistLayout = () => (
       title="Jimi's playlist"
     />
     <PlayButton />
-    <Section
-      title="Jimi's playlist songs"
-      children={
-        <Songs>
-          <SongsListItem id={5} songData={songData} />
-          <SongsListItem id={4} songData={songData} />
-          <SongsListItem id={3} songData={songData} />
-          <SongsListItem id={2} songData={songData} />
-          <SongsListItem id={1} songData={songData} />
-        </Songs>
-      }
-    />
+    <Section title="Jimi's playlist songs" children={<Songs></Songs>} />
   </PlaylistContainer>
 );
