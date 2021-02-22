@@ -16,6 +16,8 @@ type ReactPlayerContextProps = {
   setPlayed: React.Dispatch<React.SetStateAction<number>>;
   PlayedInSecs: number;
   setPlayedInSecs: React.Dispatch<React.SetStateAction<number>>;
+  SongLengthInSecs: number;
+  setSongLengthInSecs: React.Dispatch<React.SetStateAction<number>>;
   Loop: boolean;
   handleSetLoop: (e: React.MouseEvent) => void;
   Shuffle: boolean;
@@ -49,6 +51,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
   const [Play, setPlay] = useState(false);
   const [Played, setPlayed] = useState(0);
   const [PlayedInSecs, setPlayedInSecs] = useState(0);
+  const [SongLengthInSecs, setSongLengthInSecs] = useState(0);;
   const [Loop, setLoop] = useState(false);
   const [Shuffle, setShuffle] = useState(false);
   const [Muted, setMuted] = useState(false);
@@ -149,6 +152,8 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
       setPlayed,
       PlayedInSecs,
       setPlayedInSecs,
+      SongLengthInSecs,
+      setSongLengthInSecs,
       Loop,
       handleSetLoop,
       Shuffle,
@@ -192,13 +197,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
   useEffect(() => {
     if (CurrentSongsArr.length !== 0 && CurrentSongsArr[Index].previewUrl)
       setUrl(CurrentSongsArr[Index].previewUrl);
-    CurrentSongsArr.forEach((song: Song) =>
-      song.previewUrl !== Url ? setCurrentSongsArr(FetchedSongsArr) : null
-    );
   }, [Index, Url]);
-
-  console.log("Current Songs Arr:", CurrentSongsArr);
-  console.log("Fetched Songs Arr:", FetchedSongsArr);
 
   return (
     <ReactPlayerContext.Provider value={memoizedValue}>

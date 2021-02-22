@@ -4,7 +4,11 @@ export const ContextContainer = styled.div`
   width: 100%;
 `;
 
-export const SongItemContainer = styled.div`
+type SongItemContainerProps = {
+  readonly isCurrentSong?: boolean;
+};
+
+export const SongItemContainer = styled.div<SongItemContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,16 +26,20 @@ export const SongItemContainer = styled.div`
     background-color: #655f5a;
   }
 
+  .number {
+    display: ${(props) => (props.isCurrentSong ? "none" : "flex")};
+  }
+
   :hover .number {
-    display: none;
+    display: ${(props) => (props.isCurrentSong ? "none" : "none")};
   }
 
   .playButton {
-    display: none;
+    display: ${(props) => (props.isCurrentSong ? "flex" : "none")};
   }
 
   :hover .playButton {
-    display: flex;
+    display: ${(props) => (props.isCurrentSong ? "flex" : "flex")};
   }
 
   .favButton > i {

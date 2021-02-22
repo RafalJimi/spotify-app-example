@@ -18,6 +18,7 @@ export const ReactMusicPlayer = memo(() => {
     Volume,
     Muted,
     setPlayedInSecs,
+    setSongLengthInSecs,
   } = useReactPlayerContext();
 
   const handlePlay = useCallback((): void => {
@@ -32,12 +33,14 @@ export const ReactMusicPlayer = memo(() => {
     let playedValue = parseFloat(value.played);
     setPlayed(playedValue);
     setPlayedInSecs(value.playedSeconds);
+    setSongLengthInSecs(value.loadedSeconds);
   };
 
   const ref: RefProps = useRef(null);
 
   useEffect(() => {
-    /* ref.current.seekTo(SeekTo); */
+    //@ts-ignore
+    ref.current.seekTo(SeekTo);
     console.log(ref.current);
     setPlayed(SeekTo);
   }, [SeekTo]);
@@ -55,7 +58,7 @@ export const ReactMusicPlayer = memo(() => {
       url={Url}
       pip={true}
       playing={Play}
-      loop={true}
+      loop={false}
       volume={Volume}
       muted={Muted}
       onReady={() => console.log("onReady")}

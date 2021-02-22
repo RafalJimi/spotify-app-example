@@ -32,12 +32,7 @@ export const SongsListItem = memo(({ id, songData }: SongsListItem) => {
         setIndex(id);
         setUrl(songData.previewUrl);
         setPlay(true);
-
-        CurrentSongsArr.forEach((song: Song) =>
-          song.previewUrl !== songData.previewUrl
-            ? setCurrentSongsArr(FetchedSongsArr)
-            : null
-        );
+        setCurrentSongsArr(FetchedSongsArr);
       } 
     },
     [Play, Url]

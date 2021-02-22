@@ -37,7 +37,7 @@ export const SongItemLayout = ({
   <ContextContainer>
     {songData && (
       <ContextMenuTrigger id={`ShowSectionItemMenu-${id}`}>
-        <SongItemContainer>
+        <SongItemContainer isCurrentSong={isCurrentSong}>
           <Number className="number" isCurrentSong={isCurrentSong}>
             {id + 1}
           </Number>

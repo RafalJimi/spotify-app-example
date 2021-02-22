@@ -10,6 +10,7 @@ export const Buttons = memo(() => {
     handleSetPlay,
     Played,
     PlayedInSecs,
+    SongLengthInSecs,
     Duration,
     Loop,
     handleSetLoop,
@@ -29,12 +30,15 @@ export const Buttons = memo(() => {
     setShowRemaining(!ShowRemaining);
   }, [ShowRemaining]);
   
+  console.log(PlayedInSecs);
+  
   return (
     <ButtonsLayout
       play={Play}
       handleSetPlay={handleSetPlay}
       played={Played}
       playedInSecs={PlayedInSecs}
+      SongLengthInSecs={SongLengthInSecs}
       loop={Loop}
       handleSetLoop={handleSetLoop}
       shuffle={Shuffle}

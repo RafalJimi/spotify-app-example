@@ -8,13 +8,18 @@ import {
   TimeContainer,
   BarContainer,
 } from "./layout.styled";
-import { Duration, alreadyPlayed } from "../../../../../../helpers/duration";
+import {
+  Duration,
+  millisToMinutesAndSeconds,
+  alreadyPlayed,
+} from "../../../../../../helpers/duration";
 
 type ButtonsLayoutProps = {
   play: boolean;
   handleSetPlay: (e: React.MouseEvent) => void;
   played: number;
   playedInSecs: number;
+  SongLengthInSecs: number;
   duration: number;
   loop: boolean;
   handleSetLoop: (e: React.MouseEvent) => void;
@@ -32,6 +37,7 @@ export const ButtonsLayout = ({
   handleSetPlay,
   played,
   playedInSecs,
+  SongLengthInSecs,
   duration,
   loop,
   handleSetLoop,
@@ -69,7 +75,15 @@ export const ButtonsLayout = ({
       </Button>
     </PlayerButtonsContainer>
     <ProgressBarContainer>
-      <TimeContainer>{alreadyPlayed(playedInSecs)}</TimeContainer>
+      {showRemaining ? (
+        <TimeContainer onClick={handleSetRemaining}>
+          - {alreadyPlayed(SongLengthInSecs - playedInSecs)}
+        </TimeContainer>
+      ) : (
+        <TimeContainer onClick={handleSetRemaining}>
+          {alreadyPlayed(playedInSecs)}
+        </TimeContainer>
+      )}
       <BarContainer>
         <input
           type="range"
@@ -81,7 +95,11 @@ export const ButtonsLayout = ({
         />
       </BarContainer>
       <TimeContainer onClick={handleSetRemaining}>
-        <Duration className={"test"} seconds={duration} />
+        {showRemaining ? (
+          "00:00"
+        ) : (
+          <Duration className={"test"} seconds={duration} />
+        )}
       </TimeContainer>
     </ProgressBarContainer>
   </ButtonsContainer>
