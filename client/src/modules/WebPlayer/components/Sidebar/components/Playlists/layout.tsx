@@ -11,13 +11,17 @@ import {
 
 type PlaylistsLayoutProps = {
   handleOnClick: (location: string) => (e: React.MouseEvent) => void;
+  handleCreatePlaylist: (e: React.MouseEvent) => void;
 };
 
-export const PlaylistsLayout = ({ handleOnClick }: PlaylistsLayoutProps) => (
+export const PlaylistsLayout = ({
+  handleOnClick,
+  handleCreatePlaylist,
+}: PlaylistsLayoutProps) => (
   <PlaylistsContainer>
     <Title>PLAYLISTS</Title>
     <ButtonsContainer>
-      <CreatePlaylist>
+      <CreatePlaylist onClick={handleCreatePlaylist}>
         <span>
           <i className="fas fa-plus"></i>
         </span>

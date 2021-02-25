@@ -11,6 +11,11 @@ import {
   AlbumsByArtistState,
   albumsByArtist,
 } from "./fetchAlbumsByArtist/reducer";
+import { CreatePlaylistState, createPlaylist } from "./createPlaylist/reducer";
+import {
+  FetchUserPlaylistsState,
+  fetchUserPlaylists,
+} from "./fetchUserPlaylists/reducer";
 
 export type AppState = {
   registerUser: RegisterUserState;
@@ -19,6 +24,8 @@ export type AppState = {
   logoutUser: LogoutUserState;
   songsByArtist: SongsByArtistState;
   albumsByArtist: AlbumsByArtistState;
+  createPlaylist: CreatePlaylistState;
+  fetchUserPlaylists: FetchUserPlaylistsState;
 };
 
 export const reducer = combineReducers<AppState>({
@@ -28,6 +35,8 @@ export const reducer = combineReducers<AppState>({
   logoutUser,
   songsByArtist,
   albumsByArtist,
+  createPlaylist,
+  fetchUserPlaylists,
 });
 
 export type RootState = ReturnType<typeof reducer>;

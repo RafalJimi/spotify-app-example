@@ -10,7 +10,6 @@ async function routes(fastify, option, done) {
   fastify.post('/login', loginController)
   fastify.get('/is_auth', authController)
 
-  
   done()
 }
 

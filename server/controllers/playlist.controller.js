@@ -1,24 +1,25 @@
 const Playlist = require(`../models/playlist.model`)
 
-exports.createPlaylist = async (req, res) => {
+exports.createPlaylistController = async (req, res) => {
 
-  Playlist.find({ user_name: "userName" }).exec((err, playlists) => {
-    if (!playlists) {
+  const user_email = req.profile.email
+  
+  Playlist.find({ user_email: user_email }).exec((err, playlists) => {
+    if (err) {
+      return res.code(500).send({ err: err })
+    } else if (playlists.length === 0) {
 
-      const firstPlaylist = {
-        user_name: "username",
-        playlistName: "New playlist"
-      }
+      const playlist_name = "New playlist"
 
       const newPlaylist = new Playlist({
-        firstPlaylist
+        user_email, playlist_name
       })
       
       newPlaylist.save((err, playlist) => {
         if (err) {
-          send.code(202).send({ message: "Something went wrong, please try again." })
+         return res.code(500).send({ error: "Something went wrong, please try again." })
         } else {
-          send.code(200).send({ playlistName: `New playlist`, playlistId: playlist._id })
+         return res.code(200)
         }
       })
       
@@ -26,15 +27,32 @@ exports.createPlaylist = async (req, res) => {
 
       const arrLength = playlists.length
       
-      const newPlaylist = Playlist.createPlaylist("test", arrLength)
+      const playlist_name = `New playlist ${arrLength}`
+
+      const newPlaylist = new Playlist({
+        user_email, playlist_name
+      })
       
       newPlaylist.save((err, playlist) => {
         if (err) {
-          send.code(202).send({ message: "Something went wrong, please try again." })
+          return res.code(500).send({ error: "Something went wrong, please try again." })
         } else {
-          send.code(200).send({ playlistName: playlist.user_name, playlistId: playlist._id })
+          return res.code(200)
         }
       })
     }
+  })
+}
+
+exports.getPlaylistsController = async (req, res) => {
+
+  const user_email = req.profile.email
+  
+  Playlist.find({ user_email: user_email }).exec((err, playlists) => {
+    if (err) {
+      return res.code(500).send({ err: "Something went wrong, please try again." })
+    } else if (playlists.length === 0) 
+      return res.code(204)
+    else return res.code(200).send({ playlists: playlists})
   })
 }

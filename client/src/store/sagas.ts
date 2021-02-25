@@ -5,6 +5,8 @@ import { checkAuthSaga } from "./isAuth/saga";
 import { logoutUserSaga } from "./logoutUser/saga";
 import { songsByArtistSaga } from "./fetchSongsByArtist/saga";
 import { albumsByArtistSaga } from "./fetchAlbumsByArtist/saga";
+import { createPlaylistSaga } from "./createPlaylist/saga";
+import { fetchUserPlaylistsSaga } from "./fetchUserPlaylists/saga";
 
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
@@ -13,4 +15,6 @@ export function* rootSaga(services = {}) {
   yield fork(logoutUserSaga);
   yield fork(songsByArtistSaga);
   yield fork(albumsByArtistSaga);
+  yield fork(createPlaylistSaga);
+  yield fork(fetchUserPlaylistsSaga);
 }
