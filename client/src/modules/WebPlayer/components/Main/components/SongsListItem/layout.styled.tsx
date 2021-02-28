@@ -163,11 +163,7 @@ export const Options = styled(Time)`
   }
 `;
 
-type OptionsMenuProps = {
-  isOpen: boolean;
-};
-
-export const OptionsMenu = styled.div<OptionsMenuProps>`
+export const OptionsMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

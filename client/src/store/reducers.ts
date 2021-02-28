@@ -16,6 +16,11 @@ import {
   FetchUserPlaylistsState,
   fetchUserPlaylists,
 } from "./fetchUserPlaylists/reducer";
+import {
+  ChangePlaylistNameState,
+  changePlaylistName,
+} from "./changePlaylistName/reducer";
+import { DeletePlaylistState, deletePlaylist } from "./deletePlaylist/reducer";
 
 export type AppState = {
   registerUser: RegisterUserState;
@@ -26,6 +31,8 @@ export type AppState = {
   albumsByArtist: AlbumsByArtistState;
   createPlaylist: CreatePlaylistState;
   fetchUserPlaylists: FetchUserPlaylistsState;
+  changePlaylistName: ChangePlaylistNameState;
+  deletePlaylist: DeletePlaylistState;
 };
 
 export const reducer = combineReducers<AppState>({
@@ -37,6 +44,8 @@ export const reducer = combineReducers<AppState>({
   albumsByArtist,
   createPlaylist,
   fetchUserPlaylists,
+  changePlaylistName,
+  deletePlaylist,
 });
 
 export type RootState = ReturnType<typeof reducer>;

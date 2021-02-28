@@ -1,5 +1,11 @@
 import { AppState } from "../reducers";
+import { Playlist } from "../types/playlist";
 
-export const isAuthRX = (state: AppState): boolean => state.checkAuth.isAuth;
+export const isLoadingRX = (state: AppState): boolean =>
+  state.fetchUserPlaylists.isLoading;
 
-export const isAuthErrorRX = (state: AppState): string => state.checkAuth.error;
+export const isErrorRX = (state: AppState): string =>
+  state.fetchUserPlaylists.isError;
+
+export const userPlaylistsRX = (state: AppState): Playlist[] =>
+  state.fetchUserPlaylists.playlists;

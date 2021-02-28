@@ -9,7 +9,7 @@ exports.createPlaylistController = async (req, res) => {
       return res.code(500).send({ err: err })
     } else if (playlists.length === 0) {
 
-      const playlist_name = "New playlist"
+      const playlist_name = "New playlist 1"
 
       const newPlaylist = new Playlist({
         user_email, playlist_name
@@ -27,7 +27,7 @@ exports.createPlaylistController = async (req, res) => {
 
       const arrLength = playlists.length
       
-      const playlist_name = `New playlist ${arrLength}`
+      const playlist_name = `New playlist ${arrLength + 1}`
 
       const newPlaylist = new Playlist({
         user_email, playlist_name
@@ -37,7 +37,7 @@ exports.createPlaylistController = async (req, res) => {
         if (err) {
           return res.code(500).send({ error: "Something went wrong, please try again." })
         } else {
-          return res.code(200)
+          return res.code(200).send({ message: "Playlist has been created successfully." })
         }
       })
     }
@@ -51,8 +51,49 @@ exports.getPlaylistsController = async (req, res) => {
   Playlist.find({ user_email: user_email }).exec((err, playlists) => {
     if (err) {
       return res.code(500).send({ err: "Something went wrong, please try again." })
-    } else if (playlists.length === 0) 
-      return res.code(204)
-    else return res.code(200).send({ playlists: playlists})
+    } else return res.code(200).send({ playlists: playlists})
   })
+}
+
+exports.renamePlaylistController = async (req, res) => {
+
+  console.log('rename playlist request', req.body)
+  
+  const playlistID = req.body.playlistID
+  const newPlaylistName = req.body.newPlaylistName
+  
+  Playlist.findOneAndUpdate(
+          { _id: playlistID },
+          { playlist_name: newPlaylistName},
+          (err, playlist) => {
+              if (err || !playlist) {
+                  return res.code(500).send({ error: "Update playlist error - please try again" })
+              } else {
+                  return res.code(200).send({
+                      message: "Playlist name has been changed successfully."
+                  });
+              }
+          }
+      ); 
+}
+
+exports.deletePlaylistController = async (req, res) => {
+
+  console.log('rename playlist request', req.body)
+  
+  const playlistID = req.body.playlistID
+  console.log('playlist id', playlistID)
+  
+  Playlist.findOneAndDelete(
+          { _id: playlistID },
+          (err, playlist) => {
+              if (err || !playlist) {
+                  return res.code(500).send({ error: "Something went wrong - please try again." })
+              } else {
+                  return res.code(200).send({
+                      message: "Playlist has been deleted successfully."
+                  });
+              }
+          }
+      ); 
 }

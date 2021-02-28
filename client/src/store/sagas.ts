@@ -7,6 +7,8 @@ import { songsByArtistSaga } from "./fetchSongsByArtist/saga";
 import { albumsByArtistSaga } from "./fetchAlbumsByArtist/saga";
 import { createPlaylistSaga } from "./createPlaylist/saga";
 import { fetchUserPlaylistsSaga } from "./fetchUserPlaylists/saga";
+import { changePlaylistNameSaga } from "./changePlaylistName/saga";
+import { deletePlaylistSaga } from "./deletePlaylist/saga";
 
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
@@ -17,4 +19,6 @@ export function* rootSaga(services = {}) {
   yield fork(albumsByArtistSaga);
   yield fork(createPlaylistSaga);
   yield fork(fetchUserPlaylistsSaga);
+  yield fork(changePlaylistNameSaga);
+  yield fork(deletePlaylistSaga);
 }

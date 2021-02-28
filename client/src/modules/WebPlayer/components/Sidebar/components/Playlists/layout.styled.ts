@@ -122,13 +122,7 @@ export const Playlists = styled.div`
   margin-top: 10px;
   color: ${(props) => props.theme.color.lightGray};
 
-  div {
-    font-size: 0.85em;
-    padding: 10px 15px;
-    letter-spacing: 0.5px;
-  }
-
-  div:hover {
+  form:hover {
     color: ${(props) => props.theme.color.secondary};
     cursor: pointer;
   }

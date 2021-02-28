@@ -76,7 +76,7 @@ export const SongItemLayout = ({
     {songData && (
       <ContextMenu id={`ShowSectionItemMenu-${id}`}>
         <MenuItem>
-          <OptionsMenu isOpen={true}>
+          <OptionsMenu>
             <Option>Go to album</Option>
             <Option>
               <span>Add to playlist</span>{" "}

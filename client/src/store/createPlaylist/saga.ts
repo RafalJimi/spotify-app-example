@@ -9,15 +9,14 @@ import { getType } from "typesafe-actions";
 export function* createPlaylist() {
   try {
     const request = yield call(networkHandlerPut, `/playlist/create`);
-    console.log(request);
-    /* if (request.status === 200)
+    if (request.status === 200) {
       yield put({
         type: CREATE_PLAYLIST.success,
       });
-    else if (request.status === 203)
       yield put({
         type: FETCH_USER_PLAYLISTS.started,
-      }); */
+      });
+    }
   } catch (e) {
     yield put({
       type: CREATE_PLAYLIST.failure,

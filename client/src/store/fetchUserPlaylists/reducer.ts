@@ -1,7 +1,7 @@
 import { FETCH_USER_PLAYLISTS } from "./consts";
 import { getType } from "typesafe-actions";
 import { Action } from "../types/actions";
-import { fetchUserPlaylistsStarted } from "./actions";
+import { fetchUserPlaylistsStarted, clearPlaylistsState } from "./actions";
 import { Playlist } from "../types/playlist";
 
 export type FetchUserPlaylistsState = {
@@ -26,6 +26,7 @@ export const fetchUserPlaylists = (
         ...state,
         isLoading: true,
         isError: "",
+        playlists: [],
       };
     case FETCH_USER_PLAYLISTS.success:
       return {
@@ -38,6 +39,13 @@ export const fetchUserPlaylists = (
         ...state,
         isLoading: false,
         isError: action.payload.error,
+        playlists: [],
+      };
+    case getType(clearPlaylistsState):
+      return {
+        ...state,
+        isLoading: false,
+        isError: "",
         playlists: [],
       };
     default:

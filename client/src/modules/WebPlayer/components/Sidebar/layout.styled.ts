@@ -11,4 +11,5 @@ export const SidebarContainer = styled.div`
   width: 230px;
   height: 100vh;
   background-color: black;
+  z-index: 2;
 `;

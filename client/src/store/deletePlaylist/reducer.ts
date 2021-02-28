@@ -1,9 +1,9 @@
-import { CREATE_PLAYLIST } from "./consts";
+import { DELETE_PLAYLIST } from "./consts";
 import { getType } from "typesafe-actions";
 import { Action } from "../types/actions";
-import { createPlaylistStarted } from "./actions";
+import { deletePlaylistStarted } from "./actions";
 
-export type CreatePlaylistState = {
+export type DeletePlaylistState = {
   isLoading: boolean;
   isError: string;
 };
@@ -13,24 +13,23 @@ export const initialState = {
   isError: "",
 };
 
-export const createPlaylist = (
+export const deletePlaylist = (
   state = initialState,
   action: Action
-): CreatePlaylistState => {
+): DeletePlaylistState => {
   switch (action.type) {
-    case getType(createPlaylistStarted):
+    case getType(deletePlaylistStarted):
       return {
         ...state,
         isLoading: true,
         isError: "",
       };
-    case CREATE_PLAYLIST.success:
+    case DELETE_PLAYLIST.success:
       return {
         ...state,
         isLoading: false,
-        isError: "",
       };
-    case CREATE_PLAYLIST.failure:
+    case DELETE_PLAYLIST.failure:
       return {
         ...state,
         isLoading: false,
