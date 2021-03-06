@@ -9,6 +9,8 @@ import { createPlaylistSaga } from "./createPlaylist/saga";
 import { fetchUserPlaylistsSaga } from "./fetchUserPlaylists/saga";
 import { changePlaylistNameSaga } from "./changePlaylistName/saga";
 import { deletePlaylistSaga } from "./deletePlaylist/saga";
+import { fetchPlaylistSaga } from "./fetchUserPlaylist/saga";
+import { fetchSearchDataSaga } from "./fetchSearchData/saga";
 
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
@@ -21,4 +23,6 @@ export function* rootSaga(services = {}) {
   yield fork(fetchUserPlaylistsSaga);
   yield fork(changePlaylistNameSaga);
   yield fork(deletePlaylistSaga);
+  yield fork(fetchPlaylistSaga);
+  yield fork(fetchSearchDataSaga);
 }

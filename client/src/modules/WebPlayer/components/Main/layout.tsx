@@ -22,7 +22,7 @@ export const MainLayout = () => {
             <Route path="/player/artist/:artistName" exact component={Artist} />
             <Route path="/player/album/:albumName" exact component={Album} />
             <Route
-              path="/player/playlist/:playlistName"
+              path="/player/playlist/:playlistID"
               exact
               component={Playlist}
             />

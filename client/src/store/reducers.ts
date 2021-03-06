@@ -21,6 +21,11 @@ import {
   changePlaylistName,
 } from "./changePlaylistName/reducer";
 import { DeletePlaylistState, deletePlaylist } from "./deletePlaylist/reducer";
+import { FetchPlaylistState, fetchPlaylist } from "./fetchUserPlaylist/reducer";
+import {
+  FetchSearchDataState,
+  fetchSearchData,
+} from "./fetchSearchData/reducer";
 
 export type AppState = {
   registerUser: RegisterUserState;
@@ -33,6 +38,8 @@ export type AppState = {
   fetchUserPlaylists: FetchUserPlaylistsState;
   changePlaylistName: ChangePlaylistNameState;
   deletePlaylist: DeletePlaylistState;
+  fetchPlaylist: FetchPlaylistState;
+  fetchSearchData: FetchSearchDataState;
 };
 
 export const reducer = combineReducers<AppState>({
@@ -46,6 +53,8 @@ export const reducer = combineReducers<AppState>({
   fetchUserPlaylists,
   changePlaylistName,
   deletePlaylist,
+  fetchPlaylist,
+  fetchSearchData,
 });
 
 export type RootState = ReturnType<typeof reducer>;

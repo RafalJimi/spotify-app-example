@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../Header/index";
 import { PlayButton } from "../PlayButton/index";
 import { SongsListItem } from "../SongsListItem/index";
-import { ListItem } from "../SectionListItem/index";
+import { AlbumItem } from "../AlbumItem/index";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Songs } from "../ListItemWrappers/Songs.wrapper";
 import { Section } from "../Section";

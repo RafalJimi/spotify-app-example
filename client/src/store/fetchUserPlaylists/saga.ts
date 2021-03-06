@@ -7,7 +7,10 @@ import { getType } from "typesafe-actions";
 
 export function* fetchUserPlaylists() {
   try {
-    const request = yield call(networkHandlerGet, `/playlist/get_playlists`);
+    const request = yield call(
+      networkHandlerGet,
+      `/playlist/get_user_playlists`
+    );
     if (request.status === 200)
       yield put({
         type: FETCH_USER_PLAYLISTS.success,

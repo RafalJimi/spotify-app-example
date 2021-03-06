@@ -8,6 +8,7 @@ export const Section = styled.section`
   margin-bottom: 20px;
   width: 100%;
   overflow-y: scroll;
+  z-index: 10;
 `;
 
 export const SectionTitle = styled.header`

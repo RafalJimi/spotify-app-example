@@ -12,6 +12,7 @@ export const ReactMusicPlayer = memo(() => {
     Play,
     setPlay,
     setPlayed,
+    Loop,
     SeekTo,
     handleEnded,
     setDuration,
@@ -58,7 +59,7 @@ export const ReactMusicPlayer = memo(() => {
       url={Url}
       pip={true}
       playing={Play}
-      loop={false}
+      loop={Loop}
       volume={Volume}
       muted={Muted}
       onReady={() => console.log("onReady")}

@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import { useClickOutside } from "../../../../../../../../hooks/useClickOutside";
 import { changePlaylistNameStarted } from "../../../../../../../../store/changePlaylistName/actions";
 import { deletePlaylistStarted } from "../../../../../../../../store/deletePlaylist/actions";
+import { usePlaylistsContext } from "../../../../../../../../contexts/Playlists.context";
 import { PlaylistItemLayout } from "./layout";
 
 type PlaylistItemProps = {
@@ -24,7 +25,10 @@ export const PlaylistItem = ({
   const [Name, setName] = useState("");
   const [ChangedName, setChangedName] = useState("test");
   const [IsFocus, setIsFocus] = useState(false);
+  const [IsActive, setIsActive] = useState(false);
   const formRef = useRef<HTMLElement>(null);
+  
+  const { CurrentPlaylistID } = usePlaylistsContext();
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -91,11 +95,17 @@ export const PlaylistItem = ({
     []
   );
 
+  useEffect(() => {
+    if (CurrentPlaylistID === playlistID) setIsActive(true);
+    else setIsActive(false);
+  }, [CurrentPlaylistID]);
+  
   return (
     <PlaylistItemLayout
       playlistName={Name}
       changedName={ChangedName}
       isFocus={IsFocus}
+      isActive={IsActive}
       handleOnDoubleClick={handleOnDoubleClick}
       ref={formRef}
       handleOnChange={handleOnChange}

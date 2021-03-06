@@ -88,11 +88,11 @@ export const ContextContainer = styled.div`
   }
 `;
 
-export const ListItemContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: 260px;
   width: 180px;
   background: rgb(24, 24, 24);
@@ -114,91 +114,30 @@ export const ListItemContainer = styled.div`
     );
     cursor: pointer;
   }
-
-  div:first-child > div {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    margin-left: 90px;
-    margin-top: 100px;
-    transition: margin-top 0.3s, opacity 0.3s;
-    opacity: 0;
-    border-radius: 20px;
-    background-color: ${(props) => props.theme.background.playButton};
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: ${(props) => props.theme.color.secondary};
-    font-size: 0.8em;
-    padding-left: 2px;
-    padding-top: 2px;
-    -webkit-box-shadow: -2px 4px 8px 0px rgba(0, 0, 0, 0.61);
-    box-shadow: -2px 4px 8px 0px rgba(0, 0, 0, 0.61);
-  }
-
-  :hover > div:first-child > div {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    margin-left: 90px;
-    margin-top: 90px;
-    transition: margin-top 0.3s, opacity 0.3s;
-    opacity: 0;
-    opacity: 1;
-  }
-
-  div:first-child > div:hover {
-    cursor: default;
-    font-size: 0.9em;
-    -webkit-box-shadow: 0px 0px 0px 1px #1db954;
-    box-shadow: 0px 0px 0px 1px #1db954;
-  }
 `;
 
-type ImageContainerProps = {
-  imageUrl?: string;
-};
-
-export const ImageContainer = styled.div<ImageContainerProps>`
+export const ImageContainer = styled.div`
   width: 150px;
   height: 150px;
   background-color: gray;
-  border-radius: 2px;
-  margin: 15px 15px 10px 15px;
+  border-radius: 50%;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: ${({ imageUrl }) =>
-    imageUrl
-      ? `url(${imageUrl})`
-      : "url(https://www.oysterworldwide.com/panel/wp-content/uploads/2014/02/Project_Romania_Bear_in_woods.jpg)"};
-  background-position: center;
-  background-size: cover;
 `;
 
-export const ListItemTitle = styled.div`
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  margin: 10px 0px;
-  padding-left: 15px;
   color: ${(props) => props.theme.color.secondary};
   font-weight: 700;
-  font-size: 0.95em;
-  white-space: nowrap;
+  font-size: 1.2em;
   overflow: hidden;
-
-  :hover {
-    text-decoration: underline;
-  }
-`;
-
-export const ListItemSubtitle = styled.div`
-  width: calc(100% - 30px);
-  color: ${(props) => props.theme.color.lightGray};
-  font-weight: 500;
-  font-size: 0.8em;
-  white-space: nowrap;
-  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: pre-wrap;
 `;

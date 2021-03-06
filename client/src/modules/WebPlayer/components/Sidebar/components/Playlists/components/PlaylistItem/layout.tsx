@@ -6,6 +6,7 @@ type PlaylistItemLayoutProps = {
   playlistName: string;
   changedName: string;
   isFocus: boolean;
+  isActive: boolean;
   handleOnDoubleClick: (e: React.MouseEvent) => void;
   handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -24,6 +25,7 @@ export const PlaylistItemLayout = forwardRef<
       playlistName,
       changedName,
       isFocus,
+      isActive,
       handleOnDoubleClick,
       handleOnChange,
       handleOnSubmit,
@@ -39,6 +41,7 @@ export const PlaylistItemLayout = forwardRef<
         onDoubleClick={handleOnDoubleClick}
         focus={isFocus}
         onSubmit={handleOnSubmit}
+        active={isActive}
       >
         <ContextMenuTrigger id={`PlaylistItemMenu-${playlistID}`}>
           <input
@@ -47,6 +50,7 @@ export const PlaylistItemLayout = forwardRef<
             readOnly={isFocus ? false : true}
             ref={ref}
             onChange={handleOnChange}
+            onClick={handleRedirectToPlaylist(`/player/playlist/${playlistID}`)}
           />
         </ContextMenuTrigger>
 
@@ -55,7 +59,7 @@ export const PlaylistItemLayout = forwardRef<
             <OptionsMenu>
               <Option
                 onClick={handleRedirectToPlaylist(
-                  `/player/playlist/${playlistName.replace(/ /g, "_")}`
+                  `/player/playlist/${playlistID}`
                 )}
               >
                 Go to playlist

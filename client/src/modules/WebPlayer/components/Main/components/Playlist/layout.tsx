@@ -1,27 +1,35 @@
 import React from "react";
-import { Header } from "../Header/index";
-import { PlayButton } from "../PlayButton/index";
-import { SongsListItem } from "../SongsListItem/index";
+import { Header } from "../Header";
+import { PlayButton } from "../PlayButton";
+import { SongsListItem } from "../SongsListItem";
 import { Songs } from "../ListItemWrappers/Songs.wrapper";
 import { Section } from "../Section";
+import { Search } from "./components/Search";
 import { PlaylistContainer } from "./layout.styled";
+import { Playlist } from "../../../../../../store/types/playlist";
 
-const songData = {
-  artistName: "Metallica",
-  albumName: "Master of puppets",
-  trackName: "Master of puppets",
-  imgUrl: "test",
-  trackLenght: "1:00",
+type PlaylistLayoutProps = {
+  playlistData: Playlist;
 };
 
-export const PlaylistLayout = () => (
+export const PlaylistLayout = ({ playlistData }: PlaylistLayoutProps) => (
   <PlaylistContainer>
     <Header
-      imgUrl="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+      imgUrl={
+        playlistData.songs.length > 0
+          ? playlistData.songs[0].artworkUrl100
+          : "https://cdn.pixabay.com/photo/2018/04/11/19/48/music-3311599_960_720.png"
+      }
       category="Playlist"
-      title="Jimi's playlist"
+      title={playlistData.playlist_name}
     />
-    <PlayButton />
-    <Section title="Jimi's playlist songs" children={<Songs></Songs>} />
+    {playlistData.songs.length === 0 && <Search />}
+    {/* {playlistData.songs.length > 0 && <PlayButton />}
+    {playlistData.songs.length > 0 && (
+      <Section
+        title={`${playlistData.playlist_name} songs`}
+        children={<Songs></Songs>}
+      />
+    )} */}
   </PlaylistContainer>
 );

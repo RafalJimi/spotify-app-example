@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface PlaylistItemContainerProps {
   readonly focus?: boolean;
+  readonly active?: boolean;
 }
 
 export const PlaylistItemContainer = styled.form<PlaylistItemContainerProps>`
@@ -19,7 +20,11 @@ export const PlaylistItemContainer = styled.form<PlaylistItemContainerProps>`
     color: ${(props) =>
       props.focus ? props.theme.color.primary : props.theme.color.lightGray};
     background-color: ${(props) =>
-      props.focus ? props.theme.color.secondary : props.theme.color.primary};
+      props.focus
+        ? props.theme.color.secondary
+        : props.active
+        ? "#ffffff10"
+        : props.theme.color.primary};
     border: none;
     outline: none;
   }

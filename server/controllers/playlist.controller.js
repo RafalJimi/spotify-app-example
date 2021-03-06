@@ -1,5 +1,16 @@
 const Playlist = require(`../models/playlist.model`)
 
+exports.getPlaylistsByTermController = async (req, res) => {
+ 
+  const term = req.query.term
+  
+  Playlist.find({ playlist_name: { $regex: term, $options: "i" } }).exec((err, playlists) => {
+    if (err) {
+      return res.code(500).send({ err: "Something went wrong, please try again." })
+    } else return res.code(200).send({ resultCount: playlists.length, results: playlists})
+  })
+}
+
 exports.createPlaylistController = async (req, res) => {
 
   const user_email = req.profile.email
@@ -96,4 +107,15 @@ exports.deletePlaylistController = async (req, res) => {
               }
           }
       ); 
+}
+
+exports.getPlaylistController = async (req, res) => {
+
+  const playlistID = req.query.id
+  
+  Playlist.findOne({ _id: playlistID }).exec((err, playlist) => {
+    if (err) {
+      return res.code(500).send({ err: "Something went wrong, please try again." })
+    } else return res.code(200).send({ playlist: playlist})
+  })
 }

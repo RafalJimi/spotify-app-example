@@ -9,7 +9,11 @@ export const HeaderContainer = styled.header`
   width: 100%;
 `;
 
-export const ImageContainer = styled.div`
+type ImageContainerProps = {
+  imageUrl?: string;
+};
+
+export const ImageContainer = styled.div<ImageContainerProps>`
   width: 200px;
   height: 200px;
   display: flex;
@@ -17,11 +21,12 @@ export const ImageContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   overflow: hidden;
-
-  img {
-    height: 100%;
-    overflow: hidden;
-  }
+  background-image: ${({ imageUrl }) =>
+    imageUrl
+      ? `url(${imageUrl})`
+      : "url(https://www.oysterworldwide.com/panel/wp-content/uploads/2014/02/Project_Romania_Bear_in_woods.jpg)"};
+  background-position: center;
+  background-size: cover;
 `;
 
 export const Informations = styled.div`

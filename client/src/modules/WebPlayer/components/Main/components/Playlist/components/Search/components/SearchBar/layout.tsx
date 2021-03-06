@@ -12,7 +12,6 @@ type NavButtonsLayoutProps = {
 export const SearchBarLayout = ({
   term,
   handleOnChange,
-  handleClearTerm,
   handleOnSubmit,
 }: NavButtonsLayoutProps) => (
   <SearchBarContainer>
@@ -27,8 +26,5 @@ export const SearchBarLayout = ({
         onChange={handleOnChange}
       />
     </form>
-    <button onClick={handleClearTerm}>
-      <i className="fas fa-times"></i>
-    </button>
   </SearchBarContainer>
 );

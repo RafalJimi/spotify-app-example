@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../Header/index";
 import { PlayButton } from "../PlayButton/index";
 import { SongsListItem } from "../SongsListItem/index";
-import { ListItem } from "../SectionListItem/index";
+import { AlbumItem } from "../AlbumItem/index";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Songs } from "../ListItemWrappers/Songs.wrapper";
 import { Section } from "../Section/index";
@@ -55,11 +55,10 @@ export const ArtistLayout = ({ songs, albums, songsAreLoading, albumsAreLoading 
               <ListItemsWrapper arrLength={albums.results.length}>
                 {albums.results.length !== 0 ? (
                   albums.results.map((album, i = 0) => (
-                    <ListItem
+                    <AlbumItem
                       key={i++}
-                      id={i++}
-                      category="album"
-                      listItemData={album}
+                      id={i}
+                      albumItemData={album}
                     />
                   ))
                 ) : (
