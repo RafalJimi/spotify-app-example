@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logoutUserStarted } from "../../../../../../store/logoutUser/actions";
+import { logoutUserStarted } from "../../../../../../store/user/logoutUser/actions";
 import { UserMenuLayout } from "./layout";
 
 export const UserMenu = () => {

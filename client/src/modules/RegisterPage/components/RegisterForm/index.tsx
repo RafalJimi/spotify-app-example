@@ -10,12 +10,12 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   registerUserStarted,
   clearRegisterUserState,
-} from "../../../../store/registerUser/actions";
+} from "../../../../store/user/registerUser/actions";
 import {
   registerResultIsSuccessRX,
   registerResultIsErrorRX,
   registerUserIsLoadingRX,
-} from "../../../../store/registerUser/selectors";
+} from "../../../../store/user/registerUser/selectors";
 import { email, onlyDigits } from "../../../../helpers/formats";
 import { RegisterFormLayout } from "./layout";
 import { toast } from "react-toastify";

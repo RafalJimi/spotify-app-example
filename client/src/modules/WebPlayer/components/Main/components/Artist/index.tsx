@@ -4,16 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSongsByArtist,
   clearSongsByArtistState,
-} from "../../../../../../store/fetchSongsByArtist/actions";
+} from "../../../../../../store/iTunesAPI/fetchSongsByArtist/actions";
 import {
   fetchAlbumsByArtist,
   clearAlbumsByArtistState,
-} from "../../../../../../store/fetchAlbumsByArtist/actions";
-import { songsByArtistResult, songsByArtistIsLoading } from "../../../../../../store/fetchSongsByArtist/selectors";
+} from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/actions";
 import {
-  albumsByArtistResult,
-  albumsByArtistIsLoading,
-} from "../../../../../../store/fetchAlbumsByArtist/selectors";
+  songsByArtistResultRX,
+  songsByArtistIsLoadingRX,
+  songsByArtistIsErrorRX,
+} from "../../../../../../store/iTunesAPI/fetchSongsByArtist/selectors";
+import {
+  albumsByArtistResultRX,
+  albumsByArtistIsLoadingRX,
+  albumsByArtistIsErrorRX,
+} from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/selectors";
 import { useReactPlayerContext } from '../../../../../../contexts/ReactPlayer.context'
 import { ArtistLayout } from "./layout";
 
@@ -30,11 +35,14 @@ export const Artist = memo(() => {
     };
   }, [artistName]);
 
-  const songs = useSelector(songsByArtistResult);
-  const songsAreLoading = useSelector(songsByArtistIsLoading);
-  
-  const albums = useSelector(albumsByArtistResult);
-  const albumsAreLoading = useSelector(albumsByArtistIsLoading);
+  const songs = useSelector(songsByArtistResultRX);
+  const songsAreLoading = useSelector(songsByArtistIsLoadingRX);
+
+  const albums = useSelector(albumsByArtistResultRX);
+  const albumsAreLoading = useSelector(albumsByArtistIsLoadingRX);
+
+  const songsByArtistIsError = useSelector(songsByArtistIsErrorRX);
+  const albumsByArtistIsError = useSelector(albumsByArtistIsErrorRX);
   
   const { setFetchedSongsArr } = useReactPlayerContext();
   
@@ -48,6 +56,8 @@ export const Artist = memo(() => {
       albums={albums}
       songsAreLoading={songsAreLoading}
       albumsAreLoading={albumsAreLoading}
+      songsByArtistIsError={songsByArtistIsError}
+      albumsByArtistIsError={albumsByArtistIsError}
     />
   );
 });

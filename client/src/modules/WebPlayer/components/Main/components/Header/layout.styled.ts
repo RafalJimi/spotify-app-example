@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   justify-content: flex-start;
   margin-bottom: 20px;
   width: 100%;
+  overflow: hidden;
 `;
 
 type ImageContainerProps = {
@@ -32,7 +33,7 @@ export const ImageContainer = styled.div<ImageContainerProps>`
 export const Informations = styled.div`
   color: ${(props) => props.theme.color.secondary};
   font-size: 2.5em;
-  width: 100%;
+  width: calc(100% - 230px);
   margin-left: 30px;
 
   span {

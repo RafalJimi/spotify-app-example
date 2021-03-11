@@ -119,3 +119,62 @@ exports.getPlaylistController = async (req, res) => {
     } else return res.code(200).send({ playlist: playlist})
   })
 }
+
+exports.addToPlaylistController = async (req, res) => {
+  
+  const { id, song } = req.body
+
+  Playlist.findOne(
+          { _id: id },
+          (err, playlist) => {
+              if (err || !playlist) {
+                  return res.code(500).send({ error: "Playlist not found - please try again." })
+              } else {
+                  if (playlist.songs.findIndex(playlistSong => playlistSong.previewUrl === song.previewUrl) !== -1)
+                    return res.code(202).send({ message: "Song is already added to this playlist." });
+                  else
+                    Playlist.findOneAndUpdate({ _id: playlist._id },
+                      { $push: { songs: song } },
+                      { new: true }).exec((err, playlist) => {
+                        if (err) {
+                          return res.code(500).send({err: "Something went wrong, please try again."})
+                        } else return res.code(200).send({ message: "Song has been added successfully."})
+                    })
+              } 
+          }
+      ); 
+}
+
+exports.removeFromPlaylistController = async (req, res) => {
+  
+  const { id, song } = req.body
+
+  Playlist.findOne(
+          { _id: id },
+          (err, playlist) => {
+              if (err || !playlist) {
+                  return res.code(500).send({ error: "Playlist not found - please try again." })
+              } else {
+
+                if (playlist.songs.findIndex(playlistSong => playlistSong.previewUrl === song.previewUrl) !== -1)
+                    Playlist.findOneAndUpdate({ _id: playlist._id },
+                    { $pull: { songs: song } },
+                    { new: true }).exec((err, playlist) => {
+                      if (err) {
+                        return res.code(500).send({err: "Something went wrong, please try again."})
+                      } else return res.code(200).send({ message: "Song has been removed successfully from playlist."})
+                    })
+                else
+                  Playlist.findOneAndUpdate({ _id: playlist._id },
+                    { $push: { songs: song } },
+                    { new: true }).exec((err, playlist) => {
+                      if (err) {
+                        return res.code(500).send({err: "Something went wrong, please try again."})
+                      } else return res.code(202).send({
+                          message: "This song is not added to this playlist."
+                        }); 
+                    })
+              } 
+          }
+      ); 
+}

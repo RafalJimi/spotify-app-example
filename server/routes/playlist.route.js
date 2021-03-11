@@ -1,6 +1,13 @@
 const { isAuth } = require('../hooks/isAuth')
 
-const { getPlaylistsByTermController ,createPlaylistController, getPlaylistsController, renamePlaylistController, deletePlaylistController, getPlaylistController
+const { getPlaylistsByTermController,
+  createPlaylistController,
+  getPlaylistsController,
+  renamePlaylistController,
+  deletePlaylistController,
+  getPlaylistController,
+  addToPlaylistController,
+  removeFromPlaylistController
 } = require('../controllers/playlist.controller')
 
 async function routes(fastify, option, done) {
@@ -15,6 +22,8 @@ async function routes(fastify, option, done) {
   fastify.get('/get_user_playlist', getPlaylistController)
   fastify.get('/get_playlists', getPlaylistController)
   fastify.get('/get_playlists_by_term', getPlaylistsByTermController)
+  fastify.put('/add_to_playlist', addToPlaylistController)
+  fastify.put('/remove_from_playlist', removeFromPlaylistController)
 }
 
 module.exports = routes

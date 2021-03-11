@@ -24,7 +24,7 @@ export const SearchBar = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    history.push(`/player/search?term=${Term.replace(/ /g, "_")}`);
+    history.push(`/player/search?term=${Term}`);
   };
 
   return (

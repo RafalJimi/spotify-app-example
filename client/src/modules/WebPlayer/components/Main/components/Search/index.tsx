@@ -3,14 +3,14 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import queryString from "query-string";
 import { SearchLayout } from "./layout";
-import { fetchSearchDataStarted } from "../../../../../../store/fetchSearchData/actions";
+import { fetchSearchDataStarted } from "../../../../../../store/iTunesAPI/fetchSearchData/actions";
 import {
   fetchDataArtistsResultRX,
   fetchDataAlbumsResultRX,
   fetchDataPlaylistsResultRX,
   fetchSearchDataIsLoadingRX,
-  fetchSearchDataIsErrorRX
-} from '../../../../../../store/fetchSearchData/selectors'
+  fetchSearchDataIsErrorRX,
+} from "../../../../../../store/iTunesAPI/fetchSearchData/selectors";
 
 export const Search = memo(() => {
   const history = useHistory();
@@ -35,6 +35,7 @@ export const Search = memo(() => {
       albums={albumsResult}
       playlists={playlistsResult}
       isLoading={isLoading}
+      isError={isError}
     />
   );
 });

@@ -3,7 +3,7 @@ import {
   ArtistsResult,
   AlbumsResult,
   PlaylistsResult,
-} from "../../../../.././../store/fetchSearchData/reducer";
+} from "../../../../.././../store/iTunesAPI/fetchSearchData/reducer";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Section } from "../Section";
 import { ArtistItem } from "../ArtistItem/";
@@ -12,12 +12,14 @@ import { PlaylistItem } from "../PlaylistItem";
 import { Loader } from "../Loader";
 import { NotFound } from "../NotFound";
 import { SearchContainer } from "./layout.styled";
+import { ITunesError } from "../iTunesApiError";
 
 type SearchLayoutProps = {
   artists: ArtistsResult;
   albums: AlbumsResult;
   playlists: PlaylistsResult;
   isLoading: boolean;
+  isError: boolean;
 };
 
 export const SearchLayout = ({
@@ -25,6 +27,7 @@ export const SearchLayout = ({
   albums,
   playlists,
   isLoading,
+  isError,
 }: SearchLayoutProps) => (
   <SearchContainer>
     {isLoading && <Loader />}
@@ -70,5 +73,6 @@ export const SearchLayout = ({
     ) : (
       <NotFound sectionName="Playlists" />
     )}
+    {isError && <ITunesError />}
   </SearchContainer>
 );

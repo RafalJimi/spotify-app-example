@@ -3,8 +3,8 @@ import { useBurgerMenuContext } from "../../contexts/BurgerMenu.context";
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { isAuthRX } from "../../store/isAuth/selectors";
-import { logoutUserStarted } from "../../store/logoutUser/actions";
+import { isAuthRX } from "../../store/user/isAuth/selectors";
+import { logoutUserStarted } from "../../store/user/logoutUser/actions";
 import { BurgerMenuLayout } from "./layout";
 
 export const BurgerMenu = () => {

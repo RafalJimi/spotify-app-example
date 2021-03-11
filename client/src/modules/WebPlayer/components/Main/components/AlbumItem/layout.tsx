@@ -52,7 +52,9 @@ export const AlbumItemLayout = ({
           path: `/player/album/${albumItemData.collectionName.replace(
             / /g,
             "_"
-          )}`,
+          )}?limit=${albumItemData.trackCount}&artist=${
+            albumItemData.artistName
+          }`,
         }}
       >
         Go to album

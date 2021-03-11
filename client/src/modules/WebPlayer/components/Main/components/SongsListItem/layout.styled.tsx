@@ -154,16 +154,47 @@ export const Time = styled.div<CurrentSongProp>`
   margin: 0px 5px;
 `;
 
-export const Options = styled(Time)`
+export const Options = styled(Time)<CurrentSongProp>`
   font-size: 0.9em;
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
+  width: 40px;
 
   :hover {
     cursor: pointer;
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) =>
+      props.isCurrentSong
+        ? props.theme.color.lightGreen
+        : props.theme.color.lightGray};
+    width: 40px;
   }
 `;
 
-export const OptionsMenu = styled.div`
+type OptionsMenuProps = {
+  isOpen?: boolean;
+};
+
+export const OptionsMenu = styled.div<OptionsMenuProps>`
+  position: absolute;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 200px;
+  opacity: 1;
+  background-color: ${(props) => props.theme.background.optionsMenu};
+  transform: translate(-60%, 50%);
+  padding: 5px 5px;
+  border-radius: 3px;
+  z-index: 10;
+  -webkit-box-shadow: -7px 9px 24px 0px rgba(0, 0, 0, 0.62);
+  box-shadow: -7px 9px 24px 0px rgba(0, 0, 0, 0.62);
+`;
+
+export const ContextMenuOption = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -217,4 +248,4 @@ export const PlaylistsContainer = styled.div`
   box-shadow: -7px 9px 24px 0px rgba(0, 0, 0, 0.62);
 `;
 
-export const Playlist = styled(Option)``;
+export const PlaylistName = styled(Option)``;

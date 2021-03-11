@@ -13,6 +13,7 @@ connectDB();
 fastify.register(require(`./utils/auth.util`))
 fastify.register(require(`./routes/auth.route`), { prefix: '/api/auth' })
 fastify.register(require(`./routes/playlist.route`), { prefix: '/api/playlist' })
+fastify.register(require(`./routes/favourite.route`), { prefix: '/api/favourite' })
 
 const PORT = process.env.PORT
 

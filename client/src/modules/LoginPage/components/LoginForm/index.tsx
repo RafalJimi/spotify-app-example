@@ -1,12 +1,12 @@
 import React, { useState, useEffect, ChangeEvent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUserStarted } from "../../../../store/loginUser/actions";
+import { loginUserStarted } from "../../../../store/user/loginUser/actions";
 import {
   loginUserTokenRX,
   loginUserIsErrorRX,
   loginUserIsLoadingRX,
-} from "../../../../store/loginUser/selectors";
+} from "../../../../store/user/loginUser/selectors";
 import { setLocalStorage } from "../../../../helpers/auth";
 import { LoginFormLayout } from "./layout";
 import { toast } from "react-toastify";

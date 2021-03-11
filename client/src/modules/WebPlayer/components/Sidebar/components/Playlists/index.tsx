@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 import {
   fetchUserPlaylistsStarted,
   clearPlaylistsState,
-} from "../../../../../../store/fetchUserPlaylists/actions";
-import { createPlaylistStarted } from "../../../../../../store/createPlaylist/actions";
-import { userPlaylistsRX } from '../../../../../../store/fetchUserPlaylists/selectors'
+} from "../../../../../../store/playlist/fetchUserPlaylists/actions";
+import { createPlaylistStarted } from "../../../../../../store/playlist/createPlaylist/actions";
+import { userPlaylistsRX } from "../../../../../../store/playlist/fetchUserPlaylists/selectors";
 import { PlaylistsLayout } from "./layout";
 
 

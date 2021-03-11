@@ -8,8 +8,8 @@ import React, {
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useClickOutside } from "../../../../../../../../hooks/useClickOutside";
-import { changePlaylistNameStarted } from "../../../../../../../../store/changePlaylistName/actions";
-import { deletePlaylistStarted } from "../../../../../../../../store/deletePlaylist/actions";
+import { changePlaylistNameStarted } from "../../../../../../../../store/playlist/changePlaylistName/actions";
+import { deletePlaylistStarted } from "../../../../../../../../store//playlist/deletePlaylist/actions";
 import { usePlaylistsContext } from "../../../../../../../../contexts/Playlists.context";
 import { PlaylistItemLayout } from "./layout";
 

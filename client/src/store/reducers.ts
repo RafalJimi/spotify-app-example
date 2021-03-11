@@ -1,31 +1,68 @@
 import { combineReducers } from "redux";
-import { RegisterUserState, registerUser } from "../store/registerUser/reducer";
-import { LoginUserState, loginUser } from "./loginUser/reducer";
-import { CheckAuthState, checkAuth } from "./isAuth/reducer";
-import { LogoutUserState, logoutUser } from "./logoutUser/reducer";
+import { RegisterUserState, registerUser } from "./user/registerUser/reducer";
+import { LoginUserState, loginUser } from "./user/loginUser/reducer";
+import { CheckAuthState, checkAuth } from "./user/isAuth/reducer";
+import { LogoutUserState, logoutUser } from "./user/logoutUser/reducer";
 import {
   SongsByArtistState,
   songsByArtist,
-} from "./fetchSongsByArtist/reducer";
+} from "./iTunesAPI/fetchSongsByArtist/reducer";
 import {
   AlbumsByArtistState,
   albumsByArtist,
-} from "./fetchAlbumsByArtist/reducer";
-import { CreatePlaylistState, createPlaylist } from "./createPlaylist/reducer";
+} from "./iTunesAPI/fetchAlbumsByArtist/reducer";
+import {
+  CreatePlaylistState,
+  createPlaylist,
+} from "./playlist/createPlaylist/reducer";
 import {
   FetchUserPlaylistsState,
   fetchUserPlaylists,
-} from "./fetchUserPlaylists/reducer";
+} from "./playlist/fetchUserPlaylists/reducer";
 import {
   ChangePlaylistNameState,
   changePlaylistName,
-} from "./changePlaylistName/reducer";
-import { DeletePlaylistState, deletePlaylist } from "./deletePlaylist/reducer";
-import { FetchPlaylistState, fetchPlaylist } from "./fetchUserPlaylist/reducer";
+} from "./playlist/changePlaylistName/reducer";
+import {
+  DeletePlaylistState,
+  deletePlaylist,
+} from "./playlist/deletePlaylist/reducer";
+import {
+  FetchPlaylistState,
+  fetchPlaylist,
+} from "./playlist/fetchUserPlaylist/reducer";
 import {
   FetchSearchDataState,
   fetchSearchData,
-} from "./fetchSearchData/reducer";
+} from "./iTunesAPI/fetchSearchData/reducer";
+import {
+  AddToFavouriteState,
+  addToFavourite,
+} from "./favouriteSongs/addSongToFavourite/reducer";
+import {
+  RemoveFromFavouriteState,
+  removeFromFavourite,
+} from "./favouriteSongs/removeSongFromFavourite/reducer";
+import {
+  FetchUserFavouriteSongsState,
+  fetchUserFavouriteSongs,
+} from "./favouriteSongs/fetchUserFavouriteSongs/reducer";
+import {
+  FavouriteSongsArrayState,
+  favouriteSongsArray,
+} from "./favouriteSongs/favouriteSongsArray/reducer";
+import {
+  SongsByAlbumState,
+  songsByAlbum,
+} from "./iTunesAPI/fetchSongsByAlbum/reducer";
+import {
+  AddToPlaylistState,
+  addToPlaylist,
+} from "./playlist/addSongToPlaylist/reducer";
+import {
+  RemoveFromPlaylistState,
+  removeFromPlaylist,
+} from "./playlist/removeSongFromPlaylist/reducer";
 
 export type AppState = {
   registerUser: RegisterUserState;
@@ -40,6 +77,13 @@ export type AppState = {
   deletePlaylist: DeletePlaylistState;
   fetchPlaylist: FetchPlaylistState;
   fetchSearchData: FetchSearchDataState;
+  addToFavourite: AddToFavouriteState;
+  removeFromFavourite: RemoveFromFavouriteState;
+  fetchUserFavouriteSongs: FetchUserFavouriteSongsState;
+  favouriteSongsArray: FavouriteSongsArrayState;
+  songsByAlbum: SongsByAlbumState;
+  addToPlaylist: AddToPlaylistState;
+  removeFromPlaylist: RemoveFromPlaylistState;
 };
 
 export const reducer = combineReducers<AppState>({
@@ -55,6 +99,13 @@ export const reducer = combineReducers<AppState>({
   deletePlaylist,
   fetchPlaylist,
   fetchSearchData,
+  addToFavourite,
+  removeFromFavourite,
+  fetchUserFavouriteSongs,
+  favouriteSongsArray,
+  songsByAlbum,
+  addToPlaylist,
+  removeFromPlaylist,
 });
 
 export type RootState = ReturnType<typeof reducer>;

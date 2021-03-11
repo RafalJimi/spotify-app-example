@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { isAuthRX } from "../../../../store/isAuth/selectors";
+import { isAuthRX } from "../../../../store/user/isAuth/selectors";
 import { MainLayout } from "./layout";
 import { toast } from "react-toastify";
 

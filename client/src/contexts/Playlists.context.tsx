@@ -9,6 +9,8 @@ import { useLocation } from "react-router-dom";
 
 type PlaylistsContextProps = {
   CurrentPlaylistID: string;
+  PlaylistComponentIsMounted: boolean;
+  setPlaylistComponentIsMounted: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const PlaylistsContext = createContext<
@@ -17,12 +19,17 @@ export const PlaylistsContext = createContext<
 
 export const PlaylistsContextProvider: React.FC = ({ children }) => {
   const [CurrentPlaylistID, setCurrentPlaylistID] = useState("");
+  const [PlaylistComponentIsMounted, setPlaylistComponentIsMounted] = useState(
+    false
+  );
 
   const location = useLocation();
 
   const memoizedValue = useMemo(
     () => ({
       CurrentPlaylistID,
+      PlaylistComponentIsMounted,
+      setPlaylistComponentIsMounted,
     }),
     [CurrentPlaylistID]
   );

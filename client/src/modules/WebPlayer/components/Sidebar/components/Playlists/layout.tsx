@@ -9,7 +9,6 @@ import {
   Border,
   Playlists,
 } from "./layout.styled";
-import { PlaylistsContextProvider } from "../../../../../../contexts/Playlists.context";
 import { PlaylistItem } from "./components/PlaylistItem";
 
 type PlaylistsLayoutProps = {
@@ -38,7 +37,6 @@ export const PlaylistsLayout = ({
       </FavsSongsButton>
     </ButtonsContainer>
     <Border />
-    <PlaylistsContextProvider>
       <Playlists>
         {userPlaylists.length !== 0 &&
           userPlaylists.map((playlist: Playlist, i) => (
@@ -49,6 +47,5 @@ export const PlaylistsLayout = ({
             />
           ))}
       </Playlists>
-    </PlaylistsContextProvider>
   </PlaylistsContainer>
 );

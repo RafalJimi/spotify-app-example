@@ -13,7 +13,7 @@ export const AlbumItem = ({ id, albumItemData }: AlbumItemProps) => {
 
   const handleOnClick = useCallback((e: React.MouseEvent) => {
     history.push(
-      `/player/album/${albumItemData.collectionName.replace(/ /g, "_")}`
+      `/player/album/${albumItemData.collectionName}?limit=${albumItemData.trackCount}&artist=${albumItemData.artistName}`
     );
   }, []);
 
