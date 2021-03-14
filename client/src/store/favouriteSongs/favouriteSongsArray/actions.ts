@@ -1,4 +1,7 @@
-import { UPDATE_FAVOURITE_SONGS_ARRAY } from "./consts";
+import {
+  UPDATE_FAVOURITE_SONGS_ARRAY,
+  CLEAR_FAVOURITE_SONGS_ARRAY_STATE,
+} from "./consts";
 import { createAction } from "typesafe-actions";
 import { Song } from "../../types/song";
 
@@ -11,4 +14,9 @@ export const updateFavSongs = createAction(
   (songs): Props => ({
     songs,
   })
+)();
+
+export const clearFavSongsState = createAction(
+  CLEAR_FAVOURITE_SONGS_ARRAY_STATE,
+  () => ({})
 )();

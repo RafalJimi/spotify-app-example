@@ -7,12 +7,12 @@ import { Artist } from "./components/Artist/index";
 import { Album } from "./components/Album/index";
 import { Playlist } from "./components/Playlist/index";
 import { Favourite } from "./components/Favourite/index";
-import { MainContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 import { FavouriteSongsContextProvider } from "../../../../contexts/FavouriteSongs.context";
 
 export const MainLayout = () => {
   return (
-    <MainContainer>
+    <Container>
       <Switch>
         <Suspense fallback={<div>Loading ...</div>}>
           <Route path="/player/home" exact component={Home} />
@@ -30,6 +30,6 @@ export const MainLayout = () => {
           </FavouriteSongsContextProvider>
         </Suspense>
       </Switch>
-    </MainContainer>
+    </Container>
   );
 };

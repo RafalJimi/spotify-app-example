@@ -58,6 +58,7 @@ export const Artist = memo(() => {
       albumsAreLoading={albumsAreLoading}
       songsByArtistIsError={songsByArtistIsError}
       albumsByArtistIsError={albumsByArtistIsError}
+      artistName={artistName}
     />
   );
 });

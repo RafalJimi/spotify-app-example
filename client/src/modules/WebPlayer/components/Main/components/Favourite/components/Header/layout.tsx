@@ -1,8 +1,8 @@
 import React from "react";
-import { HeaderContainer, ImageContainer, Informations } from "./layout.styled";
+import { Container, ImageContainer, Informations } from "./layout.styled";
 
 export const HeaderLayout = () => (
-  <HeaderContainer>
+  <Container>
     <ImageContainer>
       <i className="fas fa-heart"></i>
     </ImageContainer>
@@ -10,5 +10,5 @@ export const HeaderLayout = () => (
       <span>Playlist</span>
       <h1>Favourite songs</h1>
     </Informations>
-  </HeaderContainer>
+  </Container>
 );

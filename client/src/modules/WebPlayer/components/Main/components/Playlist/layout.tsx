@@ -4,20 +4,25 @@ import { PlayButton } from "../PlayButton";
 import { SongsListItem } from "../SongsListItem";
 import { Songs } from "../ListItemWrappers/Songs.wrapper";
 import { Section } from "../Section";
-import { Search } from "./components/Search";
+import { SearchElements } from "../SearchElements";
 import { Loader } from "../Loader";
 import { Playlist } from "../../../../../../store/types/playlist";
 import { Song } from "../../../../../../store/types/song";
-import { PlaylistContainer } from "./layout.styled";
-
+import { ServerError } from "../ServerError";
+import { Container } from "./layout.styled";
 
 type PlaylistLayoutProps = {
   isLoading: boolean;
   playlistData: Playlist;
+  isError: string;
 };
 
-export const PlaylistLayout = ({ isLoading, playlistData }: PlaylistLayoutProps) => (
-  <PlaylistContainer>
+export const PlaylistLayout = ({
+  isLoading,
+  playlistData,
+  isError,
+}: PlaylistLayoutProps) => (
+  <Container>
     {isLoading ? (
       <Loader />
     ) : (
@@ -43,10 +48,11 @@ export const PlaylistLayout = ({ isLoading, playlistData }: PlaylistLayoutProps)
               </Songs>
             }
           />
-          )
-          :
-          <Search />}
+        ) : (
+          <SearchElements sectionName="playlist" />
+        )}
       </React.Fragment>
     )}
-  </PlaylistContainer>
+    {isError && <ServerError error={isError} />}
+  </Container>
 );

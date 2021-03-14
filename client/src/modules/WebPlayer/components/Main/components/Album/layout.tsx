@@ -11,7 +11,7 @@ import { AlbumsByArtistResults } from "../../../../../../store/iTunesAPI/fetchAl
 import { Loader } from "../Loader";
 import { NotFound } from "../NotFound";
 import { ITunesError } from "../iTunesApiError";
-import { AlbumContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 
 type AlbumLayoutProps = {
   songsByAlbumResult: SongsByAlbumResults;
@@ -20,6 +20,7 @@ type AlbumLayoutProps = {
   albumsByArtistIsLoading: boolean;
   songsByAlbumIsError: boolean;
   albumsByArtistIsError: boolean;
+  albumName: string;
 };
 
 export const AlbumLayout = ({
@@ -29,33 +30,28 @@ export const AlbumLayout = ({
   albumsByArtistIsLoading,
   songsByAlbumIsError,
   albumsByArtistIsError,
+  albumName,
 }: AlbumLayoutProps) => (
-  <AlbumContainer>
-    {((songsByAlbumIsLoading || albumsByArtistIsLoading) &&
-      songsByAlbumResult.resultCount === 0) ||
-    albumsByArtistResult.resultCount === 0 ? (
+  <Container>
+    {songsByAlbumIsLoading || albumsByArtistIsLoading ? (
       <Loader />
     ) : (
       <React.Fragment>
         <Header
           imgUrl={
-            songsByAlbumResult.resultCount === 0
-              ? "asd"
-              : songsByAlbumResult.results[0].artworkUrl100
+            songsByAlbumResult.resultCount > 0
+              ? songsByAlbumResult.results[0].artworkUrl100
+              : "https://linuxporady.pl/wp-content/uploads/2019/05/jak-nagrac-na-plycie-dvd-cd-dane-z-pliku-img.jpeg"
           }
-          category="Artist"
-          title={
-            songsByAlbumResult.resultCount === 0
-              ? "asd"
-              : songsByAlbumResult.results[0].collectionName
-          }
+          category="Album"
+          title={albumName}
         />
         <PlayButton />
         <Section
-          title={`Songs from ${songsByAlbumResult.results[0].collectionName}`}
+          title={`Songs from ${albumName}`}
           children={
             <Songs>
-              {songsByAlbumResult.resultCount !== 0 ? (
+              {songsByAlbumResult.resultCount > 0 ? (
                 songsByAlbumResult.results.map((song, i) => (
                   <SongsListItem
                     key={i}
@@ -71,10 +67,14 @@ export const AlbumLayout = ({
           }
         />
         <Section
-          title={`Other ${songsByAlbumResult.results[0].artistName} albums`}
+          title={
+            songsByAlbumResult.resultCount > 0
+              ? `Other ${songsByAlbumResult.results[0].artistName} albums`
+              : `Other albums`
+          }
           children={
-            <ListItemsWrapper arrLength={albumsByArtistResult.results.length}>
-              {albumsByArtistResult.resultCount !== 0 ? (
+            <ListItemsWrapper arrLength={albumsByArtistResult.resultCount}>
+              {albumsByArtistResult.resultCount > 0 ? (
                 albumsByArtistResult.results.map((album, i) => (
                   <AlbumItem key={i} id={i} albumItemData={album} />
                 ))
@@ -87,5 +87,5 @@ export const AlbumLayout = ({
       </React.Fragment>
     )}
     {(songsByAlbumIsError || albumsByArtistIsError) && <ITunesError />}
-  </AlbumContainer>
+  </Container>
 );

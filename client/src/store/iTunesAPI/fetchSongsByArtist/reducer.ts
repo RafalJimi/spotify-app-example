@@ -35,7 +35,6 @@ export const songsByArtist = (
         isError: initialState.isError,
       };
     case FETCH_SONGS_BY_ARTIST.success:
-      console.log(action.payload);
       return {
         ...state,
         songs: action.payload,

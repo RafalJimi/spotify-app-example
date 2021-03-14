@@ -45,6 +45,7 @@ export const Album = () => {
       albumsByArtistIsLoading={albumsByArtistIsLoading}
       songsByAlbumIsError={songsByAlbumIsError}
       albumsByArtistIsError={albumsByArtistIsError}
+      albumName={albumName}
     />
   );
 };

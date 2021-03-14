@@ -1,5 +1,5 @@
 import { FETCH_SEARCH_DATA } from "./consts";
-import { fetchSearchDataStarted } from "./actions";
+import { fetchSearchDataStarted, clearSearchData } from "./actions";
 import { Action } from "../../types/actions";
 import { getType } from "typesafe-actions";
 import { Artist } from "../../types/artist";
@@ -64,6 +64,15 @@ export const fetchSearchData = (
         ...state,
         isLoading: initialState.isLoading,
         isError: true,
+      };
+    case getType(clearSearchData):
+      return {
+        ...state,
+        isLoading: initialState.isLoading,
+        isError: initialState.isError,
+        artists: initialState.artists,
+        albums: initialState.albums,
+        playlists: initialState.playlists,
       };
     default:
       return { ...state };

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import queryString from "query-string";
@@ -13,24 +13,32 @@ import {
 } from "../../../../../../store/iTunesAPI/fetchSearchData/selectors";
 
 export const Search = memo(() => {
+  const [IsTerm, setIsTerm] = useState(false);;
+
   const history = useHistory();
   const dispatch = useDispatch();
+  
+  const queries = queryString.parse(history.location.search);
+  const searchTerm = queries.term
 
   useEffect(() => {
-    const queries = queryString.parse(history.location.search);
-    if (queries.term) {
-      dispatch(fetchSearchDataStarted(queries.term));
+    if (searchTerm) {
+      setIsTerm(true);
+      dispatch(fetchSearchDataStarted(searchTerm));
+    } else {
+      setIsTerm(false);
     }
-  }, [history.location.pathname]);
+  }, [searchTerm]);
 
   const artistsResult = useSelector(fetchDataArtistsResultRX);
   const albumsResult = useSelector(fetchDataAlbumsResultRX);
   const playlistsResult = useSelector(fetchDataPlaylistsResultRX);
-  const isLoading = useSelector(fetchSearchDataIsLoadingRX)
-  const isError = useSelector(fetchSearchDataIsErrorRX)
-  
+  const isLoading = useSelector(fetchSearchDataIsLoadingRX);
+  const isError = useSelector(fetchSearchDataIsErrorRX);
+
   return (
     <SearchLayout
+      isTerm={IsTerm}
       artists={artistsResult}
       albums={albumsResult}
       playlists={playlistsResult}

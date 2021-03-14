@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main`
+export const Container = styled.main`
   display: flex;
   margin-left: 230px;
   width: calc(100vw - 230px);

@@ -5,6 +5,7 @@ import { fetchPlaylistStarted } from "../../../../../../store/playlist/fetchUser
 import {
   playlistDataRX,
   isLoadingRX,
+  isErrorRX,
 } from "../../../../../../store/playlist/fetchUserPlaylist/selectors";
 import { usePlaylistsContext } from "../../../../../../contexts/Playlists.context";
 import { PlaylistLayout } from "./layout";
@@ -25,7 +26,14 @@ export const Playlist = () => {
 
   const isLoading = useSelector(isLoadingRX);
   const playlistData = useSelector(playlistDataRX);
+  const isError = useSelector(isErrorRX);
   
   
-  return <PlaylistLayout isLoading={isLoading} playlistData={playlistData} />;
+  return (
+    <PlaylistLayout
+      isLoading={isLoading}
+      playlistData={playlistData}
+      isError={isError}
+    />
+  );
 };;

@@ -1,6 +1,6 @@
-import React, { memo, useState, useCallback, useEffect } from "react";
+import React, { memo, useCallback, useEffect } from "react";
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import {
   fetchUserPlaylistsStarted,
   clearPlaylistsState,
@@ -12,6 +12,7 @@ import { PlaylistsLayout } from "./layout";
 
 export const Playlists = memo(() => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleCreatePlaylist = useCallback((e: React.MouseEvent) => {
     dispatch(createPlaylistStarted());
@@ -26,10 +27,18 @@ export const Playlists = memo(() => {
 
   const userPlaylists = useSelector(userPlaylistsRX);
   
+  const handleRedirect = useCallback(
+    (path: string) => (e: React.MouseEvent) => {
+      history.push(path)
+    },
+    [],
+  )
+  
   return (
     <PlaylistsLayout
       handleCreatePlaylist={handleCreatePlaylist}
       userPlaylists={userPlaylists}
+      handleRedirect={handleRedirect}
     />
   );
 });

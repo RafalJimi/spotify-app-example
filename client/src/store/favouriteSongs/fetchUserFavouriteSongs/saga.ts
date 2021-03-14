@@ -12,11 +12,11 @@ export function* fetchUserFavouriteSongs() {
     console.log(request);
     if (request.status === 200) {
       yield put({
-        type: FETCH_USER_FAV_SONGS.success,
-      });
-      yield put({
         type: UPDATE_FAVOURITE_SONGS_ARRAY,
         payload: request.data.favSongs,
+      });
+      yield put({
+        type: FETCH_USER_FAV_SONGS.success,
       });
     }
   } catch (e) {

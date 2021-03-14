@@ -12,6 +12,7 @@ import { userPlaylistsRX } from "../../../../../../store/playlist/fetchUserPlayl
 import { useClickOutside } from "../../../../../../hooks/useClickOutside";
 import { useFavouriteSongsContext } from "../../../../../../contexts/FavouriteSongs.context";
 import { usePlaylistsContext } from "../../../../../../contexts/Playlists.context";
+import { favouriteSongsArray } from "../../../../../../store/favouriteSongs/favouriteSongsArray/reducer";
 
 export type SongsListItem = {
   id: number;
@@ -65,16 +66,16 @@ export const SongsListItem = memo(
 
     const dispatch = useDispatch();
 
+    const { FavouriteSongs } = useFavouriteSongsContext();
+
     const handleFavButton = useCallback(
       (e: React.MouseEvent) => {
         IsFavourite
           ? dispatch(removeSongFromFavouriteStarted(songData))
           : dispatch(addSongToFavouriteStarted(songData));
       },
-      [IsFavourite]
+      [FavouriteSongs, IsFavourite]
     );
-
-    const { FavouriteSongs } = useFavouriteSongsContext();
 
     useEffect(() => {
       const isFav = FavouriteSongs.filter(

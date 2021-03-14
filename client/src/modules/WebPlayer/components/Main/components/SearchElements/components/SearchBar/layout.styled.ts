@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-export const SearchBarContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   width: 400px;
   height: 50px;
   background-color: ${(props) => props.theme.color.secondary};
   border-radius: 5px;
-
   button {
     width: 50px;
     border: none;
@@ -17,17 +16,14 @@ export const SearchBarContainer = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 1.5em;
-
     :hover {
       cursor: pointer;
     }
   }
-
   form {
     display: flex;
     width: 100%;
   }
-
   input {
     width: 100%;
     border: none;

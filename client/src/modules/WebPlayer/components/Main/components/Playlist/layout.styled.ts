@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlaylistContainer = styled.main`
+export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

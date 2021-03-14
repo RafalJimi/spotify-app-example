@@ -2,14 +2,14 @@ import React from "react";
 import { AlbumItem } from "../AlbumItem/index";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Section } from "../Section/index";
-import { HomeContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 
 type MenuLayoutProps = {
   handleOnClick: (location: string) => (e: React.MouseEvent) => void;
 };
 
 export const HomeLayout = ({ handleOnClick }: MenuLayoutProps) => (
-  <HomeContainer>
+  <Container>
     {/* <Section
       title="Home"
       subtitle="Best albums, songs and artists of rock music"
@@ -25,5 +25,5 @@ export const HomeLayout = ({ handleOnClick }: MenuLayoutProps) => (
       subtitle="Best albums, songs and artists of hip-hop music"
       children={<ListItemsWrapper></ListItemsWrapper>}
     /> */}
-  </HomeContainer>
+  </Container>
 );

@@ -11,7 +11,7 @@ import { NotFound } from '../NotFound/index'
 import { ITunesError } from "../iTunesApiError";
 import { SongsByArtistResults } from "../../../../../../store/iTunesAPI/fetchSongsByArtist/reducer";
 import { AlbumsByArtistResults } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/reducer";
-import { ArtistContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 
 
 type ArtistLayoutProps = {
@@ -21,6 +21,7 @@ type ArtistLayoutProps = {
   albumsAreLoading: boolean;
   songsByArtistIsError: boolean;
   albumsByArtistIsError: boolean;
+  artistName: string;
 };
 
 export const ArtistLayout = ({
@@ -30,25 +31,30 @@ export const ArtistLayout = ({
   albumsAreLoading,
   songsByArtistIsError,
   albumsByArtistIsError,
+  artistName,
 }: ArtistLayoutProps) => {
   return (
-    <ArtistContainer>
+    <Container>
       {songsAreLoading || albumsAreLoading ? (
         <Loader />
       ) : (
         <React.Fragment>
           <Header
-            imgUrl="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg"
+              imgUrl={songs.resultCount > 0
+                ?
+                songs.results[0].artworkUrl100
+                :
+                "https://img.freepik.com/darmowe-wektory/realistyczny-szablon-projektu-mockupu_1017-8609.jpg?size=338&ext=jpg&ga=GA1.2.279147769.1610236800"}
             category="Artist"
-            title="Metallica"
+            title={artistName}
           />
           <PlayButton />
           <Section
             title="Popular"
             children={
               <Songs>
-                {songs.results.length !== 0 ? (
-                  songs.results.map((song, i = 0) => (
+                {songs.resultCount > 0 ? (
+                  songs.results.map((song, i) => (
                     <SongsListItem
                       key={i++}
                       id={i++}
@@ -66,8 +72,8 @@ export const ArtistLayout = ({
             title="Metallica's albums"
             children={
               <ListItemsWrapper arrLength={albums.results.length}>
-                {albums.results.length !== 0 ? (
-                  albums.results.map((album, i = 0) => (
+                {albums.resultCount > 0 ? (
+                  albums.results.map((album, i) => (
                     <AlbumItem key={i++} id={i} albumItemData={album} />
                   ))
                 ) : (
@@ -79,6 +85,6 @@ export const ArtistLayout = ({
         </React.Fragment>
       )}
       {(songsByArtistIsError || albumsByArtistIsError) && <ITunesError />}
-    </ArtistContainer>
+    </Container>
   );
 };

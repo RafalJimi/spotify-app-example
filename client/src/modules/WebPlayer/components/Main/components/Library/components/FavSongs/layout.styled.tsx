@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FavSongsContainer = styled.div`
+export const Container = styled.div`
   width: 400px;
   height: 250px;
   display: flex;
@@ -81,7 +81,13 @@ export const LastAdded = styled.div`
   }
 `;
 
-export const ListLength = styled(LastAdded)`
+type ListLengthProps = {
+  readonly FavSongsArr: number;
+};
+
+export const ListLength = styled(LastAdded) <ListLengthProps>`
   font-size: 1em;
   font-weight: 300;
+  position: ${(props) => (props.FavSongsArr > 0 ? "relative" : "static")};
+  margin-top: ${(props) => (props.FavSongsArr > 0 ? null : "130px")};
 `;

@@ -1,8 +1,12 @@
 import React, { useState, useCallback, ChangeEvent } from "react";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import { SearchBarLayout } from "./layout";
 
 export const SearchBar = () => {
   const [Term, setTerm] = useState("");
+  
+  const history = useHistory();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTerm(e.target.value);
@@ -10,7 +14,8 @@ export const SearchBar = () => {
 
   const handleSearchButton = useCallback(
     (e: React.MouseEvent) => {
-      console.log("search term", Term);
+      if (Term.length > 0) history.push(`/player/search?term=${Term}`);
+      else toast.dark("Please enter a phrase.");
     },
     [Term]
   );
@@ -21,7 +26,8 @@ export const SearchBar = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("search term", Term);
+    if (Term.length > 0) history.push(`/player/search?term=${Term}`);
+    else toast.dark("Please enter a phrase.");
   };
 
   return (

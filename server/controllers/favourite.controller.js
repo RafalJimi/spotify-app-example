@@ -13,7 +13,7 @@ exports.addToFavouriteController = async (req, res) => {
   const favArray = req.profile.fav_songs
   const song = req.body
 
-  if (favArray.songs.findIndex(favSong => favSong.previewUrl === song.previewUrl) === -1) {
+  if (favArray.findIndex(favSong => favSong.previewUrl === song.previewUrl) === -1) {
     User.findOneAndUpdate({ _id: userID },
       { $push: { fav_songs: song } },
       { new: true }).exec((err, user) => {
@@ -30,7 +30,7 @@ exports.removeFromFavouriteController = async (req, res) => {
   const favArray = req.profile.fav_songs
   const song = req.body
 
-  if (favArray.songs.findIndex(favSong => favSong.previewUrl === song.previewUrl) === -1) {
+  if (favArray.findIndex(favSong => favSong.previewUrl === song.previewUrl) === -1) {
     return res.code(202).send({message: "This song is not added to your favourites."})
   } else
     User.findOneAndUpdate({ _id: userID },

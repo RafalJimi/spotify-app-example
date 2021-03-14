@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { SearchBarContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 
 type NavButtonsLayoutProps = {
   term: string;
@@ -14,7 +14,7 @@ export const SearchBarLayout = ({
   handleOnChange,
   handleOnSubmit,
 }: NavButtonsLayoutProps) => (
-  <SearchBarContainer>
+  <Container>
     <form onSubmit={handleOnSubmit}>
       <button type="submit">
         <i className="fas fa-search"></i>
@@ -26,5 +26,5 @@ export const SearchBarLayout = ({
         onChange={handleOnChange}
       />
     </form>
-  </SearchBarContainer>
+  </Container>
 );

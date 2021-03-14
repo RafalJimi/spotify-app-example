@@ -12,9 +12,7 @@ export const ArtistItem = ({ id, artistItemData }: ArtistItemProps) => {
   const history = useHistory();
 
   const handleOnClick = useCallback((e: React.MouseEvent) => {
-    history.push(
-      `/player/artist/${artistItemData.artistName.replace(/ /g, "_")}`
-    );
+    history.push(`/player/artist/${artistItemData.artistName}`);
   }, []);
 
   const handleMenuItem = (

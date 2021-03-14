@@ -22,6 +22,7 @@ export function* removeFromFavourite({
       `/favourite/remove_from_favourite`,
       song
     );
+    console.log("delete song from fav", request);
     if (request.status === 200) {
       yield put({
         type: REMOVE_SONG_FROM_FAVOURITE.success,

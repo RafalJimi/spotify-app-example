@@ -1,4 +1,4 @@
-import { FETCH_SEARCH_DATA } from "./consts";
+import { FETCH_SEARCH_DATA, CLEAR_SEARCH_DATA } from "./consts";
 import { createAction } from "typesafe-actions";
 
 export type Props = {
@@ -10,4 +10,9 @@ export const fetchSearchDataStarted = createAction(
   (term): Props => ({
     term,
   })
+)();
+
+export const clearSearchData = createAction(
+  CLEAR_SEARCH_DATA,
+  () => ({})
 )();
