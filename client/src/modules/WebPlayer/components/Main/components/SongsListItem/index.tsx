@@ -45,13 +45,14 @@ export const SongsListItem = memo(
       (e: React.MouseEvent) => {
         if (songData.previewUrl === Url && Play) setPlay(false);
         else {
+          setPlay(false);
           setIndex(id);
           setUrl(songData.previewUrl);
           setPlay(true);
           setCurrentSongsArr(FetchedSongsArr);
         }
       },
-      [Play, Url]
+      [Play, Url, FetchedSongsArr]
     );
 
     useEffect(() => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { LandingPageAlbumsProps } from "../../consts";
 import {
   LatestItemContainer,
   ImageContainer,
@@ -7,22 +8,26 @@ import {
 } from "./layout.styled";
 
 type LatestItemProps = {
+  latestItemData: LandingPageAlbumsProps;
   handleOnClick: (e: React.MouseEvent) => void;
-};;
+};
 
-export const LatestItem = ({ handleOnClick }: LatestItemProps) => {
+export const LatestItemLayout = ({
+  latestItemData,
+  handleOnClick,
+}: LatestItemProps) => {
   return (
-    <LatestItemContainer onClick={handleOnClick}>
-      <ImageContainer>
+    <LatestItemContainer>
+      <ImageContainer imgUrl={latestItemData.imgUrl} onClick={handleOnClick}>
         <Overlay>
-          <p className="title">Master of puppets</p>
-          <p className="author">Metallica</p>
+          <p className="title">{latestItemData.albumName}</p>
+          <p className="author">{latestItemData.artistName}</p>
           <p className="play">PLAY NOW</p>
         </Overlay>
       </ImageContainer>
-      <TrackInfo>
-        <p className="title">Master of puppets</p>
-        <p className="author">Metallica</p>
+      <TrackInfo onClick={handleOnClick}>
+        <p className="title">{latestItemData.albumName}</p>
+        <p className="author">{latestItemData.artistName}</p>
         <p className="play">PLAY NOW</p>
       </TrackInfo>
     </LatestItemContainer>

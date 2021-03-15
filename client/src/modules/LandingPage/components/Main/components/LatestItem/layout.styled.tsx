@@ -11,10 +11,17 @@ export const LatestItemContainer = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
+type ImageContainerProps = {
+  imgUrl: string;
+};
+
+export const ImageContainer = styled.div<ImageContainerProps>`
   width: 380px;
   height: 380px;
-  background-image: url(https://e.snmc.io/i/600/w/4c7b97cfb9def528736ac47dfb5800dc/6177813);
+  background-image: ${({  imgUrl  }) =>
+     imgUrl
+         ? `url(${imgUrl})`
+      : `url(https://e.snmc.io/i/600/w/4c7b97cfb9def528736ac47dfb5800dc/6177813)`};
   background-position: center;
   background-size: cover;
 

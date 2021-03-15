@@ -47,7 +47,7 @@ export const Artist = memo(() => {
   const { setFetchedSongsArr } = useReactPlayerContext();
   
   useEffect(() => {
-    if (setFetchedSongsArr.length !== 0) setFetchedSongsArr(songs.results);
+    if (songs.resultCount > 0) setFetchedSongsArr(songs.results);
   }, [songs.results]);
 
   return (

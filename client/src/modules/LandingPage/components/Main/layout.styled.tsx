@@ -4,7 +4,7 @@ import { width } from "../../../../helpers/mediaQueries";
 export const MainContainer = styled.main`
   padding-top: 80px;
   width: 100vw;
-  height: 100%;
+  height: auto;
   background-color: ${(props) => props.theme.background.main};
   display: flex;
   flex-direction: column;

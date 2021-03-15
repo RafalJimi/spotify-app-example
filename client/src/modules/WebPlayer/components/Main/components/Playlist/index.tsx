@@ -9,6 +9,7 @@ import {
 } from "../../../../../../store/playlist/fetchUserPlaylist/selectors";
 import { usePlaylistsContext } from "../../../../../../contexts/Playlists.context";
 import { PlaylistLayout } from "./layout";
+import { useReactPlayerContext } from "../../../../../../contexts/ReactPlayer.context";
 
 export const Playlist = () => {
   let { playlistID } = useParams<{ playlistID: string }>();
@@ -28,6 +29,11 @@ export const Playlist = () => {
   const playlistData = useSelector(playlistDataRX);
   const isError = useSelector(isErrorRX);
   
+  const { setFetchedSongsArr } = useReactPlayerContext();
+
+  useEffect(() => {
+    if (playlistData.songs.length > 0) setFetchedSongsArr(playlistData.songs);
+  }, [playlistData.songs]);
   
   return (
     <PlaylistLayout

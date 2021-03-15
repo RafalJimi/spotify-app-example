@@ -40,11 +40,11 @@ export const ArtistLayout = ({
       ) : (
         <React.Fragment>
           <Header
-              imgUrl={songs.resultCount > 0
-                ?
-                songs.results[0].artworkUrl100
-                :
-                "https://img.freepik.com/darmowe-wektory/realistyczny-szablon-projektu-mockupu_1017-8609.jpg?size=338&ext=jpg&ga=GA1.2.279147769.1610236800"}
+            imgUrl={
+              songs.resultCount > 0
+                ? songs.results[0].artworkUrl100
+                : "https://img.freepik.com/darmowe-wektory/realistyczny-szablon-projektu-mockupu_1017-8609.jpg?size=338&ext=jpg&ga=GA1.2.279147769.1610236800"
+            }
             category="Artist"
             title={artistName}
           />
@@ -69,7 +69,7 @@ export const ArtistLayout = ({
             }
           />
           <Section
-            title="Metallica's albums"
+            title={`${artistName} albums`}
             children={
               <ListItemsWrapper arrLength={albums.results.length}>
                 {albums.resultCount > 0 ? (

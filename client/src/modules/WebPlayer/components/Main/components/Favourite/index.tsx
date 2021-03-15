@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useReactPlayerContext } from "../../../../../../contexts/ReactPlayer.context";
 import { clearFavSongsState } from "../../../../../../store/favouriteSongs/favouriteSongsArray/actions";
 import { favouriteSongsArrayRX, alreadyFetchedRX } from "../../../../../../store/favouriteSongs/favouriteSongsArray/selectors";
 import { fetchUserFavouriteSongsStarted } from "../../../../../../store/favouriteSongs/fetchUserFavouriteSongs/actions";
@@ -24,6 +25,12 @@ export const Favourite = () => {
   const isLoading = useSelector(isLoadingRX);
   const isError = useSelector(isErrorRX);
 
+  const { setFetchedSongsArr } = useReactPlayerContext();
+
+  useEffect(() => {
+    if (favouriteSongs.length > 0) setFetchedSongsArr(favouriteSongs);
+  }, [favouriteSongs]);
+  
   return (
     <FavouriteLayout
       favouriteSongs={favouriteSongs}

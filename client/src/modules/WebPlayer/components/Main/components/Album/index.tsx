@@ -15,6 +15,7 @@ import {
   albumsByArtistIsLoadingRX,
   albumsByArtistIsErrorRX,
 } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/selectors";
+import { useReactPlayerContext } from "../../../../../../contexts/ReactPlayer.context";
 
 export const Album = () => {
   let { albumName } = useParams<{ albumName: string }>();
@@ -37,6 +38,13 @@ export const Album = () => {
   const songsByAlbumIsError = useSelector(songsByAlbumIsErrorRX);
   const albumsByArtistIsError = useSelector(albumsByArtistIsErrorRX);
 
+  const { setFetchedSongsArr } = useReactPlayerContext();
+
+  useEffect(() => {
+    if (songsByAlbumResult.resultCount > 0)
+      setFetchedSongsArr(songsByAlbumResult.results);
+  }, [songsByAlbumResult.results]);
+  
   return (
     <AlbumLayout
       songsByAlbumResult={songsByAlbumResult}
