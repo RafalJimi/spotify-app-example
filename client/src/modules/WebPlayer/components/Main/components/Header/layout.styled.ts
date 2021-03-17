@@ -25,7 +25,7 @@ export const ImageContainer = styled.div<ImageContainerProps>`
   background-image: ${({ imageUrl }) =>
     imageUrl
       ? `url(${imageUrl})`
-      : "url(https://www.oysterworldwide.com/panel/wp-content/uploads/2014/02/Project_Romania_Bear_in_woods.jpg)"};
+      : "url(https://cdn.pixabay.com/photo/2018/04/11/19/48/music-3311599_960_720.png)"};
   background-position: center;
   background-size: cover;
 `;

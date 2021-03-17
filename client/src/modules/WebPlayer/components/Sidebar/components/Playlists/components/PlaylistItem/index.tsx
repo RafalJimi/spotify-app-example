@@ -91,6 +91,7 @@ export const PlaylistItem = ({
   const handleDeletePlaylist = useCallback(
     (playlistID: string) => (e: React.MouseEvent) => {
       dispatch(deletePlaylistStarted({ playlistID }));
+      history.push(`/player/library`);
     },
     []
   );
@@ -99,7 +100,6 @@ export const PlaylistItem = ({
     if (CurrentPlaylistID === playlistID) setIsActive(true);
     else setIsActive(false);
   }, [CurrentPlaylistID]);
-  
   return (
     <PlaylistItemLayout
       playlistName={Name}

@@ -3,6 +3,7 @@ import { put, call, takeLatest } from "redux-saga/effects";
 import { networkHandlerPut } from "../../../common/networkHandler";
 import { CHANGE_PLAYLIST_NAME } from "./consts";
 import { FETCH_USER_PLAYLISTS } from "../fetchUserPlaylists/consts";
+import { FETCH_PLAYLIST } from "../fetchUserPlaylist/consts";
 import { changePlaylistNameStarted } from "./actions";
 import { getType } from "typesafe-actions";
 
@@ -25,6 +26,10 @@ export function* changePlaylistName({ payload }: ChangePlaylistNameProps) {
       });
       yield put({
         type: FETCH_USER_PLAYLISTS.started,
+      });
+      yield put({
+        type: FETCH_PLAYLIST.started,
+        payload: { playlistID: payload.playlistID },
       });
     }
   } catch (e) {
