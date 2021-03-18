@@ -41,6 +41,7 @@ type ReactPlayerContextProps = {
   handleNext: (e: React.MouseEvent) => void;
   handlePrev: (e: React.MouseEvent) => void;
   handleEnded: () => void;
+  handlePlaySongsButton: (e: React.MouseEvent) => void;
 };
 
 export const ReactPlayerContext = createContext<
@@ -143,6 +144,27 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
     }
   }, [Url, CurrentSongsArr, Index]);
 
+  const handlePlaySongsButton = useCallback(
+    (e: React.MouseEvent) => {
+      if (
+        CurrentSongsArr.length === 0 ||
+        (!Play &&
+          FetchedSongsArr[0].previewUrl !== CurrentSongsArr[0].previewUrl)
+      ) {
+        setIndex(0);
+        setUrl(FetchedSongsArr[0].previewUrl);
+        setPlay(true);
+        setCurrentSongsArr(FetchedSongsArr);
+      } else if (
+        !Play &&
+        FetchedSongsArr[0].previewUrl === CurrentSongsArr[0].previewUrl
+      )
+        setPlay(true);
+      else setPlay(false);
+    },
+    [Play, FetchedSongsArr, Index]
+  );
+  
   const memoizedValue = useMemo(
     () => ({
       Play,
@@ -177,6 +199,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
       handleNext,
       handlePrev,
       handleEnded,
+      handlePlaySongsButton,
     }),
     [
       Play,
@@ -205,6 +228,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
     </ReactPlayerContext.Provider>
   );
 };
+
 
 export const useReactPlayerContext = () => {
   const ctx = useContext(ReactPlayerContext);

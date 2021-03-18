@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const PlayButton = styled.div`
+type PlayButtonProps = {
+  play: boolean;
+};
+
+export const PlayButton = styled.div<PlayButtonProps>`
   height: 55px;
   width: 55px;
   background-color: ${(props) => props.theme.background.playButton};
@@ -8,7 +12,7 @@ export const PlayButton = styled.div`
   border-radius: 35px;
   color: ${(props) => props.theme.color.secondary};
   font-size: 1.4em;
-  padding-left: 5px;
+  padding-left: ${({ play }) => (play ? "0px" : "5px")};
   display: flex;
   flex-direction: row;
   align-items: center;

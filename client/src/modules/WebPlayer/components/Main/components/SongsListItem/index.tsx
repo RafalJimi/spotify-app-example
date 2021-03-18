@@ -12,7 +12,6 @@ import { userPlaylistsRX } from "../../../../../../store/playlist/fetchUserPlayl
 import { useClickOutside } from "../../../../../../hooks/useClickOutside";
 import { useFavouriteSongsContext } from "../../../../../../contexts/FavouriteSongs.context";
 import { usePlaylistsContext } from "../../../../../../contexts/Playlists.context";
-import { favouriteSongsArray } from "../../../../../../store/favouriteSongs/favouriteSongsArray/reducer";
 
 export type SongsListItem = {
   id: number;
