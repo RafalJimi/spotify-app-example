@@ -14,13 +14,15 @@ export const ContextContainer = styled.div`
     padding: 5px 5px;
     pointer-events: none;
     text-align: left;
-    -webkit-box-shadow: -2px 4px 20px -10px rgba(0, 0, 0, 0.8);
-    box-shadow: -2px 4px 20px -10px rgba(0, 0, 0, 0.8);
+    display: none;
   }
 
   .react-contextmenu.react-contextmenu--visible {
     opacity: 1;
     z-index: 9999;
+    display: block;
+    -webkit-box-shadow: -2px 4px 20px -10px rgba(0, 0, 0, 0.8);
+    box-shadow: -2px 4px 20px -10px rgba(0, 0, 0, 0.8);
   }
 
   .react-contextmenu-item {

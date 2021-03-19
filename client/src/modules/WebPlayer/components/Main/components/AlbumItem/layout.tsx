@@ -17,6 +17,7 @@ type AlbumItemLayoutProps = {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     data: { path: string }
   ) => void;
+  handlePlayButton: (e: React.MouseEvent) => void;
 };
 
 export const AlbumItemLayout = ({
@@ -24,12 +25,13 @@ export const AlbumItemLayout = ({
   id,
   albumItemData,
   handleMenuItem,
+  handlePlayButton,
 }: AlbumItemLayoutProps) => (
   <ContextContainer>
     <ContextMenuTrigger id={`AlbumItemMenu-${id}`}>
       <Container className="listItem" onClick={handleOnClick}>
         <ImageContainer imageUrl={albumItemData.artworkUrl100}>
-          <div>
+          <div onClick={handlePlayButton}>
             <i className="fas fa-play"></i>
           </div>
         </ImageContainer>
@@ -41,7 +43,7 @@ export const AlbumItemLayout = ({
       <MenuItem
         onClick={handleMenuItem}
         data={{
-          path: `/player/artist/${albumItemData.artistName.replace(/ /g, "_")}`,
+          path: `/player/artist/${albumItemData.artistName}`,
         }}
       >
         Go to artist
@@ -49,12 +51,7 @@ export const AlbumItemLayout = ({
       <MenuItem
         onClick={handleMenuItem}
         data={{
-          path: `/player/album/${albumItemData.collectionName.replace(
-            / /g,
-            "_"
-          )}?limit=${albumItemData.trackCount}&artist=${
-            albumItemData.artistName
-          }`,
+          path: `/player/album/${albumItemData.collectionName}?limit=${albumItemData.trackCount}&artist=${albumItemData.artistName}`,
         }}
       >
         Go to album

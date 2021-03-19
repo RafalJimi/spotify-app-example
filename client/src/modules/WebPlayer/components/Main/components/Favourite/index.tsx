@@ -25,11 +25,35 @@ export const Favourite = () => {
   const isLoading = useSelector(isLoadingRX);
   const isError = useSelector(isErrorRX);
 
-  const { setFetchedSongsArr } = useReactPlayerContext();
+  const {
+    setFetchedSongsArr,
+    PlayTheseSongs,
+    setPlayTheseSongs,
+    setPlay,
+    setIndex,
+    setUrl,
+    setCurrentSongsArr,
+  } = useReactPlayerContext();
 
   useEffect(() => {
-    if (favouriteSongs.length > 0) setFetchedSongsArr(favouriteSongs);
+    if (favouriteSongs.length > 0 && !PlayTheseSongs)
+      setFetchedSongsArr(favouriteSongs);
+    else if (favouriteSongs.length > 0 && PlayTheseSongs) {
+      setFetchedSongsArr(favouriteSongs);
+      setPlay(false);
+      setUrl(favouriteSongs[0].previewUrl);
+      setIndex(0);
+      setPlay(true);
+      setPlayTheseSongs(false);
+      setCurrentSongsArr(favouriteSongs);
+    }
   }, [favouriteSongs]);
+  
+  useEffect(() => {
+    return () => {
+      setFetchedSongsArr([]);
+    };
+  }, []);
   
   return (
     <FavouriteLayout

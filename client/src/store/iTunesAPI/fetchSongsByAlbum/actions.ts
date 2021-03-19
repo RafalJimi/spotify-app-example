@@ -1,4 +1,4 @@
-import { FETCH_SONGS_BY_ALBUM } from "./consts";
+import { FETCH_SONGS_BY_ALBUM, CLEAR_SONG_BY_ALBUM_STATE } from "./consts";
 
 import { createAction } from "typesafe-actions";
 
@@ -13,4 +13,9 @@ export const fetchSongsByAlbum = createAction(
     term,
     limit,
   })
+)();
+
+export const clearSongsByAlbumState = createAction(
+  CLEAR_SONG_BY_ALBUM_STATE,
+  () => ({})
 )();

@@ -5,6 +5,7 @@ import { clearFavSongsState } from "../../../../../../../../store/favouriteSongs
 import { favouriteSongsArrayRX } from "../../../../../../../../store/favouriteSongs/favouriteSongsArray/selectors";
 import { fetchUserFavouriteSongsStarted } from "../../../../../../../../store/favouriteSongs/fetchUserFavouriteSongs/actions";
 import { FavSongsLayout } from "./layout";
+import { useReactPlayerContext } from "../../../../../../../../contexts/ReactPlayer.context";
 
 export const FavSongs = () => {
   
@@ -27,10 +28,18 @@ export const FavSongs = () => {
     [],
   )
   
+  const { setPlayTheseSongs } = useReactPlayerContext();
+
+  const handlePlayButton = useCallback((e: React.MouseEvent) => {
+    setPlayTheseSongs(true);
+    history.push(`/player/favourite`);
+  }, []);
+  
   return (
     <FavSongsLayout
       favouriteSongs={favouriteSongs}
       handleRedirect={handleRedirect}
+      handlePlayButton={handlePlayButton}
     />
   );
 };

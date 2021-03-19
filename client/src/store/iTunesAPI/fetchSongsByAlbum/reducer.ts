@@ -1,8 +1,7 @@
 import { FETCH_SONGS_BY_ALBUM } from "./consts";
-
 import { Action } from "../../types/actions";
 import { getType } from "typesafe-actions";
-import { fetchSongsByAlbum } from "./actions";
+import { fetchSongsByAlbum, clearSongsByAlbumState } from "./actions";
 import { Song } from "../../types/song";
 
 export type SongsByAlbumResults = {
@@ -46,6 +45,13 @@ export const songsByAlbum = (
         ...state,
         isLoading: initialState.isLoading,
         isError: true,
+      };
+    case getType(clearSongsByAlbumState):
+      return {
+        ...state,
+        songs: initialState.songs,
+        isLoading: false,
+        isError: initialState.isError,
       };
     default:
       return { ...state };

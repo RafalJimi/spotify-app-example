@@ -42,6 +42,8 @@ type ReactPlayerContextProps = {
   handlePrev: (e: React.MouseEvent) => void;
   handleEnded: () => void;
   handlePlaySongsButton: (e: React.MouseEvent) => void;
+  PlayTheseSongs: boolean;
+  setPlayTheseSongs: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const ReactPlayerContext = createContext<
@@ -64,6 +66,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
   const [Index, setIndex] = useState(0);
   const [CurrentSongsArr, setCurrentSongsArr] = useState<Song[]>([]);
   const [FetchedSongsArr, setFetchedSongsArr] = useState<Song[]>([]);
+  const [PlayTheseSongs, setPlayTheseSongs] = useState(false); 
 
   const handleSetPlay = useCallback(
     (e: React.MouseEvent) => {
@@ -164,7 +167,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
     },
     [Play, FetchedSongsArr, Index]
   );
-  
+
   const memoizedValue = useMemo(
     () => ({
       Play,
@@ -200,6 +203,8 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
       handlePrev,
       handleEnded,
       handlePlaySongsButton,
+      PlayTheseSongs,
+      setPlayTheseSongs,
     }),
     [
       Play,
@@ -214,6 +219,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
       CurrentSongsArr,
       FetchedSongsArr,
       Duration,
+      PlayTheseSongs,
     ]
   );
 

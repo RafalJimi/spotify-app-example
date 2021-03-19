@@ -5,11 +5,13 @@ import { Container, LastAdded, ListLength } from "./layout.styled";
 type FavSongsLayoutProps = {
   favouriteSongs: Song[];
   handleRedirect: (path: string) => (e: React.MouseEvent) => void;
+  handlePlayButton: (e: React.MouseEvent) => void;
 };
 
 export const FavSongsLayout = ({
   favouriteSongs,
   handleRedirect,
+  handlePlayButton,
 }: FavSongsLayoutProps) => (
   <Container onClick={handleRedirect("/player/favourite")}>
     {favouriteSongs.length > 0 && (
@@ -24,7 +26,7 @@ export const FavSongsLayout = ({
     <ListLength FavSongsArr={favouriteSongs.length}>
       {favouriteSongs.length} Favourite songs
     </ListLength>
-    <div className="playButton">
+    <div className="playButton" onClick={handlePlayButton}>
       <i className="fas fa-play"></i>
     </div>
   </Container>

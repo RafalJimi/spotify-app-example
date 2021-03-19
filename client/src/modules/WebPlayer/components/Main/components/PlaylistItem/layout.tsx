@@ -16,6 +16,7 @@ type PlaylistItemLayoutProps = {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     data: { path: string }
   ) => void;
+  handlePlayButton: (e: React.MouseEvent) => void;
 };
 
 export const PlaylistItemLayout = ({
@@ -23,6 +24,7 @@ export const PlaylistItemLayout = ({
   id,
   playlistItemData,
   handleMenuItem,
+  handlePlayButton,
 }: PlaylistItemLayoutProps) => (
   <ContextContainer>
     <ContextMenuTrigger id={`PlaylistItemMenu-${id}`}>
@@ -34,7 +36,7 @@ export const PlaylistItemLayout = ({
               : undefined
           }
         >
-          <div>
+          <div onClick={handlePlayButton}>
             <i className="fas fa-play"></i>
           </div>
         </ImageContainer>

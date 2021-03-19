@@ -174,7 +174,8 @@ export const SongItemLayout = forwardRef<HTMLElement, SongsListItemLayoutProps>(
                 <i className="fas fa-angle-right"></i>
                 <PlaylistsContainer>
                   {userPlaylists.map((playlist) => (
-                    <PlaylistName /* onClick={handleAddSongToPlaylist(playlist._id)} */
+                    <PlaylistName
+                      onClick={handleAddSongToPlaylist(playlist._id)}
                     >
                       {playlist.playlist_name}
                     </PlaylistName>

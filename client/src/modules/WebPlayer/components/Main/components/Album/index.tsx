@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import queryString from "query-string";
-import { fetchSongsByAlbum } from "../../../../../../store/iTunesAPI/fetchSongsByAlbum/actions";
+import { fetchSongsByAlbum, clearSongsByAlbumState } from "../../../../../../store/iTunesAPI/fetchSongsByAlbum/actions";
 import { fetchAlbumsByArtist } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/actions";
 import { AlbumLayout } from "./layout";
 import {
@@ -38,12 +38,39 @@ export const Album = () => {
   const songsByAlbumIsError = useSelector(songsByAlbumIsErrorRX);
   const albumsByArtistIsError = useSelector(albumsByArtistIsErrorRX);
 
-  const { setFetchedSongsArr } = useReactPlayerContext();
+  const {
+    setFetchedSongsArr,
+    PlayTheseSongs,
+    setPlayTheseSongs,
+    setPlay,
+    setIndex,
+    setUrl,
+    setCurrentSongsArr
+  } = useReactPlayerContext();
 
   useEffect(() => {
-    if (songsByAlbumResult.resultCount > 0)
+    if (songsByAlbumResult.resultCount > 0 && !PlayTheseSongs)
       setFetchedSongsArr(songsByAlbumResult.results);
+    else if (
+      songsByAlbumResult.resultCount > 0 &&
+      PlayTheseSongs
+    ) {
+      setFetchedSongsArr(songsByAlbumResult.results);
+      setPlay(false)
+      setUrl(songsByAlbumResult.results[0].previewUrl)
+      setIndex(0)
+      setPlay(true)
+      setPlayTheseSongs(false);
+      setCurrentSongsArr(songsByAlbumResult.results);
+    }
   }, [songsByAlbumResult.results]);
+  
+  useEffect(() => {
+    return () => {
+      dispatch(clearSongsByAlbumState());
+      setFetchedSongsArr([]);
+    }
+  }, [])
   
   return (
     <AlbumLayout
