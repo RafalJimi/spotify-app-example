@@ -1,29 +1,44 @@
 import React from "react";
-import { AlbumItem } from "../AlbumItem/index";
+import { HomeSectionItem } from "./components/HomeSectionItem";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Section } from "../Section/index";
+import { ArrayItem, HipHopAlbums, RockAlbums, PopAlbums } from "./consts";
 import { Container } from "./layout.styled";
 
-type MenuLayoutProps = {
-  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
-};
-
-export const HomeLayout = ({ handleOnClick }: MenuLayoutProps) => (
+export const HomeLayout = () => (
   <Container>
-    {/* <Section
-      title="Home"
-      subtitle="Best albums, songs and artists of rock music"
-      children={<ListItemsWrapper></ListItemsWrapper>}
+    <Section
+      title="Best Hip-Hop albums"
+      subtitle="Best albums of Hip-Hop music"
+      children={
+        <ListItemsWrapper arrLength={HipHopAlbums.length}>
+          {HipHopAlbums.map((hhAlbum: ArrayItem, i) => (
+            <HomeSectionItem key={i} id={i} itemData={hhAlbum} />
+          ))}
+        </ListItemsWrapper>
+      }
     />
     <Section
-      title="Best of POP"
-      subtitle="Best albums, songs and artists of pop music"
-      children={<ListItemsWrapper></ListItemsWrapper>}
+      title="Best Pop albums"
+      subtitle="Best albums of Pop music"
+      children={
+        <ListItemsWrapper arrLength={PopAlbums.length}>
+          {PopAlbums.map((popAlbum: ArrayItem, i) => (
+            <HomeSectionItem key={i} id={i} itemData={popAlbum} />
+          ))}
+        </ListItemsWrapper>
+      }
     />
     <Section
-      title="Best of hip-hop"
-      subtitle="Best albums, songs and artists of hip-hop music"
-      children={<ListItemsWrapper></ListItemsWrapper>}
-    /> */}
+      title="Best Rock albums"
+      subtitle="Best albums of Rock music"
+      children={
+        <ListItemsWrapper arrLength={RockAlbums.length}>
+          {RockAlbums.map((rockAlbum: ArrayItem, i) => (
+            <HomeSectionItem key={i} id={i} itemData={rockAlbum} />
+          ))}
+        </ListItemsWrapper>
+      }
+    />
   </Container>
 );

@@ -151,6 +151,16 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
     (e: React.MouseEvent) => {
       if (
         CurrentSongsArr.length === 0 ||
+        (Play &&
+          FetchedSongsArr[0].previewUrl !== CurrentSongsArr[0].previewUrl)
+      ) {
+        setPlay(false);
+        setIndex(0);
+        setUrl(FetchedSongsArr[0].previewUrl);
+        setPlay(true);
+        setCurrentSongsArr(FetchedSongsArr);
+      } else if (
+        CurrentSongsArr.length === 0 ||
         (!Play &&
           FetchedSongsArr[0].previewUrl !== CurrentSongsArr[0].previewUrl)
       ) {
@@ -165,7 +175,7 @@ export const ReactPlayerContextProvider: React.FC = ({ children }) => {
         setPlay(true);
       else setPlay(false);
     },
-    [Play, FetchedSongsArr, Index]
+    [Play, FetchedSongsArr, CurrentSongsArr, Index]
   );
 
   const memoizedValue = useMemo(

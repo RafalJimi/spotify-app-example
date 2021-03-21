@@ -5,17 +5,21 @@ import { NavButtonsContainer, NavButton } from "./layout.styled";
 type NavButtonsLayoutProps = {
   showSearchBar: boolean;
   handleOnClick: (e: React.MouseEvent) => void;
+  handleLeftArrow: (e: React.MouseEvent) => void;
+  handleRightArrow: (e: React.MouseEvent) => void;
 };
 
 export const NavButtonsLayout = ({
   showSearchBar,
   handleOnClick,
+  handleLeftArrow,
+  handleRightArrow,
 }: NavButtonsLayoutProps) => (
   <NavButtonsContainer>
-    <NavButton style={{ paddingRight: "2px" }}>
+    <NavButton onClick={handleLeftArrow} style={{ paddingRight: "2px" }}>
       <i className="fas fa-chevron-left"></i>
     </NavButton>
-    <NavButton style={{ paddingLeft: "2px" }}>
+    <NavButton onClick={handleRightArrow} style={{ paddingLeft: "2px" }}>
       <i className="fas fa-chevron-right"></i>
     </NavButton>
     {showSearchBar ? <SearchBar /> : null}

@@ -25,14 +25,30 @@ export const AlbumItem = ({ id, albumItemData }: AlbumItemProps) => {
     history.push(data.path);
   };
 
-  const { setPlayTheseSongs } = useReactPlayerContext();
+  const {
+    Play,
+    setPlay,
+    PlayTheseSongs,
+    setPlayTheseSongs,
+  } = useReactPlayerContext();
 
-  const handlePlayButton = useCallback((e: React.MouseEvent) => {
-    setPlayTheseSongs(true);
-    history.push(
-      `/player/album/${albumItemData.collectionName}?limit=${albumItemData.trackCount}&artist=${albumItemData.artistName}`
-    );
-  }, []);
+  const handlePlayButton = useCallback(
+    (e: React.MouseEvent) => {
+      if (Play) {
+        setPlay(false);
+        setPlayTheseSongs(true);
+        history.push(
+          `/player/album/${albumItemData.collectionName}?limit=${albumItemData.trackCount}&artist=${albumItemData.artistName}`
+        );
+      } else {
+        setPlayTheseSongs(true);
+        history.push(
+          `/player/album/${albumItemData.collectionName}?limit=${albumItemData.trackCount}&artist=${albumItemData.artistName}`
+        );
+      }
+    },
+    [Play, PlayTheseSongs]
+  );
   
   return (
     <AlbumItemLayout

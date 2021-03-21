@@ -13,7 +13,7 @@ export const SearchBar = () => {
 
   const handleSearchButton = useCallback(
     (e: React.MouseEvent) => {
-      console.log("search term", Term);
+      history.push(`/player/search?term=${Term}`);
     },
     [Term]
   );

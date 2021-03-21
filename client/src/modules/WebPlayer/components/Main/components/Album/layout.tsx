@@ -12,6 +12,7 @@ import { Loader } from "../Loader";
 import { NotFound } from "../NotFound";
 import { ITunesError } from "../iTunesApiError";
 import { Container } from "./layout.styled";
+import { Song } from "../../../../../../store/types/song";
 
 type AlbumLayoutProps = {
   songsByAlbumResult: SongsByAlbumResults;
@@ -21,6 +22,7 @@ type AlbumLayoutProps = {
   songsByAlbumIsError: boolean;
   albumsByArtistIsError: boolean;
   albumName: string;
+  songsFromAlbum: Song[];
 };
 
 export const AlbumLayout = ({
@@ -31,6 +33,7 @@ export const AlbumLayout = ({
   songsByAlbumIsError,
   albumsByArtistIsError,
   albumName,
+  songsFromAlbum,
 }: AlbumLayoutProps) => (
   <Container>
     {songsByAlbumIsLoading || albumsByArtistIsLoading ? (
@@ -52,7 +55,7 @@ export const AlbumLayout = ({
           children={
             <Songs>
               {songsByAlbumResult.resultCount > 0 ? (
-                songsByAlbumResult.results.map((song, i) => (
+                songsFromAlbum.map((song, i) => (
                   <SongsListItem
                     key={i}
                     id={i}

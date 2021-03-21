@@ -29,9 +29,7 @@ export const Buttons = memo(() => {
   const handleSetRemaining = useCallback(() => {
     setShowRemaining(!ShowRemaining);
   }, [ShowRemaining]);
-  
-  console.log(PlayedInSecs);
-  
+
   return (
     <ButtonsLayout
       play={Play}

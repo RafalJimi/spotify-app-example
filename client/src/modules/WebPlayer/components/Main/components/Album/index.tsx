@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import queryString from "query-string";
-import { fetchSongsByAlbum, clearSongsByAlbumState } from "../../../../../../store/iTunesAPI/fetchSongsByAlbum/actions";
+import {
+  fetchSongsByAlbum,
+  clearSongsByAlbumState,
+} from "../../../../../../store/iTunesAPI/fetchSongsByAlbum/actions";
 import { fetchAlbumsByArtist } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/actions";
 import { AlbumLayout } from "./layout";
 import {
@@ -16,15 +19,30 @@ import {
   albumsByArtistIsErrorRX,
 } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/selectors";
 import { useReactPlayerContext } from "../../../../../../contexts/ReactPlayer.context";
+import { Song } from "../../../../../../store/types/song";
 
-export const Album = () => {
+export const Album = memo(() => {
+  const [SongsFromAlbum, setSongsFromAlbum] = useState<Song[]>([]);;
+
   let { albumName } = useParams<{ albumName: string }>();
   const dispatch = useDispatch();
   const history = useHistory();
+  
+  const {
+    Play,
+    setFetchedSongsArr,
+    PlayTheseSongs,
+    setPlayTheseSongs,
+    setPlay,
+    setIndex,
+    setUrl,
+    setCurrentSongsArr,
+  } = useReactPlayerContext();
 
   useEffect(() => {
     const queries = queryString.parse(history.location.search);
     const { artist, limit } = queries;
+    setFetchedSongsArr([]);
     dispatch(fetchSongsByAlbum(albumName, limit));
     dispatch(fetchAlbumsByArtist(artist));
   }, [albumName]);
@@ -38,40 +56,37 @@ export const Album = () => {
   const songsByAlbumIsError = useSelector(songsByAlbumIsErrorRX);
   const albumsByArtistIsError = useSelector(albumsByArtistIsErrorRX);
 
-  const {
-    setFetchedSongsArr,
-    PlayTheseSongs,
-    setPlayTheseSongs,
-    setPlay,
-    setIndex,
-    setUrl,
-    setCurrentSongsArr
-  } = useReactPlayerContext();
+  useEffect(() => {
+    let songsArr: Song[] = [];
+    songsByAlbumResult.results.filter((songFromAlbum) =>
+      songFromAlbum.artworkUrl100 ===
+      songsByAlbumResult.results[0].artworkUrl100
+        ? songsArr.push(songFromAlbum)
+        : null
+    );
+    setSongsFromAlbum(songsArr);
+  }, [songsByAlbumResult.results]);
 
   useEffect(() => {
-    if (songsByAlbumResult.resultCount > 0 && !PlayTheseSongs)
-      setFetchedSongsArr(songsByAlbumResult.results);
-    else if (
-      songsByAlbumResult.resultCount > 0 &&
-      PlayTheseSongs
-    ) {
-      setFetchedSongsArr(songsByAlbumResult.results);
-      setPlay(false)
-      setUrl(songsByAlbumResult.results[0].previewUrl)
-      setIndex(0)
-      setPlay(true)
+    if (SongsFromAlbum.length > 0 && !PlayTheseSongs) {
+      setFetchedSongsArr(SongsFromAlbum);
+    } else if (SongsFromAlbum.length > 0 && PlayTheseSongs) {
+      setFetchedSongsArr(SongsFromAlbum);
+      setUrl(SongsFromAlbum[0].previewUrl);
+      setIndex(0);
+      setPlay(true);
       setPlayTheseSongs(false);
-      setCurrentSongsArr(songsByAlbumResult.results);
+      setCurrentSongsArr(SongsFromAlbum);
     }
-  }, [songsByAlbumResult.results]);
+  }, [SongsFromAlbum.length])
   
   useEffect(() => {
     return () => {
       dispatch(clearSongsByAlbumState());
       setFetchedSongsArr([]);
-    }
-  }, [])
-  
+    };
+  }, []);
+
   return (
     <AlbumLayout
       songsByAlbumResult={songsByAlbumResult}
@@ -81,6 +96,7 @@ export const Album = () => {
       songsByAlbumIsError={songsByAlbumIsError}
       albumsByArtistIsError={albumsByArtistIsError}
       albumName={albumName}
+      songsFromAlbum={SongsFromAlbum}
     />
   );
-};
+});
