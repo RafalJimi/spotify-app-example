@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const Section = styled.section`
   display: flex;
@@ -7,7 +8,6 @@ export const Section = styled.section`
   justify-content: flex-start;
   margin-bottom: 20px;
   width: 100%;
-  overflow-y: scroll;
   z-index: 10;
 `;
 

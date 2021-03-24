@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
-export const NavButtonsContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 40px;
   overflow: hidden;
+
+  @media ${width[990]} {
+    margin-left: 40px;
+  }
 `;
 
 export const NavButton = styled.div`

@@ -1,6 +1,7 @@
 import React from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 type ListItemsProps = {
   resultsLength: number;
@@ -16,8 +17,16 @@ export const ListItems = styled.div<ListItemsProps>`
   width: ${({ resultsLength }) => (resultsLength ? "auto" : "100%")};
 
   .scrollContainer {
-      width: calc(100vw - 350px);
-      display: flex;
+    width: calc(100vw - 350px);
+    display: flex;
+  }
+
+  @media ${width[990]} {
+    width: ${({ resultsLength }) => (resultsLength ? "calc(100%)" : "100%")};
+
+    .scrollContainer {
+      width: calc(100vw - 80px);
+    }
   }
 `;
 

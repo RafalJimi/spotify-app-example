@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../helpers/mediaQueries";
 
 export const Container = styled.main`
   display: flex;
@@ -12,4 +13,9 @@ export const Container = styled.main`
     rgba(18, 18, 18, 1) 100%
   );
   z-index: 1;
+
+  @media ${width[990]} {
+    margin-left: 0px;
+    width: calc(100vw);
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../helpers/mediaQueries";
 
 export const SidebarContainer = styled.div`
   position: fixed;
@@ -12,4 +13,8 @@ export const SidebarContainer = styled.div`
   height: 100vh;
   background-color: black;
   z-index: 2;
+
+  @media ${width[990]} {
+    display: none;
+  }
 `;

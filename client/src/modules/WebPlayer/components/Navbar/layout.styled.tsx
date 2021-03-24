@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../helpers/mediaQueries";
 
 type NavbarContainerProps = {
   background: string;
@@ -16,4 +17,8 @@ export const NavbarContainer = styled.nav<NavbarContainerProps>`
   z-index: 5;
   padding: 0px 35px;
   background-color: ${({ background }) => background};
+
+  @media ${width[990]} {
+    width: calc(100%);
+  }
 `;
