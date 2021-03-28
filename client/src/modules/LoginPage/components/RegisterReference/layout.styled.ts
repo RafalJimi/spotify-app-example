@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const RegisterReferenceContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ export const RegisterReferenceContainer = styled.div`
   width: 450px;
   padding-top: 30px;
 
-  @media only screen and ${width[470]} {
+  @media ${width[470]} {
     width: 100vw;
     padding: 30px 10px 0px 10px;
   }

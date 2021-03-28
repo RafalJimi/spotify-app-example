@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const ButtonsContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ export const ButtonsContainer = styled.div`
   width: 450px;
   padding-top: 35px;
 
-  @media only screen and ${width[470]} {
+  @media ${width[470]} {
     width: 100vw;
     padding: 35px 10px 0px 10px;
   }
@@ -40,7 +40,7 @@ const Button = styled.button`
     cursor: pointer;
   }
 
-  @media only screen and ${width[330]} {
+  @media ${width[330]} {
     i {
       display: none;
     }

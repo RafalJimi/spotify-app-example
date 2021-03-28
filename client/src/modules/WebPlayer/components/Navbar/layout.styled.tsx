@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-type NavbarContainerProps = {
+type ContainerProps = {
   background: string;
 };
 
-export const NavbarContainer = styled.nav<NavbarContainerProps>`
+export const Container = styled.nav<ContainerProps>`
   position: fixed;
   right: 0px;
   top: 0px;

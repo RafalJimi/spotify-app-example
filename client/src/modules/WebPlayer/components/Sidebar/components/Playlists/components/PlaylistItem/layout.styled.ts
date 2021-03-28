@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-interface PlaylistItemContainerProps {
+interface ContainerProps {
   readonly focus?: boolean;
   readonly active?: boolean;
 }
 
-export const PlaylistItemContainer = styled.form<PlaylistItemContainerProps>`
+export const Container = styled.form<ContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: center;

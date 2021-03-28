@@ -1,6 +1,6 @@
 import React, { ChangeEvent, forwardRef } from "react";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
-import { PlaylistItemContainer, OptionsMenu, Option } from "./layout.styled";
+import { Container, OptionsMenu, Option } from "./layout.styled";
 
 type PlaylistItemLayoutProps = {
   playlistName: string;
@@ -37,7 +37,7 @@ export const PlaylistItemLayout = forwardRef<
     ref: any
   ) => {
     return (
-      <PlaylistItemContainer
+      <Container
         onDoubleClick={handleOnDoubleClick}
         focus={isFocus}
         onSubmit={handleOnSubmit}
@@ -71,7 +71,7 @@ export const PlaylistItemLayout = forwardRef<
             </OptionsMenu>
           </MenuItem>
         </ContextMenu>
-      </PlaylistItemContainer>
+      </Container>
     );
   }
 );

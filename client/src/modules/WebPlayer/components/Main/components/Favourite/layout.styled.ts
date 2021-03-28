@@ -12,6 +12,6 @@ export const Container = styled.main`
   height: auto;
 
   @media ${width[990]} {
-    padding: 85px 25px 90px 25px;
+    padding: 85px 25px 120px 25px;
   }
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const MainContainer = styled.main`
+export const Container = styled.main`
   padding-top: 80px;
   width: 100vw;
   height: auto;

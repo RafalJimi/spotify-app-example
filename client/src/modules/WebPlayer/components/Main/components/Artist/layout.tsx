@@ -1,13 +1,13 @@
 import React from "react";
-import { Header } from "../Header/index";
-import { PlayButton } from "../PlayButton/index";
-import { SongsListItem } from "../SongsListItem/index";
-import { AlbumItem } from "../AlbumItem/index";
+import { Header } from "../Header";
+import { PlayButton } from "../PlayButton";
+import { SongsListItem } from "../SongsListItem";
+import { AlbumItem } from "../AlbumItem";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
 import { Songs } from "../ListItemWrappers/Songs.wrapper";
-import { Section } from "../Section/index";
-import { Loader } from '../Loader/index'
-import { NotFound } from '../NotFound/index'
+import { Section } from "../Section";
+import { Loader } from "../Loader";
+import { NotFound } from "../NotFound";
 import { ITunesError } from "../iTunesApiError";
 import { SongsByArtistResults } from "../../../../../../store/iTunesAPI/fetchSongsByArtist/reducer";
 import { AlbumsByArtistResults } from "../../../../../../store/iTunesAPI/fetchAlbumsByArtist/reducer";

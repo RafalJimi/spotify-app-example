@@ -4,14 +4,12 @@ import { Container, NavButtonsContainer, NavButton } from "./layout.styled";
 
 type NavButtonsLayoutProps = {
   showSearchBar: boolean;
-  handleOnClick: (e: React.MouseEvent) => void;
   handleLeftArrow: (e: React.MouseEvent) => void;
   handleRightArrow: (e: React.MouseEvent) => void;
 };
 
 export const NavButtonsLayout = ({
   showSearchBar,
-  handleOnClick,
   handleLeftArrow,
   handleRightArrow,
 }: NavButtonsLayoutProps) => (

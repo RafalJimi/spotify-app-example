@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../../../helpers/mediaQueries";
 
-export const MenuContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -1,12 +1,7 @@
 import React, { forwardRef } from "react";
 import Logo from "../../assets/spotify-logo.png";
-import { BurgerMenuButton } from '../LandingPage/components/BurgerMenuButton/index'
-import {
-  BurgerMenuContainer,
-  Menu,
-  MenuItem,
-  LogoContainer,
-} from "./layout.styled";
+import { BurgerMenuButton } from "../LandingPage/components/BurgerMenuButton";
+import { Container, Menu, MenuItem, LogoContainer } from "./layout.styled";
 
 const Fade = require("react-reveal/Fade");
 
@@ -45,10 +40,10 @@ export const BurgerMenuLayout = forwardRef<HTMLElement, BurgerMenuLayoutProps>(
     );
 
     return (
-      <BurgerMenuContainer ref={ref} isOpen={isOpen}>
+      <Container ref={ref} isOpen={isOpen}>
         <BurgerMenuButton />
         {isAuth ? isAuthMenu : isNotAuthMenu}
-      </BurgerMenuContainer>
+      </Container>
     );
   }
 );

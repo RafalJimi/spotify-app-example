@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  ButtonsContainer,
+  Container,
   PlayerButtonsContainer,
   Button,
   PlayButton,
@@ -8,11 +8,7 @@ import {
   TimeContainer,
   BarContainer,
 } from "./layout.styled";
-import {
-  Duration,
-  millisToMinutesAndSeconds,
-  alreadyPlayed,
-} from "../../../../../../helpers/duration";
+import { Duration, alreadyPlayed } from "../../../../../../helpers/duration";
 
 type ButtonsLayoutProps = {
   play: boolean;
@@ -49,7 +45,7 @@ export const ButtonsLayout = ({
   handleSetRemaining,
   showRemaining,
 }: ButtonsLayoutProps) => (
-  <ButtonsContainer>
+  <Container>
     <PlayerButtonsContainer>
       <Button prop={shuffle} onClick={handleSetShuffle}>
         <i className="fas fa-random"></i>
@@ -102,5 +98,5 @@ export const ButtonsLayout = ({
         )}
       </TimeContainer>
     </ProgressBarContainer>
-  </ButtonsContainer>
+  </Container>
 );

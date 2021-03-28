@@ -1,7 +1,7 @@
 import React from "react";
 import photo from "../../../../../../assets/test_photo.png";
 import {
-  UserMenuContainer,
+  Container,
   Panel,
   UserImgContainer,
   ProfileContainer,
@@ -23,7 +23,7 @@ export const UserMenuLayout = ({
   handleOnClick,
   handleSignOut,
 }: UserMenuLayoutProps) => (
-  <UserMenuContainer>
+  <Container>
     <Panel onClick={handleMenu}>
       <UserImgContainer>
         <img src={photo} alt="" />
@@ -43,5 +43,5 @@ export const UserMenuLayout = ({
       <UserMenuItem>Account</UserMenuItem>
       <UserMenuItem onClick={handleSignOut}>Sign out</UserMenuItem>
     </UserMenu>
-  </UserMenuContainer>
+  </Container>
 );

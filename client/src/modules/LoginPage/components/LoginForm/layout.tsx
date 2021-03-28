@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import {
-  LoginFormContainer,
+  Container,
   InputTitle,
   Input,
   InputError,
@@ -28,7 +28,7 @@ export const LoginFormLayout = ({
   handleOnSubmit,
   handleRedirect,
 }: LoginFormLayoutProps) => (
-  <LoginFormContainer onSubmit={handleOnSubmit}>
+  <Container onSubmit={handleOnSubmit}>
     <InputTitle>E-mail address or username</InputTitle>
     <Input
       type={"text"}
@@ -62,5 +62,5 @@ export const LoginFormLayout = ({
       <button type="submit">SIGN IN</button>
     </ButtonsContainer>
     <Border />
-  </LoginFormContainer>
+  </Container>
 );

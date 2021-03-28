@@ -1,15 +1,15 @@
 import React from "react";
-import { Header } from "./components/Header/index";
-import { LoginPageContainer } from "./layout.styled";
-import { Buttons } from "./components/Buttons/index";
-import { LoginForm } from "./components/LoginForm/index";
-import { RegisterReference } from "./components/RegisterReference/index";
+import { Header } from "./components/Header";
+import { Container } from "./layout.styled";
+import { Buttons } from "./components/Buttons";
+import { LoginForm } from "./components/LoginForm";
+import { RegisterReference } from "./components/RegisterReference";
 
 export const LoginPageLayout = () => (
-  <LoginPageContainer>
+  <Container>
     <Header />
     <Buttons />
     <LoginForm />
     <RegisterReference />
-  </LoginPageContainer>
+  </Container>
 );

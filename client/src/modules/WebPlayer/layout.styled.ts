@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WebPlayerContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;

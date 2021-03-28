@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const Container = styled.main`
   display: flex;
@@ -8,4 +9,8 @@ export const Container = styled.main`
   width: 100%;
   height: 100%;
   padding: 85px 35px 90px 35px;
+
+  @media ${width[990]} {
+    padding: 85px 25px 120px 25px;
+  }
 `;

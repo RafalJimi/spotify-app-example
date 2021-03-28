@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@ export const HeaderContainer = styled.header`
     font-weight: 700;
   }
 
-  @media only screen and ${width[770]} {
+  @media ${width[770]} {
     padding-top: 35px;
 
     img {
@@ -34,7 +34,7 @@ export const HeaderContainer = styled.header`
     }
   }
 
-  @media only screen and ${width[470]} {
+  @media ${width[470]} {
     width: 100%;
   }
 `;

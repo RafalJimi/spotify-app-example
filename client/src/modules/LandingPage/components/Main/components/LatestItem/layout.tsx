@@ -1,11 +1,6 @@
 import React from "react";
 import { LandingPageAlbumsProps } from "../../consts";
-import {
-  LatestItemContainer,
-  ImageContainer,
-  Overlay,
-  TrackInfo,
-} from "./layout.styled";
+import { Container, ImageContainer, Overlay, TrackInfo } from "./layout.styled";
 
 type LatestItemProps = {
   latestItemData: LandingPageAlbumsProps;
@@ -17,7 +12,7 @@ export const LatestItemLayout = ({
   handleOnClick,
 }: LatestItemProps) => {
   return (
-    <LatestItemContainer>
+    <Container>
       <ImageContainer imgUrl={latestItemData.imgUrl} onClick={handleOnClick}>
         <Overlay>
           <p className="title">{latestItemData.albumName}</p>
@@ -30,6 +25,6 @@ export const LatestItemLayout = ({
         <p className="author">{latestItemData.artistName}</p>
         <p className="play">PLAY NOW</p>
       </TrackInfo>
-    </LatestItemContainer>
+    </Container>
   );
 };

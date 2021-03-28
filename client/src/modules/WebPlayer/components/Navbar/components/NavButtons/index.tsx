@@ -4,7 +4,7 @@ import { NavButtonsLayout } from "./layout";
 
 export const NavButtons = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
-  
+
   const history = useHistory();
 
   useEffect(() => {
@@ -13,10 +13,6 @@ export const NavButtons = () => {
     else setShowSearchBar(false);
   }, [history.location.pathname]);
 
-  const handleOnClick = useCallback((e: React.MouseEvent) => {
-    history.push("/");
-  }, []);
-
   const handleLeftArrow = useCallback((e: React.MouseEvent) => {
     history.goBack();
   }, []);
@@ -24,11 +20,10 @@ export const NavButtons = () => {
   const handleRightArrow = useCallback((e: React.MouseEvent) => {
     history.goForward();
   }, []);
-  
+
   return (
     <NavButtonsLayout
       showSearchBar={showSearchBar}
-      handleOnClick={handleOnClick}
       handleLeftArrow={handleLeftArrow}
       handleRightArrow={handleRightArrow}
     />

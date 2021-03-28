@@ -1,5 +1,5 @@
 import React from "react";
-import { VolumeContainer, Icon, Bar } from "./layout.styled";
+import { Container, Icon, Bar } from "./layout.styled";
 
 type VolumeLayoutProps = {
   volume: number;
@@ -16,7 +16,7 @@ export const VolumeLayout = ({
   handleSetMuted,
   VolumeIcon,
 }: VolumeLayoutProps) => (
-  <VolumeContainer>
+  <Container>
     <Icon onClick={handleSetMuted} muted={muted}>
       <i className={VolumeIcon}></i>
     </Icon>
@@ -30,5 +30,5 @@ export const VolumeLayout = ({
         onChange={handleVolumeChange}
       />
     </Bar>
-  </VolumeContainer>
+  </Container>
 );

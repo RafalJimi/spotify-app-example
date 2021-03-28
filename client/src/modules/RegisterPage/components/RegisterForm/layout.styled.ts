@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const RegisterFormContainer = styled.form`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ export const RegisterFormContainer = styled.form`
   width: 450px;
   padding-top: 20px;
 
-  @media only screen and ${width[470]} {
+  @media ${width[470]} {
     width: 100%;
     padding: 0px 10px;
   }
@@ -283,7 +283,7 @@ export const RulesContainer = styled.div`
     color: ${(props) => props.theme.background.success2};
   }
 
-  @media only screen and ${width[470]} {
+  @media ${width[470]} {
     flex-direction: column;
     align-items: flex-start;
 

@@ -2,14 +2,8 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  useRef,
-  ChangeEvent,
 } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useClickOutside } from "../../../../../../../../hooks/useClickOutside";
-import { changePlaylistNameStarted } from "../../../../../../../../store/playlist/changePlaylistName/actions";
-import { deletePlaylistStarted } from "../../../../../../../../store//playlist/deletePlaylist/actions";
 import { usePlaylistsContext } from "../../../../../../../../contexts/Playlists.context";
 import { PlaylistItemLayout } from "./layout";
 import { useBurgerMenuContext } from "../../../../../../../../contexts/BurgerMenu.context";

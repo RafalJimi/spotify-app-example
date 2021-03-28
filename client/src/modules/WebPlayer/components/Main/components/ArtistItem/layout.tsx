@@ -12,17 +12,12 @@ type ListItemLayoutProps = {
   handleOnClick: (e: React.MouseEvent) => void;
   id: number;
   artistItemData: Artist;
-  handleMenuItem: (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    data: { path: string }
-  ) => void;
 };
 
 export const ArtistItemLayout = ({
   handleOnClick,
   id,
   artistItemData,
-  handleMenuItem,
 }: ListItemLayoutProps) => (
   <ContextContainer>
     <ContextMenuTrigger id={`ArtistItemMenu-${id}`}>

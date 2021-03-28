@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 import logo from "../../../../../../assets/spotify-logo.png";
 
 type LogoLayoutProps = {
@@ -7,7 +7,7 @@ type LogoLayoutProps = {
 };
 
 export const LogoLayout = ({ handleOnClick }: LogoLayoutProps) => (
-  <LogoContainer onClick={handleOnClick}>
+  <Container onClick={handleOnClick}>
     <img src={logo} alt="" />
-  </LogoContainer>
+  </Container>
 );

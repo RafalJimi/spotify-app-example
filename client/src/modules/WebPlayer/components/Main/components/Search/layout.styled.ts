@@ -9,7 +9,7 @@ export const Container = styled.main`
   width: 100%;
   padding: 85px 35px 90px 35px;
 
-  @media ${width[750]} {
-    padding: 120px 35px 90px 35px;
+  @media ${width[990]} {
+    padding: 85px 25px 120px 25px;
   }
 `;

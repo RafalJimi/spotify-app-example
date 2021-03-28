@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { width } from "../../helpers/mediaQueries";
 
-type BurgerMenuProps = {
+type ContainerProps = {
   isOpen: boolean;
 };
 
-export const BurgerMenuContainer = styled.nav<BurgerMenuProps>`
+export const Container = styled.nav<ContainerProps>`
   display: flex;
   position: fixed;
   flex-direction: row;

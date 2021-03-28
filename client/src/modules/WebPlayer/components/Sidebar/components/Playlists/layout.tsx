@@ -1,7 +1,7 @@
 import React from "react";
 import { Playlist } from "../../../../../../store/types/playlist";
 import {
-  PlaylistsContainer,
+  Container,
   Title,
   ButtonsContainer,
   CreatePlaylist,
@@ -22,7 +22,7 @@ export const PlaylistsLayout = ({
   userPlaylists,
   handleRedirect,
 }: PlaylistsLayoutProps) => (
-  <PlaylistsContainer>
+  <Container>
     <Title>PLAYLISTS</Title>
     <ButtonsContainer>
       <CreatePlaylist onClick={handleCreatePlaylist}>
@@ -49,5 +49,5 @@ export const PlaylistsLayout = ({
           />
         ))}
     </Playlists>
-  </PlaylistsContainer>
+  </Container>
 );

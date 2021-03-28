@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const SidebarContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   left: 0px;
   top: 0px;

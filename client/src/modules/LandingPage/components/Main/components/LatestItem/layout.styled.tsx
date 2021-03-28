@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../../../helpers/mediaQueries";
 
-export const LatestItemContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   margin-bottom: 20px;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const NavbarContainer = styled.nav`
+export const Container = styled.nav`
   width: 100%;
   height: 80px;
   display: flex;

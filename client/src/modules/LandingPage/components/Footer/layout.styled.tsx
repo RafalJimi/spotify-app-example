@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const FooterContainer = styled.footer`
+export const Container = styled.footer`
   width: 100%;
   background-color: black;
   display: flex;

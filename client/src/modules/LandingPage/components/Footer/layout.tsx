@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FooterContainer,
+  Container,
   ContentContainer,
   Row1,
   Row2,
@@ -15,7 +15,7 @@ import logo from "../../../../assets/spotify-logo.png";
 
 export const FooterLayout = () => {
   return (
-    <FooterContainer>
+    <Container>
       <ContentContainer>
         <Row1>
           <LogoContainer>
@@ -44,6 +44,6 @@ export const FooterLayout = () => {
           <Copyright>&copy; Spotify-app-example 2021</Copyright>
         </Row2>
       </ContentContainer>
-    </FooterContainer>
+    </Container>
   );
 };

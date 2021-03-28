@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import {
-  RegisterFormContainer,
+  Container,
   FormHeader,
   InputTitle,
   Input,
@@ -56,7 +56,7 @@ export const RegisterFormLayout = ({
   handleOnSubmit,
   isLoading,
 }: RegisterFormLayoutProps) => (
-  <RegisterFormContainer onSubmit={handleOnSubmit}>
+  <Container onSubmit={handleOnSubmit}>
     <FormHeader>Register with your email address</FormHeader>
     <InputTitle>Your e-mail address</InputTitle>
     <Input
@@ -222,5 +222,5 @@ export const RegisterFormLayout = ({
         "REGISTER"
       )}
     </Button>
-  </RegisterFormContainer>
+  </Container>
 );

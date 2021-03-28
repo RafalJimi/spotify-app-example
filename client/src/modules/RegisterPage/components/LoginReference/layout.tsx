@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginReferenceContainer, ReferenceTitle } from "./layout.styled";
+import { Container, ReferenceTitle } from "./layout.styled";
 
 
 type LoginReferenceLayoutProps = {
@@ -7,9 +7,11 @@ type LoginReferenceLayoutProps = {
 };
 
 export const LoginReferenceLayout = ({ handleOnClick }: LoginReferenceLayoutProps) => (
-  <LoginReferenceContainer>
+  <Container>
     <ReferenceTitle>
-      Already have an account? <span onClick={handleOnClick("/login")}>Log in</span>.
+      Already have an account?{" "}
+     {" "}
+      <span onClick={handleOnClick("/login")}>Log in</span>.
     </ReferenceTitle>
-  </LoginReferenceContainer>
+  </Container>
 );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const BurgerButtonContainer = styled.div`
+export const Container = styled.div`
   display: none;
 
   @media ${width[990]} {

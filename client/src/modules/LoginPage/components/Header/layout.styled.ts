@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../helpers/mediaQueries";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,7 +20,7 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
-  @media only screen and ${width[770]} {
+  @media ${width[770]} {
     height: 60px;
 
     img {

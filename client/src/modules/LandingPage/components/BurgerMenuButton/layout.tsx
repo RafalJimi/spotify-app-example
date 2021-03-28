@@ -1,5 +1,5 @@
 import React from "react";
-import { BurgerButtonContainer, BurgerButton } from "./layout.styled";
+import { Container, BurgerButton } from "./layout.styled";
 
 type BurgerMenuButtonLayoutProps = {
   handleBurgerMenuButton: (e: React.MouseEvent) => void;
@@ -10,11 +10,11 @@ export const BurgerMenuButtonLayout = ({
   handleBurgerMenuButton,
   burgerMenuIsOpen,
 }: BurgerMenuButtonLayoutProps) => (
-  <BurgerButtonContainer>
+  <Container>
     <BurgerButton isOpen={burgerMenuIsOpen} onClick={handleBurgerMenuButton}>
       <div />
       <div />
       <div />
     </BurgerButton>
-  </BurgerButtonContainer>
+  </Container>
 );

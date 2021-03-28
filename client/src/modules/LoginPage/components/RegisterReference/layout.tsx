@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  RegisterReferenceContainer,
-  ReferenceTitle,
-  ReferenceButton,
-} from "./layout.styled";
+import { Container, ReferenceTitle, ReferenceButton } from "./layout.styled";
 
 type RegisterReferenceLayoutProps = {
   handleOnClick: (location: string) => (e: React.MouseEvent) => void;
@@ -12,10 +8,10 @@ type RegisterReferenceLayoutProps = {
 export const RegisterReferenceLayout = ({
   handleOnClick,
 }: RegisterReferenceLayoutProps) => (
-  <RegisterReferenceContainer>
+  <Container>
     <ReferenceTitle>You dont have an account yet?</ReferenceTitle>
     <ReferenceButton onClick={handleOnClick("/signup")}>
       SIGN UP FOR SPOTIFY
     </ReferenceButton>
-  </RegisterReferenceContainer>
+  </Container>
 );

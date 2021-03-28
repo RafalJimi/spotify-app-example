@@ -1,12 +1,22 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
-export const VolumeContainer = styled.div`
+export const Container = styled.div`
   position: absolute;
   right: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  @media ${width[750]} {
+    top: 10px;
+    right: 10px;
+  }
+
+  @media ${width[600]} {
+    display: none;
+  }
 `;
 
 type IconProps = {
@@ -19,7 +29,6 @@ export const Icon = styled.div<IconProps>`
   align-items: center;
   justify-content: center;
   color: ${(props) =>
-   
     props.muted ? props.theme.color.error : props.theme.color.lightGray};
   margin-right: 10px;
 

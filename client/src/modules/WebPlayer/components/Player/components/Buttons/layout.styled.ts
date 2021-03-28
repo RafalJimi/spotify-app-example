@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { StyledFunction } from "styled-components";
+import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
-export const ButtonsContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +18,11 @@ export const PlayerButtonsContainer = styled.div`
   justify-content: space-between;
   height: 50%;
   padding-top: 5px;
+
+  @media ${width[990]} {
+    height: 60%;
+    padding-top: 0px;
+  }
 `;
 
 type ButtonProps = {
@@ -41,6 +47,13 @@ export const Button = styled.div<ButtonProps>`
     color: ${(props) =>
       props.prop ? props.theme.color.lightGreen : props.theme.color.secondary};
   }
+
+  @media ${width[990]} {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9em;
+    margin: 0px 5px;
+  }
 `;
 
 export const PlayButton = styled(Button)`
@@ -54,6 +67,10 @@ export const PlayButton = styled(Button)`
     color: ${(props) => props.theme.color.primary};
     background-color: ${(props) => props.theme.color.secondary};
   }
+
+  @media ${width[990]} {
+    border-radius: 22.5px;
+  }
 `;
 
 export const ProgressBarContainer = styled.div`
@@ -64,6 +81,14 @@ export const ProgressBarContainer = styled.div`
   width: 39vw;
   margin: 0px 5px;
   height: 25%;
+
+  @media ${width[750]} {
+    width: 50vw;
+  }
+
+  @media ${width[500]} {
+    width: 80vw;
+  }
 `;
 
 export const TimeContainer = styled.div`

@@ -2,13 +2,13 @@ import React from "react";
 import { Logo } from "./components/Logo/index";
 import { Menu } from "./components/Menu/index";
 import { Playlists } from "./components/Playlists/index";
-import { SidebarContainer } from "./layout.styled";
+import { Container } from "./layout.styled";
 
 
 export const SidebarLayout = () => (
-  <SidebarContainer>
+  <Container>
     <Logo />
     <Menu />
     <Playlists />
-  </SidebarContainer>
+  </Container>
 );

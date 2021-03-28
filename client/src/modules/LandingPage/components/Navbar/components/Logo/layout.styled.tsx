@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { width } from "../../../../../../helpers/mediaQueries";
 
-export const LogoContainer = styled.div`
+export const Container = styled.div`
   img {
     width: 170px;
     filter: brightness(100);

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import { Logo } from "./components/Logo/index";
-import { Menu } from "./components/Menu/index";
-import { Playlists } from "./components/Playlists/index";
+import { Logo } from "./components/Logo";
+import { Menu } from "./components/Menu";
+import { Playlists } from "./components/Playlists";
 import { Container, BurgerMenuContainer } from "./layout.styled";
 
 type BurgerMenuLayoutProps = {

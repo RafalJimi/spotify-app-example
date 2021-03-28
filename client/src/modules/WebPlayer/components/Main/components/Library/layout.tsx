@@ -2,7 +2,6 @@ import React from "react";
 import { Section } from "../Section";
 import { FavSongs } from "./components/FavSongs";
 import { ListItemsWrapper } from "../ListItemWrappers/ListItems.wrapper";
-import { AlbumItem } from "../AlbumItem";
 import { LibraryContainer } from "./layout.styled";
 import { Playlist } from "../../../../../../store/types/playlist";
 import { PlaylistItem } from "../PlaylistItem";

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const LibraryContainer = styled.main`
   display: flex;
@@ -7,4 +8,8 @@ export const LibraryContainer = styled.main`
   justify-content: flex-start;
   width: 100%;
   padding: 85px 35px 90px 35px;
+
+  @media ${width[990]} {
+    padding: 85px 25px 120px 25px;
+  }
 `;

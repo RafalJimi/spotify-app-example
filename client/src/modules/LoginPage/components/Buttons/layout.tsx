@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  ButtonsContainer,
+  Container,
   Title,
   GithubButton,
   GoogleButton,
@@ -16,7 +16,7 @@ export const ButtonsLayout = ({
   handleGoogleButton,
   handleFacebookButton,
 }: ButtonsLayoutProps) => (
-  <ButtonsContainer>
+  <Container>
     <Title>Please log in to Spotify to continue.</Title>
     <GithubButton onClick={handleFacebookButton}>
       <i className="fab fa-github"></i>
@@ -31,5 +31,5 @@ export const ButtonsLayout = ({
       <p>OR</p>
       <span />
     </Border>
-  </ButtonsContainer>
+  </Container>
 );
