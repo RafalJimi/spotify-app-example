@@ -8,6 +8,7 @@ export const Songs = styled.div`
   justify-content: flex-start;
   margin: 20px 0px;
   width: 100%;
+  z-index: 15;
 `;
 
 export const SongsWrapper: React.FC = ({ children }) => (

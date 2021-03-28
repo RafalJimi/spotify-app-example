@@ -11,6 +11,15 @@ export const Container = styled.div`
   @media ${width[990]} {
     margin-left: 40px;
   }
+
+  @media ${width[750]} {
+    justify-content: flex-start;
+  }
+`;
+
+export const NavButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const NavButton = styled.div`

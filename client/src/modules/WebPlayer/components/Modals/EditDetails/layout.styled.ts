@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../helpers/mediaQueries";
 
 type ContainerProps = {
   isOpen: boolean;
@@ -27,6 +28,16 @@ export const DetailsContainer = styled.main`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
+  @media ${width[750]} {
+    width: 400px;
+    height: 240px;
+  }
+
+  @media ${width[500]} {
+    width: 300px;
+    height: 200px;
+  }
 `;
 
 export const Options = styled.div`
@@ -42,6 +53,14 @@ export const Title = styled.header`
   padding: 20px 20px;
   font-size: 1.4em;
   font-weight: 500;
+
+  @media ${width[750]} {
+    font-size: 1.2em;
+  }
+
+  @media ${width[500]} {
+    font-size: 1em;
+  }
 `;
 
 export const CloseButton = styled.div`
@@ -81,6 +100,16 @@ export const ImgContainer = styled.div<ImgContainerProps>`
       : "url(https://cdn.pixabay.com/photo/2018/04/11/19/48/music-3311599_960_720.png)"};
   background-position: center;
   background-size: cover;
+
+  @media ${width[750]} {
+    width: 140px;
+    height: 140px;
+  }
+
+  @media ${width[500]} {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const InputContainer = styled.form`
@@ -109,6 +138,14 @@ export const InputContainer = styled.form`
     box-shadow: 0px 0px 0px 2px #c1c3c6;
     font-size: 0.9em;
     cursor: pointer;
+  }
+
+  @media ${width[750]} {
+    width: 50%;
+  }
+
+  @media ${width[500]} {
+    width: 50%;
   }
 `;
 

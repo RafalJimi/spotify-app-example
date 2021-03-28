@@ -50,7 +50,7 @@ export const AlbumLayout = ({
           title={albumName}
         />
         <PlayButton />
-        <Section
+          <Section
           title={`Songs from ${albumName}`}
           children={
             <Songs>

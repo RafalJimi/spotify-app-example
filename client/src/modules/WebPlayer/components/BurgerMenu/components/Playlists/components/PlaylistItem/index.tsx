@@ -12,6 +12,7 @@ import { changePlaylistNameStarted } from "../../../../../../../../store/playlis
 import { deletePlaylistStarted } from "../../../../../../../../store//playlist/deletePlaylist/actions";
 import { usePlaylistsContext } from "../../../../../../../../contexts/Playlists.context";
 import { PlaylistItemLayout } from "./layout";
+import { useBurgerMenuContext } from "../../../../../../../../contexts/BurgerMenu.context";
 
 type PlaylistItemProps = {
   playlistName: string;
@@ -26,6 +27,7 @@ export const PlaylistItem = ({
   const [IsActive, setIsActive] = useState(false);
 
   const { CurrentPlaylistID } = usePlaylistsContext();
+  const { setIsOpen } = useBurgerMenuContext();
 
   const history = useHistory();
 
@@ -36,6 +38,7 @@ export const PlaylistItem = ({
   const handleRedirectToPlaylist = useCallback(
     (location: string) => (e: React.MouseEvent) => {
       history.push(location);
+      setIsOpen(false);
     },
     []
   );

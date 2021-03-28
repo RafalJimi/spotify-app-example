@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../../../helpers/mediaQueries";
 
 export const Container = styled.header`
   display: flex;
@@ -7,6 +8,11 @@ export const Container = styled.header`
   justify-content: flex-start;
   margin-bottom: 20px;
   width: 100%;
+
+  @media ${width[750]} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -26,15 +32,50 @@ export const ImageContainer = styled.div`
     rgba(96, 88, 156, 1) 50%,
     rgba(122, 141, 137, 1) 100%
   );
+
+  @media ${width[990]} {
+    width: 150px;
+    height: 150px;
+  }
+
+  @media ${width[500]} {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const Informations = styled.div`
   color: ${(props) => props.theme.color.secondary};
-  font-size: 2.5em;
-  width: calc(100% - 300px);
+  font-size: 2em;
+  width: calc(100% - 230px);
   margin-left: 30px;
 
   span {
-    font-size: 0.4em;
+    font-size: 0.6em;
+  }
+
+  @media ${width[990]} {
+    font-size: 1.3em;
+    word-wrap: break-word;
+
+    span {
+      font-size: 0.7em;
+    }
+  }
+
+  @media ${width[750]} {
+    margin-left: 0px;
+    margin-top: 10px;
+    white-space: normal;
+    word-wrap: wrap;
+    width: 100%;
+  }
+
+  @media ${width[500]} {
+    font-size: 0.8em;
+
+    span {
+      font-size: 1em;
+    }
   }
 `;

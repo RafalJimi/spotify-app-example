@@ -33,7 +33,7 @@ export const SearchLayout = ({
   isError,
 }: SearchLayoutProps) => (
   <Container>
-    {isTerm ? (
+            {isTerm ? (
       <React.Fragment>
         {isLoading && <Loader />}
         {artists.resultCount !== 0 ? (

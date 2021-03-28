@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const Container = styled.main`
   display: flex;
@@ -9,4 +10,8 @@ export const Container = styled.main`
   padding: 85px 35px 90px 35px;
   overflow-y: hidden;
   height: auto;
+
+  @media ${width[990]} {
+    padding: 85px 25px 90px 25px;
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../../../helpers/mediaQueries";
 
 export const ContextContainer = styled.div`
   margin-right: 30px;
@@ -156,6 +157,20 @@ export const Container = styled.div`
     -webkit-box-shadow: 0px 0px 0px 1px #1db954;
     box-shadow: 0px 0px 0px 1px #1db954;
   }
+
+  @media ${width[750]} {
+    height: 220px;
+    width: 150px;
+
+    div:first-child > div {
+      display: none;
+    }
+  }
+
+  @media ${width[500]} {
+    height: 220px;
+    width: 120px;
+  }
 `;
 
 type ImageContainerProps = {
@@ -179,6 +194,16 @@ export const ImageContainer = styled.div<ImageContainerProps>`
       : "url(https://www.oysterworldwide.com/panel/wp-content/uploads/2014/02/Project_Romania_Bear_in_woods.jpg)"};
   background-position: center;
   background-size: cover;
+
+  @media ${width[750]} {
+    height: 120px;
+    width: 120px;
+  }
+
+  @media ${width[500]} {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const Title = styled.div`
@@ -194,6 +219,14 @@ export const Title = styled.div`
   :hover {
     text-decoration: underline;
   }
+
+  @media ${width[750]} {
+    font-size: 0.9em;
+  }
+
+  @media ${width[500]} {
+    font-size: 0.85em;
+  }
 `;
 
 export const Subtitle = styled.div`
@@ -203,4 +236,11 @@ export const Subtitle = styled.div`
   font-size: 0.8em;
   white-space: nowrap;
   overflow: hidden;
+
+  @media ${width[750]} {
+    font-size: 0.75em;
+    white-space: normal;
+    word-wrap: wrap;
+    margin-bottom: 10px;
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../../../helpers/mediaQueries";
 
 export const Container = styled.div`
   width: 400px;
@@ -60,6 +61,20 @@ export const Container = styled.div`
     -webkit-box-shadow: 0px 0px 0px 2px #1db954;
     box-shadow: 0px 0px 0px 2px #1db954;
   }
+
+  @media ${width[750]} {
+    width: 300px;
+    height: 150px;
+    padding: 40px 0px 20px 30px;
+
+    .playButton {
+      display: none;
+    }
+  }
+
+  @media ${width[500]} {
+    width: 250px;
+  }
 `;
 
 export const LastAdded = styled.div`
@@ -79,15 +94,36 @@ export const LastAdded = styled.div`
     margin-left: 5px;
     color: ${(props) => props.theme.color.lightGray};
   }
+
+  @media ${width[750]} {
+    font-size: 0.7em;
+
+    div {
+      margin-top: 5px;
+      white-space: normal;
+      word-wrap: wrap;
+      font-size: 1.4em;
+    }
+  }
+
+  @media ${width[500]} {
+    div {
+      font-size: 1.2em;
+    }
+  }
 `;
 
 type ListLengthProps = {
   readonly FavSongsArr: number;
 };
 
-export const ListLength = styled(LastAdded) <ListLengthProps>`
+export const ListLength = styled(LastAdded)<ListLengthProps>`
   font-size: 1em;
   font-weight: 300;
   position: ${(props) => (props.FavSongsArr > 0 ? "relative" : "static")};
   margin-top: ${(props) => (props.FavSongsArr > 0 ? null : "130px")};
+
+  @media ${width[750]} {
+    font-size: 0.8em;
+  }
 `;

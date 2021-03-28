@@ -19,6 +19,7 @@ export const ListItems = styled.div<ListItemsProps>`
   .scrollContainer {
     width: calc(100vw - 350px);
     display: flex;
+    z-index: 0;
   }
 
   @media ${width[990]} {

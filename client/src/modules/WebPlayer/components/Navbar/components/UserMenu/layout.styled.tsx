@@ -30,6 +30,10 @@ export const Panel = styled.div<PanelProps>`
     cursor: pointer;
     background-color: #282828;
   }
+
+  @media ${width[990]} {
+    height: 35px;
+  }
 `;
 
 export const UserImgContainer = styled.div`
@@ -61,6 +65,10 @@ export const NameContainer = styled.span`
   color: ${(props) => props.theme.color.secondary};
   font-size: 0.8em;
   font-weight: 700;
+
+  @media ${width[990]} {
+    display: none;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -69,10 +77,6 @@ export const IconContainer = styled.div`
   justify-content: center;
   color: ${(props) => props.theme.color.secondary};
   margin: 0px 10px;
-
-  @media ${width[990]} {
-    display: none;
-  }
 `;
 
 type UserMenuProps = {
@@ -95,7 +99,7 @@ export const UserMenu = styled.div<UserMenuProps>`
   padding: 5px 5px;
 
   @media ${width[990]} {
-    display: none;
+    height: 100px;
   }
 `;
 
@@ -114,5 +118,10 @@ export const UserMenuItem = styled.div`
     color: ${(props) => props.theme.color.secondary};
     background-color: #ffffff20;
     cursor: pointer;
+  }
+
+  @media ${width[990]} {
+    height: 45px;
+    font-size: 1em;
   }
 `;

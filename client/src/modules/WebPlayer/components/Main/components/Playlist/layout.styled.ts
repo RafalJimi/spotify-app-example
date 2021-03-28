@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const Container = styled.main`
   display: flex;
@@ -6,9 +7,13 @@ export const Container = styled.main`
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  padding: 85px 35px 90px 35px;
+  padding: 85px 0px 90px 35px;
   overflow-y: hidden;
   height: auto;
+
+  @media ${width[990]} {
+    padding: 85px 25px 90px 25px;
+  }
 `;
 
 export const ButtonsContainer = styled.main`
@@ -19,6 +24,10 @@ export const ButtonsContainer = styled.main`
   width: auto;
   height: auto;
   padding: 0px 30px;
+
+  @media ${width[990]} {
+    padding: 0px 10px;
+  }
 `;
 
 type OptionsButtonProps = {
@@ -28,7 +37,6 @@ type OptionsButtonProps = {
 export const OptionsButton = styled.div<OptionsButtonProps>`
   height: 55px;
   width: 55px;
-  margin: 20px 0px 30px 0px;
   color: #a5a5a5;
   font-size: 1.4em;
   display: flex;
@@ -36,6 +44,8 @@ export const OptionsButton = styled.div<OptionsButtonProps>`
   align-items: center;
   justify-content: center;
   box-shadow: none;
+  margin-top: 20px;
+  margin-bottom: 30px;
   margin-left: ${({ isPlayButton }) => (isPlayButton ? "20px" : "0px")};
 
   i {
@@ -50,6 +60,22 @@ export const OptionsButton = styled.div<OptionsButtonProps>`
   :hover {
     color: ${(props) => props.theme.color.secondary};
     cursor: pointer;
+  }
+
+  @media ${width[750]} {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: ${({ isPlayButton }) => (isPlayButton ? "20px" : "0px")};
+
+    :hover {
+      box-shadow: none;
+    }
+  }
+
+  @media ${width[500]} {
+    height: 45px;
+    width: 45px;
+    font-size: 1.2em;
   }
 `;
 
@@ -71,6 +97,11 @@ export const MenuContainer = styled.menu<MenuContainerProps>`
   margin: 0px;
   border-radius: 3px;
   z-index: 100;
+
+  @media ${width[500]} {
+    width: 150px;
+    transform: translate(100px, 45px);
+  }
 `;
 
 export const MenuItem = styled.div`

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 type PlayButtonProps = {
   play: boolean;
@@ -24,5 +25,19 @@ export const PlayButton = styled.div<PlayButtonProps>`
     box-shadow: 0px 0px 0px 3px #1db954;
     font-size: 1.5em;
     cursor: pointer;
+  }
+
+  @media ${width[750]} {
+    margin: 0px 0px 20px 0px;
+
+    :hover {
+      box-shadow: none;
+    }
+  }
+
+  @media ${width[500]} {
+    height: 45px;
+    width: 45px;
+    font-size: 1.2em;
   }
 `;

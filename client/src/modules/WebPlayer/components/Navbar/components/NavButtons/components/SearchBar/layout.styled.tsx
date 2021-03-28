@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../../../helpers/mediaQueries";
 
 export const SearchBarContainer = styled.div`
   display: flex;
@@ -35,5 +36,16 @@ export const SearchBarContainer = styled.div`
     background-color: transparent;
     color: ${(props) => props.theme.color.primary};
     font-size: 0.9em;
+  }
+
+  @media ${width[750]} {
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    height: 40px;
+  }
+
+  @media ${width[500]} {
+    width: 300px;
   }
 `;

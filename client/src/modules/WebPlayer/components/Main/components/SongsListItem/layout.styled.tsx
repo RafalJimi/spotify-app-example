@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const ContextContainer = styled.div`
   width: 100%;
@@ -16,7 +17,7 @@ export const SongItemContainer = styled.div<SongItemContainerProps>`
   font-size: 1em;
   border-radius: 5px;
   width: 100%;
-  padding: 10px 20px 10px 50px;
+  padding: 10px 0px 10px 50px;
 
   :hover {
     background-color: #2a2a2a;
@@ -57,6 +58,26 @@ export const SongItemContainer = styled.div<SongItemContainerProps>`
   :hover .options > i {
     opacity: 1;
   }
+
+  @media ${width[990]} {
+    padding: 10px 0px 10px 45px;
+
+    .number {
+      display: none;
+    }
+
+    .playButton {
+      display: flex;
+    }
+
+    .favButton > i {
+      opacity: 1;
+    }
+
+    .options > i {
+      opacity: 1;
+    }
+  }
 `;
 
 export type CurrentSongProp = {
@@ -71,11 +92,15 @@ export const Number = styled.div<CurrentSongProp>`
   align-items: center;
   justify-content: center;
   color: ${(props) =>
-       props.isCurrentSong
-        ? props.theme.color.lightGreen
-        : props.theme.color.lightGray};
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
   width: 40px;
   margin-right: 10px;
+
+  @media ${width[500]} {
+    margin-right: 0px;
+  }
 `;
 
 export const PlayButton = styled(Number)`
@@ -102,6 +127,10 @@ export const AlbumIMG = styled.div`
   img {
     height: 100%;
   }
+
+  @media ${width[500]} {
+    display: none;
+  }
 `;
 
 export const SongTitle = styled.div<CurrentSongProp>`
@@ -116,6 +145,16 @@ export const SongTitle = styled.div<CurrentSongProp>`
   margin-left: 15px;
   width: 100%;
   letter-spacing: 0.5px;
+
+  @media ${width[750]} {
+    width: 100%;
+    overflow: hidden;
+    font-size: 0.9em;
+  }
+
+  @media ${width[500]} {
+    margin-left: 5px;
+  }
 `;
 
 export const FavButton = styled.div<CurrentSongProp>`
@@ -152,9 +191,25 @@ export const Time = styled.div<CurrentSongProp>`
   letter-spacing: 1px;
   padding: 0px 10px;
   margin: 0px 5px;
+
+  @media ${width[500]} {
+    display: none;
+  }
 `;
 
-export const Options = styled(Time)<CurrentSongProp>`
+export const Options = styled.div<CurrentSongProp>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: ${(props) =>
+    props.isCurrentSong
+      ? props.theme.color.lightGreen
+      : props.theme.color.lightGray};
+  width: 40px;
+  letter-spacing: 1px;
+  padding: 0px 10px;
+  margin: 0px 5px;
   font-size: 0.9em;
   color: ${(props) =>
     props.isCurrentSong
@@ -231,7 +286,11 @@ export const Option = styled.div`
   }
 `;
 
-export const PlaylistsContainer = styled.div`
+type PlaylistsContainerProps = {
+  readonly arrLength?: number;
+};
+
+export const PlaylistsContainer = styled.div<PlaylistsContainerProps>`
   position: absolute;
   display: none;
   flex-direction: column;
@@ -240,12 +299,19 @@ export const PlaylistsContainer = styled.div`
   width: 210px;
   opacity: 1;
   background-color: ${(props) => props.theme.background.optionsMenu};
-  transform: translate(-220px, -10px);
+  transform: ${(props) =>
+    props.arrLength
+      ? `translate(-220px, ${props.arrLength * -30 - 1}px)`
+      : `translate(-220px, -91px)`};
   padding: 5px 5px;
   border-radius: 3px;
   z-index: 10;
   -webkit-box-shadow: -7px 9px 24px 0px rgba(0, 0, 0, 0.62);
   box-shadow: -7px 9px 24px 0px rgba(0, 0, 0, 0.62);
+
+  @media ${width[750]} {
+    transform: translate(-30%, 30px);
+  }
 `;
 
 export const PlaylistName = styled(Option)``;

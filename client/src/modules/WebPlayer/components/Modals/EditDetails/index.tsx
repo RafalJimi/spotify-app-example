@@ -34,16 +34,12 @@ export const EditDetails = () => {
 
   const playlistData = useSelector(playlistDataRX);
 
-  useEffect(() => {
-    setInputValue(playlistData.playlist_name);
-  }, [playlistData.playlist_name]);
-
   const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
   useEffect(() => {
-    if (!isOpen) setInputValue(playlistData.playlist_name);
+    if (!isOpen) setInputValue("");
   }, [isOpen]);
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {

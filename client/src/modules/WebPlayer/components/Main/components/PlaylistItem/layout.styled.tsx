@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const ContextContainer = styled.div`
   margin-right: 30px;
@@ -154,6 +155,20 @@ export const Container = styled.div`
     -webkit-box-shadow: 0px 0px 0px 1px #1db954;
     box-shadow: 0px 0px 0px 1px #1db954;
   }
+
+  @media ${width[750]} {
+    height: 220px;
+    width: 150px;
+
+    div:first-child > div {
+      display: none;
+    }
+  }
+
+  @media ${width[500]} {
+    height: 220px;
+    width: 120px;
+  }
 `;
 
 type ImageContainerProps = {
@@ -177,6 +192,16 @@ export const ImageContainer = styled.div<ImageContainerProps>`
       : "url(https://pngimg.com/uploads/cd_dvd/cd_dvd_PNG9065.png)"};
   background-position: center;
   background-size: cover;
+
+  @media ${width[750]} {
+    height: 120px;
+    width: 120px;
+  }
+
+  @media ${width[500]} {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const Title = styled.div`
@@ -191,5 +216,13 @@ export const Title = styled.div`
 
   :hover {
     text-decoration: underline;
+  }
+
+  @media ${width[750]} {
+    font-size: 0.9em;
+  }
+
+  @media ${width[500]} {
+    font-size: 0.85em;
   }
 `;

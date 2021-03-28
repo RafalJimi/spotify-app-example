@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../../../helpers/mediaQueries";
 
 export const Container = styled.div`
   display: flex;
@@ -33,5 +34,18 @@ export const Container = styled.div`
     font-size: 1.1em;
     font-weight: 500;
     padding-left: 10px;
+  }
+
+  @media ${width[990]} {
+    width: 400px;
+
+    input {
+      font-size: 1em;
+      padding-left: 5px;
+    }
+  }
+
+  @media ${width[500]} {
+    width: 100%;
   }
 `;

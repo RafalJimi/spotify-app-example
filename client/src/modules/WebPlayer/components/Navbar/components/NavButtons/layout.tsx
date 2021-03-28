@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchBar } from "./components/SearchBar/index";
-import { Container, NavButton } from "./layout.styled";
+import { Container, NavButtonsContainer, NavButton } from "./layout.styled";
 
 type NavButtonsLayoutProps = {
   showSearchBar: boolean;
@@ -16,12 +16,14 @@ export const NavButtonsLayout = ({
   handleRightArrow,
 }: NavButtonsLayoutProps) => (
   <Container>
-    <NavButton onClick={handleLeftArrow} style={{ paddingRight: "2px" }}>
-      <i className="fas fa-chevron-left"></i>
-    </NavButton>
-    <NavButton onClick={handleRightArrow} style={{ paddingLeft: "2px" }}>
-      <i className="fas fa-chevron-right"></i>
-    </NavButton>
+    <NavButtonsContainer>
+      <NavButton onClick={handleLeftArrow} style={{ paddingRight: "2px" }}>
+        <i className="fas fa-chevron-left"></i>
+      </NavButton>
+      <NavButton onClick={handleRightArrow} style={{ paddingLeft: "2px" }}>
+        <i className="fas fa-chevron-right"></i>
+      </NavButton>
+    </NavButtonsContainer>
     {showSearchBar ? <SearchBar /> : null}
   </Container>
 );

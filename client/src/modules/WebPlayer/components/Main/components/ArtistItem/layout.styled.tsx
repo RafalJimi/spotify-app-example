@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { width } from "../../../../../../helpers/mediaQueries";
 
 export const ContextContainer = styled.div`
   margin-right: 30px;
@@ -114,6 +115,16 @@ export const Container = styled.div`
     );
     cursor: pointer;
   }
+
+  @media ${width[750]} {
+    height: 150px;
+    width: 150px;
+  }
+
+  @media ${width[500]} {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -126,6 +137,16 @@ export const ImageContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  @media ${width[750]} {
+    height: 120px;
+    width: 120px;
+  }
+
+  @media ${width[500]} {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const Title = styled.div`
@@ -140,4 +161,12 @@ export const Title = styled.div`
   justify-content: center;
   text-align: center;
   white-space: pre-wrap;
+
+  @media ${width[750]} {
+    font-size: 1em;
+  }
+
+  @media ${width[500]} {
+    font-size: 0.9em;
+  }
 `;

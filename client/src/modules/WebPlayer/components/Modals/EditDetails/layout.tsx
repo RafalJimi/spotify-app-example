@@ -19,10 +19,7 @@ type EditDetailsLayoutProps = {
   handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-export const EditDetailsLayout = forwardRef<
-  HTMLElement,
-  EditDetailsLayoutProps
->(
+export const EditDetailsLayout = forwardRef<HTMLElement, EditDetailsLayoutProps>(
   (
     {
       isOpen,
@@ -44,7 +41,14 @@ export const EditDetailsLayout = forwardRef<
         <Details>
           <ImgContainer />
           <InputContainer onSubmit={handleOnSubmit}>
-            <Input value={inputValue} onChange={handleInputValue} />
+            <Input
+              type="text"
+              value={inputValue}
+              name="playlistName"
+              id="playlistName"
+              onChange={handleInputValue}
+              placeholder="Playlist name"
+            />
             <button type="submit">SAVE</button>
           </InputContainer>
         </Details>

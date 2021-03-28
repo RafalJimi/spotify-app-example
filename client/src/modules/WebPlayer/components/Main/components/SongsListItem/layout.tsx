@@ -142,12 +142,12 @@ export const SongItemLayout = forwardRef<HTMLElement, SongsListItemLayoutProps>(
                   >
                     Remove from playlist
                   </Option>
-                ) : (
+                ) : ( 
                   <Option>
                     <span>Add to playlist</span>{" "}
                     <i className="fas fa-angle-right"></i>
-                    {userPlaylists && (
-                      <PlaylistsContainer>
+                    {userPlaylists.length > 0 ? (
+                      <PlaylistsContainer arrLength={userPlaylists.length}>
                         {userPlaylists.map((playlist) => (
                           <PlaylistName
                             onClick={handleAddSongToPlaylist(playlist._id)}
@@ -156,7 +156,11 @@ export const SongItemLayout = forwardRef<HTMLElement, SongsListItemLayoutProps>(
                           </PlaylistName>
                         ))}
                       </PlaylistsContainer>
-                    )}
+                    ) : (<PlaylistsContainer arrLength={0}>
+                          <PlaylistName>
+                            You don't have playlists
+                          </PlaylistName>
+                      </PlaylistsContainer>)}
                   </Option>
                 )}
               </OptionsMenu>
@@ -172,7 +176,7 @@ export const SongItemLayout = forwardRef<HTMLElement, SongsListItemLayoutProps>(
               <Option>
                 <span>Add to playlist</span>{" "}
                 <i className="fas fa-angle-right"></i>
-                <PlaylistsContainer>
+                <PlaylistsContainer arrLength={userPlaylists.length}>
                   {userPlaylists.map((playlist) => (
                     <PlaylistName
                       onClick={handleAddSongToPlaylist(playlist._id)}
