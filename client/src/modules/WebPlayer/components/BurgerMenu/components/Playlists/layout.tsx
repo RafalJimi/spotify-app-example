@@ -9,18 +9,21 @@ import {
   Border,
   Playlists,
 } from "./layout.styled";
+import { Loader } from "./components/Loader";
 import { PlaylistItem } from "./components/PlaylistItem";
 
 type PlaylistsLayoutProps = {
   handleCreatePlaylist: (e: React.MouseEvent) => void;
   userPlaylists: Playlist[];
   handleRedirect: (path: string) => (e: React.MouseEvent) => void;
+  isLoading: boolean;
 };
 
 export const PlaylistsLayout = ({
   handleCreatePlaylist,
   userPlaylists,
   handleRedirect,
+  isLoading,
 }: PlaylistsLayoutProps) => (
   <Container>
     <Title>PLAYLISTS</Title>
@@ -39,15 +42,19 @@ export const PlaylistsLayout = ({
       </FavsSongsButton>
     </ButtonsContainer>
     <Border />
-    <Playlists>
-      {userPlaylists.length !== 0 &&
-        userPlaylists.map((playlist: Playlist, i) => (
-          <PlaylistItem
-            playlistName={playlist.playlist_name}
-            playlistID={playlist._id}
-            key={i}
-          />
-        ))}
-    </Playlists>
+    {isLoading ? (
+      <Loader />
+    ) : (
+      <Playlists>
+        {userPlaylists.length !== 0 &&
+          userPlaylists.map((playlist: Playlist, i) => (
+            <PlaylistItem
+              playlistName={playlist.playlist_name}
+              playlistID={playlist._id}
+              key={i}
+            />
+          ))}
+      </Playlists>
+    )}
   </Container>
 );

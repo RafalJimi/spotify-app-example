@@ -1,8 +1,8 @@
 import { fork } from "redux-saga/effects";
 import { registerUserSaga } from "./user/registerUser/saga";
 import { loginUserSaga } from "./user/loginUser/saga";
-import { checkAuthSaga } from "./user/isAuth/saga";
 import { logoutUserSaga } from "./user/logoutUser/saga";
+import { checkAuthSaga } from "./user/isAuth/saga";
 import { songsByArtistSaga } from "./iTunesAPI/fetchSongsByArtist/saga";
 import { albumsByArtistSaga } from "./iTunesAPI/fetchAlbumsByArtist/saga";
 import { createPlaylistSaga } from "./playlist/createPlaylist/saga";
@@ -21,8 +21,8 @@ import { removeFromPlaylistSaga } from "./playlist/removeSongFromPlaylist/saga";
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
   yield fork(loginUserSaga);
-  yield fork(checkAuthSaga);
   yield fork(logoutUserSaga);
+  yield fork(checkAuthSaga);
   yield fork(songsByArtistSaga);
   yield fork(albumsByArtistSaga);
   yield fork(createPlaylistSaga);

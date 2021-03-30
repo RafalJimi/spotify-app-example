@@ -6,6 +6,7 @@ import { REMOVE_SONG_FROM_FAVOURITE } from "./consts";
 import { UPDATE_FAVOURITE_SONGS_ARRAY } from "../favouriteSongsArray/consts";
 import { removeSongFromFavouriteStarted } from "./actions";
 import { Song } from "../../types/song";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export type removeSongFromFavouriteStartedProps = {
   type: typeof REMOVE_SONG_FROM_FAVOURITE;
@@ -16,6 +17,9 @@ export function* removeFromFavourite({
   payload,
 }: ReturnType<typeof removeSongFromFavouriteStarted>) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const { song } = payload;
     const request = yield call(
       networkHandlerPut,

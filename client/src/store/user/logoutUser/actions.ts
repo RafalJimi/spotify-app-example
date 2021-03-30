@@ -7,7 +7,7 @@ export const logoutUserStarted = createAction(
   () => ({})
 )();
 
-export const clearlogoutUserState = createAction(
+export const clearLogoutUserState = createAction(
   CLEAR_LOGOUT_USER_STATE,
   () => ({})
 )();

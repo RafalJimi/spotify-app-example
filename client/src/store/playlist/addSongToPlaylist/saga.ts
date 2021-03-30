@@ -4,11 +4,15 @@ import { getType } from "typesafe-actions";
 import { networkHandlerPut } from "../../../common/networkHandler";
 import { ADD_SONG_TO_PLAYLIST } from "./consts";
 import { addSongToPlaylistStarted } from "./actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export function* addToPlaylist({
   payload,
 }: ReturnType<typeof addSongToPlaylistStarted>) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const request = yield call(
       networkHandlerPut,
       `/playlist/add_to_playlist`,

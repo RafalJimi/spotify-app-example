@@ -12,7 +12,7 @@ export const Container = styled.div`
     font-size: 0.85em;
     font-weight: 400;
     text-align: center;
-    background-color: ${(props) => props.theme.color.primary};
+    background-color: transparent;
     word-spacing: 2px;
     flex: 1 1 auto;
     padding-top: 2px;

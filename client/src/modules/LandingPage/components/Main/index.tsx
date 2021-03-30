@@ -12,12 +12,15 @@ export const Main = () => {
   const isAuth = useSelector(isAuthRX);
   
   const handleOnClick = useCallback(
-    () => {
-      if (isAuth) history.push("/player/home");
-      else toast.dark("You are not authenticated - please log in.");
-    },
-    [],
-  )
+    
+    (e: React.MouseEvent) => {
+        if (isAuth === "isAuth") history.push("/player/home");
+        else toast.dark("You are not authenticated - please log in.");
+      },
+  
+     [isAuth]
+  
+  );
   
   return <MainLayout handleOnClick={handleOnClick} />;
 };

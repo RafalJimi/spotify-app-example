@@ -5,11 +5,15 @@ import { networkHandlerPut } from "../../../common/networkHandler";
 import { REMOVE_SONG_FROM_PLAYLIST } from "./consts";
 import { FETCH_PLAYLIST } from "../fetchUserPlaylist/consts";
 import { removeSongFromPlaylistStarted } from "./actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export function* removeFromPlaylist({
   payload,
 }: ReturnType<typeof removeSongFromPlaylistStarted>) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const request = yield call(
       networkHandlerPut,
       `/playlist/remove_from_playlist`,

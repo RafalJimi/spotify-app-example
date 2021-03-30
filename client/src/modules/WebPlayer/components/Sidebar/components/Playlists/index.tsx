@@ -6,7 +6,10 @@ import {
   clearPlaylistsState,
 } from "../../../../../../store/playlist/fetchUserPlaylists/actions";
 import { createPlaylistStarted } from "../../../../../../store/playlist/createPlaylist/actions";
-import { userPlaylistsRX } from "../../../../../../store/playlist/fetchUserPlaylists/selectors";
+import {
+  userPlaylistsRX,
+  isLoadingRX,
+} from "../../../../../../store/playlist/fetchUserPlaylists/selectors";
 import { PlaylistsLayout } from "./layout";
 
 
@@ -26,6 +29,7 @@ export const Playlists = memo(() => {
   }, []);
 
   const userPlaylists = useSelector(userPlaylistsRX);
+  const isLoading = useSelector(isLoadingRX);
   
   const handleRedirect = useCallback(
     (path: string) => (e: React.MouseEvent) => {
@@ -39,6 +43,7 @@ export const Playlists = memo(() => {
       handleCreatePlaylist={handleCreatePlaylist}
       userPlaylists={userPlaylists}
       handleRedirect={handleRedirect}
+      isLoading={isLoading}
     />
   );
 });

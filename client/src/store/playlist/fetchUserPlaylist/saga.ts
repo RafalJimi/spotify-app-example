@@ -4,6 +4,7 @@ import { networkHandlerGet } from "../../../common/networkHandler";
 import { FETCH_PLAYLIST } from "./consts";
 import { fetchPlaylistStarted } from "./actions";
 import { getType } from "typesafe-actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export type FetchPlaylistProps = {
   type: typeof FETCH_PLAYLIST;
@@ -12,6 +13,9 @@ export type FetchPlaylistProps = {
 
 export function* fetchPlaylist({ payload }: FetchPlaylistProps) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const { playlistID } = payload;
     const request = yield call(
       networkHandlerGet,

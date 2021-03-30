@@ -1,15 +1,14 @@
 import React, { useCallback, useRef } from "react";
 import { useBurgerMenuContext } from "../../contexts/BurgerMenu.context";
 import { useClickOutside } from '../../hooks/useClickOutside'
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { isAuthRX } from "../../store/user/isAuth/selectors";
-import { logoutUserStarted } from "../../store/user/logoutUser/actions";
 import { BurgerMenuLayout } from "./layout";
+import { signOut } from "../../helpers/auth";
 
 export const BurgerMenu = () => {
   const divRef = useRef<HTMLElement>(null);
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const { isOpen, setIsOpen } = useBurgerMenuContext();
@@ -25,7 +24,8 @@ export const BurgerMenu = () => {
   );
   
   const handleSignOut = useCallback((e: React.MouseEvent) => {
-    dispatch(logoutUserStarted());
+    signOut();
+    history.push("/");
     setIsOpen(false);
   }, []);
 

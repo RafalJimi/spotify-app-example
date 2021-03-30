@@ -1,15 +1,15 @@
 import { IS_AUTH } from "./consts";
 import { getType } from "typesafe-actions";
 import { Action } from "../../types/actions";
-import { isAuthStarted } from "./actions";
+import { isAuthStarted, ResetIsAuthState } from "./actions";
 
 export type CheckAuthState = {
-  isAuth: boolean;
+  isAuth: string;
   error: string;
 };
 
 export const initialState = {
-  isAuth: false,
+  isAuth: "",
   error: "",
 };
 
@@ -27,12 +27,19 @@ export const checkAuth = (
     case IS_AUTH.success:
       return {
         ...state,
-        isAuth: true,
+        isAuth: "isAuth",
       };
     case IS_AUTH.failure:
       return {
         ...state,
+        isAuth: "isNotAuth",
         error: action.payload.error,
+      };
+    case getType(ResetIsAuthState):
+      return {
+        ...state,
+        isAuth: initialState.isAuth,
+        error: initialState.error,
       };
     default:
       return { ...state };

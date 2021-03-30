@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import photo from "../../../../../../assets/test_photo.png";
 import {
   Container,
@@ -13,16 +13,19 @@ import {
 type UserMenuLayoutProps = {
   handleMenu: (e: React.MouseEvent) => void;
   isOpen: boolean;
-  handleOnClick: (location: string) => (e: React.MouseEvent) => void;
+  handleOnClick: (e: React.MouseEvent) => void;
   handleSignOut: (e: React.MouseEvent) => void;
 };
 
-export const UserMenuLayout = ({
+export const UserMenuLayout = forwardRef<HTMLElement, UserMenuLayoutProps>(
+  
+  ({
   handleMenu,
   isOpen,
   handleOnClick,
   handleSignOut,
-}: UserMenuLayoutProps) => (
+  }: UserMenuLayoutProps,
+    ref: any) => (
   <Container>
     <Panel onClick={handleMenu}>
       <UserImgContainer>
@@ -39,9 +42,9 @@ export const UserMenuLayout = ({
         </IconContainer>
       )}
     </Panel>
-    <UserMenu isOpen={isOpen}>
-      <UserMenuItem>Account</UserMenuItem>
+    <UserMenu isOpen={isOpen} ref={ref}>
+      <UserMenuItem onClick={handleOnClick}>Account</UserMenuItem>
       <UserMenuItem onClick={handleSignOut}>Sign out</UserMenuItem>
     </UserMenu>
   </Container>
-);
+));

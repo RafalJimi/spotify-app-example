@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import { RegisterUserState, registerUser } from "./user/registerUser/reducer";
 import { LoginUserState, loginUser } from "./user/loginUser/reducer";
-import { CheckAuthState, checkAuth } from "./user/isAuth/reducer";
 import { LogoutUserState, logoutUser } from "./user/logoutUser/reducer";
+import { CheckAuthState, checkAuth } from "./user/isAuth/reducer";
 import {
   SongsByArtistState,
   songsByArtist,
@@ -67,8 +67,8 @@ import {
 export type AppState = {
   registerUser: RegisterUserState;
   loginUser: LoginUserState;
-  checkAuth: CheckAuthState;
   logoutUser: LogoutUserState;
+  checkAuth: CheckAuthState;
   songsByArtist: SongsByArtistState;
   albumsByArtist: AlbumsByArtistState;
   createPlaylist: CreatePlaylistState;
@@ -89,8 +89,8 @@ export type AppState = {
 export const reducer = combineReducers<AppState>({
   registerUser,
   loginUser,
-  checkAuth,
   logoutUser,
+  checkAuth,
   songsByArtist,
   albumsByArtist,
   createPlaylist,

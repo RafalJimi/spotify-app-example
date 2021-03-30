@@ -4,9 +4,13 @@ import { networkHandlerGet } from "../../../common/networkHandler";
 import { FETCH_USER_PLAYLISTS } from "./consts";
 import { fetchUserPlaylistsStarted } from "./actions";
 import { getType } from "typesafe-actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export function* fetchUserPlaylists() {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const request = yield call(
       networkHandlerGet,
       `/playlist/get_user_playlists`

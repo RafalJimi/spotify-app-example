@@ -6,6 +6,7 @@ import { axiosPost } from "../../../common/axios";
 import { LOGIN_USER } from "./consts";
 import { loginUserStarted } from "./actions";
 import { getType } from "typesafe-actions";
+import { IS_AUTH } from "../isAuth/consts";
 
 export function* loginUser({ payload }: ReturnType<typeof loginUserStarted>) {
   try {
@@ -15,6 +16,9 @@ export function* loginUser({ payload }: ReturnType<typeof loginUserStarted>) {
       yield put({
         type: LOGIN_USER.success,
         payload: { token: request.data.token },
+      });
+      yield put({
+        type: IS_AUTH.success,
       });
     } else if (request.status === 202)
       yield put({

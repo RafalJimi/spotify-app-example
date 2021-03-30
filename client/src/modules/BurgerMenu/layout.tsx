@@ -7,7 +7,7 @@ const Fade = require("react-reveal/Fade");
 
 type BurgerMenuLayoutProps = {
   isOpen: boolean;
-  isAuth: boolean;
+  isAuth: string;
   handleOnClick: (location: string) => (e: React.MouseEvent) => void;
   handleSignOut: (e: React.MouseEvent) => void;
 };
@@ -42,7 +42,7 @@ export const BurgerMenuLayout = forwardRef<HTMLElement, BurgerMenuLayoutProps>(
     return (
       <Container ref={ref} isOpen={isOpen}>
         <BurgerMenuButton />
-        {isAuth ? isAuthMenu : isNotAuthMenu}
+        {isAuth === "isAuth" ? isAuthMenu : isNotAuthMenu}
       </Container>
     );
   }

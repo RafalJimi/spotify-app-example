@@ -5,6 +5,7 @@ import { DELETE_PLAYLIST } from "./consts";
 import { FETCH_USER_PLAYLISTS } from "../fetchUserPlaylists/consts";
 import { deletePlaylistStarted } from "./actions";
 import { getType } from "typesafe-actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export type ChangePlaylistNameProps = {
   type: typeof DELETE_PLAYLIST;
@@ -13,6 +14,9 @@ export type ChangePlaylistNameProps = {
 
 export function* deletePlaylist({ payload }: ChangePlaylistNameProps) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const request = yield call(
       networkHandlerPut,
       `/playlist/delete_playlist`,

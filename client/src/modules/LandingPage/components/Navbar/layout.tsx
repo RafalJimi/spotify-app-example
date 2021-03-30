@@ -5,14 +5,14 @@ import { Menu } from "./components/Menu/index";
 import { UserMenu } from "./components/UserMenu/index";
 
 type NavbarLayoutProps = {
-  isAuth: boolean;
+  isAuth: string;
 };
 
 export const NavbarLayout = ({ isAuth }: NavbarLayoutProps) => (
   <Container>
     <NavbarContent>
       <Logo />
-      {isAuth ? <UserMenu /> : <Menu />}
+      {isAuth === "isAuth" ? <UserMenu /> : <Menu />}
     </NavbarContent>
   </Container>
 );

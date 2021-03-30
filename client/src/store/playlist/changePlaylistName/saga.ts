@@ -6,6 +6,7 @@ import { FETCH_USER_PLAYLISTS } from "../fetchUserPlaylists/consts";
 import { FETCH_PLAYLIST } from "../fetchUserPlaylist/consts";
 import { changePlaylistNameStarted } from "./actions";
 import { getType } from "typesafe-actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export type ChangePlaylistNameProps = {
   type: typeof CHANGE_PLAYLIST_NAME;
@@ -14,7 +15,9 @@ export type ChangePlaylistNameProps = {
 
 export function* changePlaylistName({ payload }: ChangePlaylistNameProps) {
   try {
-    console.log("change playlist name payload", payload);
+    yield put({
+      type: IS_AUTH.started,
+    });
     const request = yield call(
       networkHandlerPut,
       `/playlist/rename_playlist`,

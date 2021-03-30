@@ -5,6 +5,7 @@ import { networkHandlerPut } from "../../../common/networkHandler";
 import { ADD_SONG_TO_FAVOURITE } from "./consts";
 import { UPDATE_FAVOURITE_SONGS_ARRAY } from "../favouriteSongsArray/consts";
 import { addSongToFavouriteStarted } from "./actions";
+import { IS_AUTH } from "../../user/isAuth/consts";
 import { Song } from "../../types/song";
 
 export type addSongToFavouriteStartedProps = {
@@ -16,13 +17,15 @@ export function* addToFavourite({
   payload,
 }: ReturnType<typeof addSongToFavouriteStarted>) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const { song } = payload;
     const request = yield call(
       networkHandlerPut,
       `/favourite/add_to_favourite`,
       song
     );
-    console.log(request);
     if (request.status === 200) {
       yield put({
         type: ADD_SONG_TO_FAVOURITE.success,

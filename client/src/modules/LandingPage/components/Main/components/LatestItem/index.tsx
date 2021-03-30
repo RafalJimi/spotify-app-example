@@ -17,7 +17,7 @@ export const LatestItem = ({ latestItemData }: LatestItemProps) => {
 
   const handleOnClick = useCallback(
     (e: React.MouseEvent) => {
-      if (isAuth) history.push(latestItemData.url);
+      if (isAuth === "isAuth") history.push(latestItemData.url);
       else toast.dark("You are not authenticated - please log in.");
     },
     [isAuth]

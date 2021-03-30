@@ -9,6 +9,7 @@ import { networkHandlerGet } from "../../../common/networkHandler";
 import { FETCH_SEARCH_DATA } from "./consts";
 import { fetchSearchDataStarted } from "./actions";
 import { ArtistsResult, AlbumsResult, PlaylistsResult } from "./reducer";
+import { IS_AUTH } from "../../user/isAuth/consts";
 
 export type fetchSearchDataStartedProps = {
   type: typeof FETCH_SEARCH_DATA;
@@ -23,6 +24,9 @@ export function* fetchSearchData({
   payload,
 }: ReturnType<typeof fetchSearchDataStarted>) {
   try {
+    yield put({
+      type: IS_AUTH.started,
+    });
     const { term } = payload;
     const [artists, albums, playlists]: ArtistsResult[] &
       AlbumsResult[] &

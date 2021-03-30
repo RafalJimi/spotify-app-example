@@ -1,9 +1,9 @@
-import { LOGOUT_USER, CLEAR_LOGOUT_USER_STATE } from "./consts";
+import { LOGOUT_USER } from "./consts";
 
 import { getType } from "typesafe-actions";
 
 import { Action } from "../../types/actions";
-import { logoutUserStarted } from "./actions";
+import { logoutUserStarted, clearLogoutUserState } from "./actions";
 
 export type LogoutUserState = {
   loggedOut: boolean;
@@ -28,7 +28,7 @@ export const logoutUser = (
         ...state,
         loggedOut: true,
       };
-    case CLEAR_LOGOUT_USER_STATE:
+    case getType(clearLogoutUserState):
       return {
         ...state,
         loggedOut: initialState.loggedOut,
