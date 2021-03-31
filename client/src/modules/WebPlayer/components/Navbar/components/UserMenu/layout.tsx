@@ -15,19 +15,28 @@ type UserMenuLayoutProps = {
   isOpen: boolean;
   handleMenuItem: (e: React.MouseEvent) => void;
   handleSignOut: (e: React.MouseEvent) => void;
+  userNickname: string;
 };
 
 export const UserMenuLayout = forwardRef<HTMLElement, UserMenuLayoutProps>(
   (
-    { handleMenu, isOpen, handleMenuItem, handleSignOut }: UserMenuLayoutProps,
+    {
+      handleMenu,
+      isOpen,
+      handleMenuItem,
+      handleSignOut,
+      userNickname,
+    }: UserMenuLayoutProps,
     ref: any
   ) => (
-    <Container>
+    <Container ref={ref}>
       <Panel isOpen={isOpen} onClick={handleMenu}>
         <UserImgContainer>
           <img src={photo} alt="" />
         </UserImgContainer>
-        <NameContainer>Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</NameContainer>
+        <NameContainer>
+          {userNickname.length > 0 ? userNickname : "User"}
+        </NameContainer>
         {isOpen ? (
           <IconContainer style={{ paddingTop: "7px" }}>
             <i className="fas fa-sort-up"></i>
@@ -38,7 +47,7 @@ export const UserMenuLayout = forwardRef<HTMLElement, UserMenuLayoutProps>(
           </IconContainer>
         )}
       </Panel>
-      <UserMenu isOpen={isOpen} ref={ref}>
+      <UserMenu isOpen={isOpen}>
         <UserMenuItem onClick={handleMenuItem}>Account</UserMenuItem>
         <UserMenuItem onClick={handleSignOut}>Sign out</UserMenuItem>
       </UserMenu>

@@ -11,6 +11,8 @@ async function routes(fastify, option, done) {
   fastify.get('/get_favourite', getUserFavouriteSongsController)
   fastify.put('/add_to_favourite', addToFavouriteController)
   fastify.put('/remove_from_favourite', removeFromFavouriteController)
+  
+  done()
 }
 
 module.exports = routes

@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
+import { toast } from "react-toastify";
 import firebase, { auth } from "../../../../service/firebase";
 import { ButtonsLayout } from "./layout";
 
 export const Buttons = () => {
   
   const handleFacebookButton = useCallback((event: React.MouseEvent) => {
-    const provider = new firebase.auth.GithubAuthProvider();
+    /* const provider = new firebase.auth.GithubAuthProvider();
     auth
       .signInWithPopup(provider)
       .then((result: any) => {
@@ -13,7 +14,8 @@ export const Buttons = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      }); */
+    toast.dark("Currently under development.");
   }, []);
 
   const handleGoogleButton = useCallback((event: React.MouseEvent) => {

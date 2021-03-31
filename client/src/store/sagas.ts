@@ -17,6 +17,7 @@ import { fetchUserFavouriteSongsSaga } from "./favouriteSongs/fetchUserFavourite
 import { songsByAlbumSaga } from "./iTunesAPI/fetchSongsByAlbum/saga";
 import { addToPlaylistSaga } from "./playlist/addSongToPlaylist/saga";
 import { removeFromPlaylistSaga } from "./playlist/removeSongFromPlaylist/saga";
+import { userNicknameSaga } from "./user/getUserNickname/saga";
 
 export function* rootSaga(services = {}) {
   yield fork(registerUserSaga);
@@ -37,4 +38,5 @@ export function* rootSaga(services = {}) {
   yield fork(songsByAlbumSaga);
   yield fork(addToPlaylistSaga);
   yield fork(removeFromPlaylistSaga);
+  yield fork(userNicknameSaga);
 }

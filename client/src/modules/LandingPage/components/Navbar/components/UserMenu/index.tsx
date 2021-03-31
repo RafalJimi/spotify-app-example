@@ -8,7 +8,12 @@ import {
   logoutUserStarted,
   clearLogoutUserState,
 } from "../../../../../../store/user/logoutUser/actions";
-
+import { isAuthRX } from "../../../../../../store/user/isAuth/selectors";
+import {
+  clearUserNicknameState,
+  getUserNicknameStarted,
+} from "../../../../../../store/user/getUserNickname/actions";
+import { userNicknameRX } from "../../../../../../store/user/getUserNickname/selectors";
 import { UserMenuLayout } from "./layout";
 
 export const UserMenu = () => {
@@ -51,6 +56,15 @@ export const UserMenu = () => {
     history.push("/");}
   }, [isLoggedOut]);
   
+  const isAuth = useSelector(isAuthRX);
+
+  useEffect(() => {
+    if (isAuth === "isAuth") dispatch(getUserNicknameStarted());
+    else dispatch(clearUserNicknameState());
+  }, [isAuth]);
+
+  const userNickname = useSelector(userNicknameRX);
+  
   return (
     <UserMenuLayout
       handleMenu={handleMenu}
@@ -58,6 +72,7 @@ export const UserMenu = () => {
       handleOnClick={handleOnClick}
       handleSignOut={handleSignOut}
       ref={ref}
+      userNickname={userNickname}
     />
   );
 };

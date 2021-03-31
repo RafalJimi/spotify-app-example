@@ -63,6 +63,10 @@ import {
   RemoveFromPlaylistState,
   removeFromPlaylist,
 } from "./playlist/removeSongFromPlaylist/reducer";
+import {
+  UserNicknameState,
+  userNickname,
+} from "./user/getUserNickname/reducer";
 
 export type AppState = {
   registerUser: RegisterUserState;
@@ -84,6 +88,7 @@ export type AppState = {
   songsByAlbum: SongsByAlbumState;
   addToPlaylist: AddToPlaylistState;
   removeFromPlaylist: RemoveFromPlaylistState;
+  userNickname: UserNicknameState;
 };
 
 export const reducer = combineReducers<AppState>({
@@ -106,6 +111,7 @@ export const reducer = combineReducers<AppState>({
   songsByAlbum,
   addToPlaylist,
   removeFromPlaylist,
+  userNickname,
 });
 
 export type RootState = ReturnType<typeof reducer>;

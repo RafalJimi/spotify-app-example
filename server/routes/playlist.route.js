@@ -24,6 +24,8 @@ async function routes(fastify, option, done) {
   fastify.get('/get_playlists_by_term', getPlaylistsByTermController)
   fastify.put('/add_to_playlist', addToPlaylistController)
   fastify.put('/remove_from_playlist', removeFromPlaylistController)
+  
+  done()
 }
 
 module.exports = routes

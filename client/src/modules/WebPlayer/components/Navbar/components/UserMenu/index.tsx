@@ -4,11 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { isAuthRX } from "../../../../../../store/user/isAuth/selectors";
 import { isAuthStarted } from "../../../../../../store/user/isAuth/actions";
 import { signOut } from "../../../../../../helpers/auth";
+import { logoutUserStarted } from "../../../../../../store/user/logoutUser/actions";
+import {
+  clearUserNicknameState,
+  getUserNicknameStarted,
+} from "../../../../../../store/user/getUserNickname/actions";
+import { userNicknameRX } from "../../../../../../store/user/getUserNickname/selectors";
 import { toast } from "react-toastify";
 import { useClickOutside } from "../../../../../../hooks/useClickOutside";
 import { UserMenuLayout } from "./layout";
-import { logoutUserStarted } from "../../../../../../store/user/logoutUser/actions";
-
 
 export const UserMenu = () => {
   const [IsOpen, setIsOpen] = useState(false);
@@ -59,6 +63,13 @@ export const UserMenu = () => {
   
   useClickOutside(ref, handleClickOutside);
   
+  useEffect(() => {
+    if (isAuth === "isAuth") dispatch(getUserNicknameStarted());
+    else dispatch(clearUserNicknameState());
+  }, [isAuth]);
+
+  const userNickname = useSelector(userNicknameRX);
+  
   return (
     <UserMenuLayout
       handleMenu={handleMenu}
@@ -66,6 +77,7 @@ export const UserMenu = () => {
       handleMenuItem={handleMenuItem}
       handleSignOut={handleSignOut}
       ref={ref}
+      userNickname={userNickname}
     />
   );
 };

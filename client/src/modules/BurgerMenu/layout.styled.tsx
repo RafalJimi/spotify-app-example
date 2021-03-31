@@ -15,7 +15,7 @@ export const Container = styled.nav<ContainerProps>`
   right: 0;
   top: 0;
   width: 500px;
-  height: 100%;
+  height: 100vh;
   text-align: left;
   z-index: 7;
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};

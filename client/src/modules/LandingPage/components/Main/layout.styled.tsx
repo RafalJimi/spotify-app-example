@@ -85,11 +85,11 @@ export const Latest = styled.div`
   flex-wrap: wrap;
 
   @media ${width[1200]} {
-    width: 990px;
+    width: 850px;
   }
 
   @media ${width[990]} {
-    width: 750px;
+    width: 520px;
   }
 
   @media ${width[750]} {

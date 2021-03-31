@@ -18,9 +18,9 @@ type ImageContainerProps = {
 export const ImageContainer = styled.div<ImageContainerProps>`
   width: 380px;
   height: 380px;
-  background-image: ${({  imgUrl  }) =>
-     imgUrl
-         ? `url(${imgUrl})`
+  background-image: ${({ imgUrl }) =>
+    imgUrl
+      ? `url(${imgUrl})`
       : `url(https://e.snmc.io/i/600/w/4c7b97cfb9def528736ac47dfb5800dc/6177813)`};
   background-position: center;
   background-size: cover;
@@ -31,13 +31,13 @@ export const ImageContainer = styled.div<ImageContainerProps>`
   }
 
   @media ${width[1200]} {
-    width: 310px;
-    height: 310px;
+    width: 270px;
+    height: 270px;
   }
 
   @media ${width[990]} {
-    width: 230px;
-    height: 230px;
+    width: 160px;
+    height: 160px;
   }
 
   @media ${width[750]} {
