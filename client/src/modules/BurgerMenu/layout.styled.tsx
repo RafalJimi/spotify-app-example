@@ -27,6 +27,10 @@ export const Container = styled.nav<ContainerProps>`
     isOpen
       ? "opacity .2s ease-in-out, transform .01s ease-in"
       : "opacity .2s ease-in-out, transform .01s ease-in .5s"};
+
+  @media ${width[500]} {
+    width: 100vw;
+  }
 `;
 
 export const Menu = styled.menu`
