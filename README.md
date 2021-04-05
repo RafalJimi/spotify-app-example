@@ -13,6 +13,7 @@ My main goal during creating this app was to build simple version of the spotify
 ## Technologies and libraries
 
 **On the client side of my app I used the following technologies:**<br />
+• Typescript,<br />
 • iTunes api to fetch data about songs, albums and artists,<br />
 • redux to manage state,<br />
 • redux-saga to handle asynchronous actions (i.e. data fetching),<br />
@@ -23,6 +24,7 @@ My main goal during creating this app was to build simple version of the spotify
 • Firebase to add authenticate using Google Sign-In,<br />
 • dotenv to load environment variables from .env file,<br />
 • query-string to parse query string into an object,<br />
+• disable-scroll to disable scroll event,<br />
 • react-reveal to add basic animations,<br />
 • react-contextmenu to add context menu,<br />
 • react-toastify to add notifications to the app,<br />
