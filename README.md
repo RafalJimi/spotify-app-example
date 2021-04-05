@@ -8,7 +8,7 @@ My main goal during creating this app was to build simple version of the spotify
 • possibility of creating own playlists by user, renaming playlists, adding and removing tracks from playlists, deleting playlists,<br />
 • adding and removing tracks from favorites,<br />
 • searching tracks by genre, album or artist.<br />
-<br /><br />
+<br />
 
 ## Technologies and libraries
 
