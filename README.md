@@ -28,7 +28,7 @@ My main goal during creating this app was to build simple version of the spotify
 • react-indiana-drag-scroll to add possibility of horizontal scrolling sections, i.e. albums section,<br />
 • react-loader-spinner to add spinner animation while loading.<br />
 <br /><br />
-**On server side I used:**
+**On server side I used:**<br />
 • node.js,<br />
 • fastify,<br />
 • fastify-cors,<br />
@@ -38,7 +38,6 @@ My main goal during creating this app was to build simple version of the spotify
 <br /><br />
 
 ## How to run this app?
-<br />
 1. Send me a message and then I'll send you file with env variables.<br />
 2. Clone repository with `git clone https://github.com/rafalzzz/spotify-app-example.git`<br />
 3. Fetch all dependencies on the server side using `npm install` or `yarn install` and then go to the client client - `./client` and fetch all dependiences using also `npm` or `yarn`.<br />
