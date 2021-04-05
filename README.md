@@ -3,12 +3,12 @@
 The client side of app-spotify was created in the Create-React-App and the server side was created in node.js with Fastify.
 
 My main goal during creating this app was to build simple version of the spotify web app with basic functions like:<br />
-• registration, 
-• account login created during registration or login via gmail, 
-• possibility of creating own playlists by user, renaming playlists, adding and removing tracks from playlists, deleting playlists,
-• adding and removing tracks from favorites,
-• searching tracks by genre, album or artist.
-
+• registration,<br />
+• account login created during registration or login via gmail,<br />
+• possibility of creating own playlists by user, renaming playlists, adding and removing tracks from playlists, deleting playlists,<br />
+• adding and removing tracks from favorites,<br />
+• searching tracks by genre, album or artist.<br />
+<br /><br />
 
 ## Technologies and libraries
 
