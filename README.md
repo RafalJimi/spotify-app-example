@@ -29,6 +29,7 @@ My main goal during creating this app was to build simple version of the spotify
 • react-loader-spinner to add spinner animation while loading.<br />
 <br /><br />
 **On server side I used:**
+• node.js,<br />
 • fastify,<br />
 • fastify-cors,<br />
 • fastify-plugin,<br />
