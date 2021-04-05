@@ -28,7 +28,7 @@ My main goal during creating this app was to build simple version of the spotify
 • react-indiana-drag-scroll to add possibility of horizontal scrolling sections, i.e. albums section,<br />
 • react-loader-spinner to add spinner animation while loading.<br />
 <br /><br />
-**On server side I used:**<br />
+**On server side I used:**<br /><br />
 • node.js,<br />
 • fastify,<br />
 • fastify-cors,<br />
