@@ -12,7 +12,7 @@ My main goal during creating this app was to build simple version of the spotify
 
 ## Technologies and libraries
 
-**On the client side of my app I used the following technologies:**<br /><br />
+**On the client side of my app I used the following technologies:**<br />
 • iTunes api to fetch data about songs, albums and artists,<br />
 • redux to manage state,<br />
 • redux-saga to handle asynchronous actions (i.e. data fetching),<br />
@@ -28,7 +28,7 @@ My main goal during creating this app was to build simple version of the spotify
 • react-indiana-drag-scroll to add possibility of horizontal scrolling sections, i.e. albums section,<br />
 • react-loader-spinner to add spinner animation while loading.<br />
 <br /><br />
-**On server side I used:**<br /><br />
+**On server side I used:**<br />
 • node.js,<br />
 • fastify,<br />
 • fastify-cors,<br />
