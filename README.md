@@ -7,7 +7,7 @@ My main goal during creating this app was to build simple version of the spotify
 • account login created during registration or login via gmail,<br />
 • possibility of creating own playlists by user, renaming playlists, adding and removing tracks from playlists, deleting playlists,<br />
 • adding and removing tracks from favorites,<br />
-• searching tracks by genre, album or artist.<br />
+• searching tracks by term, album or artist.<br />
 <br />
 
 ## Technologies and libraries
