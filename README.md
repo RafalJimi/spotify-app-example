@@ -24,6 +24,7 @@ My main goal during creating this app was to build simple version of the spotify
 • dotenv to load environment variables from .env file,<br />
 • query-string to parse query string into an object,<br />
 • react-reveal to add basic animations,<br />
+• react-contextmenu to add context menu,<br />
 • react-toastify to add notifications to the app,<br />
 • react-indiana-drag-scroll to add possibility of horizontal scrolling sections, i.e. albums section,<br />
 • react-loader-spinner to add spinner animation while loading.<br />
